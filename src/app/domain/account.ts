@@ -1,23 +1,14 @@
 export class Account {
-
+    private _id : number;
+    username: string;
+    password: string;
+    email: string;
    
-
-    constructor (  
-        private _username: string,
-        private _password: string,
-        private _email: string ) {}
-
-
-    get username() : string {
-        return this._username;
+    get id(): number {
+        return this._id;
     }
 
-    get password() : string {
-        return this._password;
+    set id(id) {
+        this._id = id;
     }
-    
-    get email() : string {
-        return this._email;
-    }
-
 }
