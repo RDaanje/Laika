@@ -11,6 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AccountComponent implements OnInit {
 
+  accounts: Account[];
   account: Account;
 
 
@@ -22,8 +23,16 @@ export class AccountComponent implements OnInit {
 
   viewAccount() {
     this.accountservice.retrieveAll().subscribe(
-      (account: Account) => this.account = account,
+      (accounts: Account[]) => 
+      {this.accounts = accounts},
       
+    )
+  }
+
+  createAccount(username: string, password: string, email: string){
+    this.accountservice.setAccount(this.account).subscribe(
+      (account: Account) =>
+      {this.account = new Account(username,password,email)}
     )
   }
 

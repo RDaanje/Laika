@@ -2,16 +2,11 @@ export class Account {
 
    
 
-    constructor ( private _id: number,    
+    constructor (  
         private _username: string,
         private _password: string,
         private _email: string ) {}
 
-
-
-    get id () : number {
-        return this._id;
-    }
 
     get username() : string {
         return this._username;

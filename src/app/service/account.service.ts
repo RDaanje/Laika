@@ -14,10 +14,13 @@ export class AccountService {
 
   constructor(public http: HttpClient) { }
 
-  public retrieveAll(): Observable<Account> {
-    console.log(this.http.get<Account>(`http://localhost:8080/api/account/1`));
-    return this.http.get<Account>(`http://localhost:8080/api/account/1`)
+  public retrieveAll(): Observable<Account[]> {
+    // console.log(this.http.get<Account>(`http://localhost:8080/api/account/1`));
+    return this.http.get<Account[]>(`http://localhost:8080/api/account/get`);
+  }
 
+  public setAccount(account: Account): Observable<Account>{
+    return this.http.post<Account>(`http://localhost:8080/api/account/create`, account, this.httpOptions);
   }
 
 }
