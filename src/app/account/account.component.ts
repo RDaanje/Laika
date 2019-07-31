@@ -11,19 +11,39 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AccountComponent implements OnInit {
 
-  account: Account;
-
+  accounts: Account[];
+  account: Account  = new Account();
 
   constructor(public accountservice: AccountService) { }
 
   ngOnInit() {
-
+    
   }
 
   viewAccount() {
     this.accountservice.retrieveAll().subscribe(
-      (account: Account) => this.account = account,
+      (accounts: Account[]) => 
+      {
+        // console.log(account);
+        this.accounts = accounts
+      }
       
+    )
+  }
+
+  createAccount() {
+    console.log(this.account);
+    this.account.id = 0;
+
+    this.accountservice.createAccount(this.account).subscribe(
+      (account : Account) => 
+      {
+
+      console.log(account);
+      this.account = account;
+      }
+
+    
     )
   }
 
