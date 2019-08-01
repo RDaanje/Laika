@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountComponent } from './account/account.component';
+import { ModifyAccountComponent } from './modify-account/modify-account.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccountComponent       
+    AccountComponent,
+    ModifyAccountComponent       
    
   ],
   imports: [

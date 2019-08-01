@@ -1,10 +1,21 @@
 
 export class Account {
     id : number;
+
+    firstname: string;
+    lastname: string;
+
     username: string;
-     password: string;
+    password: string;
     email: string;
-   
+
+    street : string;
+    houseNumber: string;
+    zipcode: string;
+    city: string;   
+
+    euro: number;
+    coins: number;
     // get id(): number {
     //     return this._id;
     // }

@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Account } from '../domain/account';
-import { EmailValidator } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
+  public accountOpslag= new Account();
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(public http: HttpClient) { }
+
+  
 
   public retrieveAll(): Observable<Account[]> {
     return this.http.get<Account[]>(`http://localhost:8080/api/account/get`);

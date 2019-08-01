@@ -1,6 +1,30 @@
-<button (click)="viewAccount()">zie account info</button>
+<!-- <button (click)="viewAccount()">zie account info</button> -->
 <hr>
-    <div style="text-align: left">
+    <div style= "text-align: center">
+            <ul>
+                    Username:<li>{{account.username}}</li> 
+                    <br>
+                    E-mail:<li>{{account.email}}</li>
+                    <br>
+                    Firsname:<li>{{account.firstname}}</li>
+                    <br>
+                    Lastname:<li>{{account.lastname}}</li>
+                    <br>
+                    Street:<li>{{account.street}}</li>
+                    <br>
+                    House number:<li>{{account.houseNumber}}</li>
+                    <br>
+                    Zipcode:<li>{{account.zipcode}}</li>
+                    <br>
+                    City:<li>{{account.city}}</li>
+            </ul>
+           
+            <button  (click)="goToChangeAccount()">Change info</button>
+    </div>
+    
+    {{account | json}}
+
+    <!-- <div style="text-align: left">
     Username: <input type="text" id="username" [(ngModel)]="account.username" >
     Password: <input type="text" id="password" [(ngModel)]="account.password">
     E-mail:   <input type="text" id="email" [(ngModel)]="account.email">
@@ -17,12 +41,12 @@
     </div>
 
     <br>
-    <br>
+    <br> -->
 
-    <div style="text-align: left">
+    <!-- <div style="text-align: left">
         <input type="text" id="email" [(ngModel)]="account.email">
         <button  style="color: crimson" (click)="forgotPassword()">forgot password?</button>
-        <!-- {{account.password}} -->
+       
     </div>
 
         <img src="assets/images/Bert.jpg" alt="nextprogram.com" width="150" height="200" />
@@ -40,4 +64,4 @@
     {{account.username}}
     {{account.password}}
     {{account.email}}
-</div>
+</div> -->
