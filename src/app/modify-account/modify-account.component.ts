@@ -20,12 +20,7 @@ export class ModifyAccountComponent implements OnInit {
   ngOnInit() {
     console.log(this.accountservice.accountOpslag);
      this.account = this.accountservice.accountOpslag;
-    
-    this.accountservice.retrieveOne(this.account).subscribe(
-      (account: Account) => {
-        this.account = account;
-      }
-    )
+  
   }
 
   changeInfo() {
