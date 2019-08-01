@@ -22,9 +22,10 @@ export class AccountComponent implements OnInit {
 
   viewAccount() {
     this.accountservice.retrieveAll().subscribe(
-      (accounts: Account[]) => {
+      (accounts2: Account[]) => 
+      {
         // console.log(account);
-        this.accounts = accounts
+        this.accounts = accounts2
       }
 
     )
@@ -35,10 +36,11 @@ export class AccountComponent implements OnInit {
     this.account.id = 0;
 
     this.accountservice.createAccount(this.account).subscribe(
-      (account: Account) => {
+      (accountvandatabase : Account) => 
+      {
 
-        console.log(account);
-        this.account = account;
+      console.log(accountvandatabase);
+      this.account = accountvandatabase;
       }
 
 
@@ -67,4 +69,24 @@ export class AccountComponent implements OnInit {
     )
   }
 
+  forgotPassword(){
+    this.accountservice.forgotPassword(this.account).subscribe(
+      (account : Account) =>
+      {
+       console.log(account);
+      //  this.account = account; 
+       this.account.password = account.password;
+      }
+    )
+  }
+
+  forgotUsername(){
+    this.accountservice.forgotUsername(this.account).subscribe(
+    (account : Account) =>
+    {
+      console.log(account);
+      this.account.username = account.username;
+    }
+    )
+  }
 }
