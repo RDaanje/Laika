@@ -11,24 +11,21 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class RegisterComponent implements OnInit {
 
-  // NIEUW STUK
+  
   accounts: Account[];
   account: Account = new Account();
-  // EINDE STUK
-
-  // + public accountservice: AccountService
+  
   constructor(public accountservice: AccountService, private router: Router) {}
 
   ngOnInit() {
-    this.accountservice.Opslagaccount.username="tom";
-    console.log(this.accountservice.Opslagaccount.username);
+    this.account = this.accountservice.accountOpslag;    
   }
 
-  goAccountPage(account: Account){
+  goAccountPage(){
     this.router.navigate(["account"])
   }
 
-// NIEUW STUK
+
 createAccount() {
   console.log(this.account);
   this.account.id = 0;
@@ -39,9 +36,10 @@ createAccount() {
 
     console.log(accountvandatabase);
     this.account = accountvandatabase;
+    this.accountservice.accountOpslag = this.account;
     }
   )
-  this.goAccountPage(this.account);
+  this.goAccountPage();
 }
 
 viewAccount() {
@@ -63,8 +61,6 @@ viewAccount() {
       
     )
   }
-
-// EINDE STUK
 
 
 }

@@ -9,7 +9,7 @@ import { Account } from '../domain/account';
 export class AccountService {
 
 
-  public Opslagaccount : Account = new Account();
+  public accountOpslag : Account = new Account();
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
