@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Account } from './domain/account';
+
 
 @Component({
   selector: 'app-root',
@@ -8,8 +10,4 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'Laika';
-
-  getTitle(){
-  return this.title;
-  }
 }
