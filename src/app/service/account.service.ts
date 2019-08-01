@@ -16,13 +16,28 @@ export class AccountService {
 
   public retrieveAll(): Observable<Account[]> {
     return this.http.get<Account[]>(`http://localhost:8080/api/account/get`);
-
+  }
+  
+  public setAccount(account: Account): Observable<Account>{
+    return this.http.post<Account>(`http://localhost:8080/api/account/create`, account, this.httpOptions);
   }
 
   public createAccount(account : Account): Observable<Account> {
     console.log(`http://localhost:8080/api/account/create`, account, this.httpOptions);
     return this.http.post<Account>(`http://localhost:8080/api/account/create`, account, this.httpOptions);
   }
+
+  public changeEmail(account : Account): Observable<Account> {
+    return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/${account.email}`, account, this.httpOptions);
+  }
+
+public forgotPassword(account : Account): Observable<Account> {
+  return this.http.get<Account>(`http://localhost:8080/api/account/forgotpassword/${account.email}`);
+}
+
+public forgotUsername(account : Account): Observable<Account> {
+  return this.http.get<Account>(`http://localhost:8080/api/account/forgotpassword/${account.email}`)
+}
 
 }
 
