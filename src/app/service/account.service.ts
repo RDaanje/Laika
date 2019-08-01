@@ -27,5 +27,17 @@ export class AccountService {
     return this.http.post<Account>(`http://localhost:8080/api/account/create`, account, this.httpOptions);
   }
 
+  public changeEmail(account : Account): Observable<Account> {
+    return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/${account.email}`, account, this.httpOptions);
+  }
+
+public forgotPassword(account : Account): Observable<Account> {
+  return this.http.get<Account>(`http://localhost:8080/api/account/forgotpassword/${account.email}`);
+}
+
+public forgotUsername(account : Account): Observable<Account> {
+  return this.http.get<Account>(`http://localhost:8080/api/account/forgotpassword/${account.email}`)
+}
+
 }
 
