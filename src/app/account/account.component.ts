@@ -1,10 +1,9 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Account } from '../domain/account';
 import { AccountService } from '../service/account.service';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router'
 import { AppComponent } from '../app.component';
-
-
 
 @Component({
   selector: 'app-account',
@@ -13,7 +12,9 @@ import { AppComponent } from '../app.component';
 })
 export class AccountComponent implements OnInit {
 
+  public account : Account;
   accounts: Account[];
+
   public account: Account = new Account();
   
 
@@ -37,18 +38,29 @@ export class AccountComponent implements OnInit {
 
   goToChangeAccount() {
     this.router.navigate(['/modify-account']);
+
   }
+
+  
+  goRegisterPage(){
+    this.router.navigate(["register"])
+  }
+
+  
 
   viewAccount() {
     this.accountservice.retrieveAll().subscribe(
       (accounts: Account[]) => 
       {
+
         // console.log(account);
         this.accounts = accounts;
+
       }
 
     )
   }
+
 
   createAccount() {
     console.log(this.account);
@@ -85,27 +97,6 @@ export class AccountComponent implements OnInit {
       console.log(account);
       
       }
-    )
-  }
-
-  forgotPassword(){
-    this.accountservice.forgotPassword(this.account).subscribe(
-      (account : Account) =>
-      {
-       console.log(account);
-      //  this.account = account; 
-       this.account.password = account.password;
-      }
-    )
-  }
-
-  forgotUsername(){
-    this.accountservice.forgotUsername(this.account).subscribe(
-    (account : Account) =>
-    {
-      console.log(account);
-      this.account.username = account.username;
-    }
     )
   }
 }

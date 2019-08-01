@@ -7,14 +7,16 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
+import { RegisterComponent } from './register/register.component';
 import { ModifyAccountComponent } from './modify-account/modify-account.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    AccountComponent     
+    RegisterComponent,    
+    HomeComponent,    
     AccountComponent,
     ModifyAccountComponent       
 
