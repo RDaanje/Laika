@@ -1,43 +1,4 @@
-<button (click)="viewAccount()">zie account info</button>
-<hr>
-    <div style="text-align: left">
-    Username: <input type="text" id="username" [(ngModel)]="account.username" >
-    Password: <input type="text" id="password" [(ngModel)]="account.password">
-    E-mail:   <input type="text" id="email" [(ngModel)]="account.email">
-    <button (click)="createAccount()">Submit</button>
-    {{account.id}}
+     <div>
+        <button (click)="goRegisterPage()">Registreer - goRegisterPage</button>
+>
     </div>
-
-    <br>
-    <br>
-    <div style="text-align: left">
-    id:     <input type="text" id="id" [(ngModel)]="account.id">
-    E-mail: <input type="text" id="email" [(ngModel)]="account.email">
-    <button (click)="updateEmail()">Change</button>
-    </div>
-
-    <br>
-    <br>
-
-    <div style="text-align: left">
-        <input type="text" id="email" [(ngModel)]="account.email">
-        <button  style="color: crimson" (click)="forgotPassword()">forgot password?</button>
-        <!-- {{account.password}} -->
-    </div>
-
-        <img src="assets/images/Bert.jpg" alt="nextprogram.com" width="150" height="200" />
-
-        <div style="text-align: left">
-            <input type="text" id="email" [(ngModel)]="account.email">
-            <button  style="color: mediumseagreen" (click)="forgotUsername()">forgot username?</button>
-            {{account.username}}
-        </div>
-    
-
-{{accounts | json}}
-
-<div *ngFor="let account of accounts">
-    {{account.username}}
-    {{account.password}}
-    {{account.email}}
-</div>

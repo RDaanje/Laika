@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Account } from '../domain/account';
 import { AccountService } from '../service/account.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,33 +12,29 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AccountComponent implements OnInit {
 
+  public account : Account;
   accounts: Account[];
-  account: Account  = new Account();
 
-  constructor(public accountservice: AccountService) { }
+  constructor(
+    public accountservice: AccountService,private router: Router) {}
 
   ngOnInit() {
-    
   }
+
+  // NIEUWE METHODE
+  goRegisterPage(){
+    this.router.navigate(["register"])
+  }
+
+  // EINDE METHODE
 
   viewAccount() {
     this.accountservice.retrieveAll().subscribe(
       (accounts2: Account[]) => 
       {
-        // console.log(account);
         this.accounts = accounts2
       }
       
-    )
-  }
-
-  updateEmail() {
-    this.accountservice.changeEmail(this.account).subscribe(
-      (accountvandatabase: Account) =>
-      {
-        console.log(accountvandatabase);
-        this.account = accountvandatabase;
-      }
     )
   }
 
@@ -54,27 +51,6 @@ export class AccountComponent implements OnInit {
       }
 
     
-    )
-  }
-
-  forgotPassword(){
-    this.accountservice.forgotPassword(this.account).subscribe(
-      (account : Account) =>
-      {
-       console.log(account);
-      //  this.account = account; 
-       this.account.password = account.password;
-      }
-    )
-  }
-
-  forgotUsername(){
-    this.accountservice.forgotUsername(this.account).subscribe(
-    (account : Account) =>
-    {
-      console.log(account);
-      this.account.username = account.username;
-    }
     )
   }
 }
