@@ -1,19 +1,23 @@
 <button (click)="viewAccount()">zie account info</button>
 <hr>
 
-    Username: <input type="text" id="username" [(ngModel)]="account.username" >
-    Password: <input type="text" id="password" [(ngModel)]="account.password">
-    E-mail:   <input type="text" id="email" [(ngModel)]="account.email">
-    <button (click)="createAccount()">Submit</button>
-    {{account.id}}
+Username: <input type="text" id="username" [(ngModel)]="account.username">
+Password: <input type="text" id="password" [(ngModel)]="account.password">
+E-mail: <input type="text" id="email" [(ngModel)]="account.email">
+<button (click)="createAccount()">Submit</button>
 
 
+<br>
+Id: <input type="text" id="id" [(ngModel)]="account.id">
+E-mail aanpassen: <input type="text" id="email" {{account.email}}=[value]>
+<button (click)="updateEmail()">Submit</button>
 
-{{accounts | json}}
-<div *ngFor="let account of accounts">
-    {{account.username}}
-    {{account.password}}
-    {{account.email}}
+    {{accounts | json}}
+    <div *ngFor="let account of accounts">
+        {{account.username}}
+        {{account.password}}
+        {{account.email}}
 
-</div>
+    </div>
 
+    <button (click)="getAccount()">Get info</button>
