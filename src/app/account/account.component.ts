@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Account } from '../domain/account';
 import { AccountService } from '../service/account.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router'
+import { AppComponent } from '../app.component';
+
 
 
 @Component({
@@ -12,32 +14,39 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class AccountComponent implements OnInit {
 
   accounts: Account[];
-  account: Account  = new Account();
+  public account: Account = new Account();
+  
 
-  constructor(public accountservice: AccountService) { }
+  constructor(public accountservice: AccountService, private router: Router) { 
+   
+  }
 
   ngOnInit() {
-    
+   
+    this.account.id = 1
+   this.accountservice.retrieveOne(this.account).subscribe(
+    (account: Account) => 
+    {
+      this.account = account;
+      this.accountservice.accountOpslag = this.account;
+      console.log('Account com log : ' + this.accountservice.accountOpslag.firstname)
+    }
+   )
+     
+  }
+
+  goToChangeAccount() {
+    this.router.navigate(['/modify-account']);
   }
 
   viewAccount() {
     this.accountservice.retrieveAll().subscribe(
-      (accounts2: Account[]) => 
+      (accounts: Account[]) => 
       {
         // console.log(account);
-        this.accounts = accounts2
+        this.accounts = accounts;
       }
-      
-    )
-  }
 
-  updateEmail() {
-    this.accountservice.changeEmail(this.account).subscribe(
-      (accountvandatabase: Account) =>
-      {
-        console.log(accountvandatabase);
-        this.account = accountvandatabase;
-      }
     )
   }
 
@@ -53,7 +62,29 @@ export class AccountComponent implements OnInit {
       this.account = accountvandatabase;
       }
 
+
+    )
+  }
+
+  getAccount() {
+    this.account.id = 1;
+    this.accountservice.retrieveOne(this.account).subscribe(
+      (account: Account) => {
+        this.account = account;
+        console.log(account);
+      }
+    )
+  }
+
+  updateEmail() {
     
+
+    this.accountservice.changeEmail(this.account).subscribe(
+      (account: Account) => {
+      this.account = account;
+      console.log(account);
+      
+      }
     )
   }
 

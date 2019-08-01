@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
+import { ModifyAccountComponent } from './modify-account/modify-account.component';
 
 
 @NgModule({
@@ -14,6 +15,9 @@ import { AccountComponent } from './account/account.component';
     AppComponent,
     HomeComponent,
     AccountComponent     
+    AccountComponent,
+    ModifyAccountComponent       
+
    
   ],
   imports: [
