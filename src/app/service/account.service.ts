@@ -17,7 +17,11 @@ export class AccountService {
   public retrieveAll(): Observable<Account[]> {
     return this.http.get<Account[]>(`http://localhost:8080/api/account/get`);
   }
-  
+
+  public checkAccount(account : Account): Observable<Account> {
+    return this.http.get<Account>(`http://localhost:8080/api/account/get/${account.username}/${account.password}`);
+  }
+
   public setAccount(account: Account): Observable<Account>{
     return this.http.post<Account>(`http://localhost:8080/api/account/create`, account, this.httpOptions);
   }
