@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
 import { ModifyAccountComponent } from './modify-account/modify-account.component';
 
@@ -12,8 +13,11 @@ import { ModifyAccountComponent } from './modify-account/modify-account.componen
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    AccountComponent     
     AccountComponent,
     ModifyAccountComponent       
+
    
   ],
   imports: [
