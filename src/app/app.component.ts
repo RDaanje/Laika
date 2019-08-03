@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Account } from './domain/account';
+
 
 @Component({
   selector: 'app-root',
@@ -8,5 +10,4 @@ import { Account } from './domain/account';
 })
 export class AppComponent {
   title = 'Laika';
- 
 }
