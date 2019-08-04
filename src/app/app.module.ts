@@ -1,14 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
  
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
-import { AccountComponent } from './account/account.component';
-import { RegisterComponent } from './register/register.component';
-import { ModifyAccountComponent } from './modify-account/modify-account.component';
+import { HomeComponent } from './Components/home/home.component';
+import { AccountComponent } from './Components/account/account.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { ModifyAccountComponent } from './Components/modify-account/modify-account.component';
+import { ProductComponent } from './Components/product/product.component';
+
 
 
 
@@ -18,7 +20,9 @@ import { ModifyAccountComponent } from './modify-account/modify-account.componen
     RegisterComponent,    
     HomeComponent,    
     AccountComponent,
-    ModifyAccountComponent       
+    ModifyAccountComponent,
+    ProductComponent,
+      
 
    
   ],
@@ -26,7 +30,8 @@ import { ModifyAccountComponent } from './modify-account/modify-account.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

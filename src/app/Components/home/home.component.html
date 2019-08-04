@@ -1,0 +1,24 @@
+<h2> Log in: </h2>
+<pre>
+    <div style="text-align: center">
+        Username: <input type="text" #usernameInput >
+        Password: <input type="password" #passwordInput >
+        <button (click)="checkAccount(usernameInput.value, passwordInput.value)">Login</button>
+
+        <button (click)="goRegisterPage()">No account? Register here</button>
+      
+
+    <button (click)="revealInput()" id="revealButton">forgot account info?</button>
+    <ng-container *ngIf="show">            
+        <div id="hiddenInput">
+            E-mail: <input type="text" id="emailForgot" #forgotEmail>     
+            <button style="color: crimson" (click)="forgotInfo()">Submit</button>   
+        </div>     
+         
+    </ng-container>   
+</div>
+</pre>
+
+
+
+<!-- <img src="assets/images/Bert.jpg" alt="nextprogram.com" width="150" height="200" /> -->

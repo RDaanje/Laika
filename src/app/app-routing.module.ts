@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
-import { ModifyAccountComponent } from './modify-account/modify-account.component';
-import { AccountComponent } from './account/account.component';
+import { RegisterComponent } from './Components/register/register.component';
+
+import { ModifyAccountComponent } from './Components/modify-account/modify-account.component';
+import { HomeComponent } from './Components/home/home.component';
+import { AccountComponent } from './Components/account/account.component';
+import { ProductComponent } from './Components/product/product.component';
+
 
 
 const routes: Routes = [
@@ -12,7 +15,9 @@ const routes: Routes = [
 {path:"register", component: RegisterComponent},
 {path:"account", component: AccountComponent},
 {path: "modify-account", component: ModifyAccountComponent },
-{path: "**", redirectTo: "register"}
+{path: "product" , component: ProductComponent},
+{path: "**", redirectTo: "home"}
+
 ];
 
 @NgModule({
