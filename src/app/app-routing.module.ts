@@ -6,7 +6,7 @@ import { ModifyAccountComponent } from './Components/modify-account/modify-accou
 import { HomeComponent } from './Components/home/home.component';
 import { AccountComponent } from './Components/account/account.component';
 import { ProductComponent } from './Components/product/product.component';
-
+import { GameComponent } from './Components/game/game.component';
 
 
 const routes: Routes = [
@@ -16,6 +16,7 @@ const routes: Routes = [
 {path:"account", component: AccountComponent},
 {path: "modify-account", component: ModifyAccountComponent },
 {path: "product" , component: ProductComponent},
+{path: "game", component: GameComponent},
 {path: "**", redirectTo: "home"}
 
 ];

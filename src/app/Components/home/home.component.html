@@ -1,23 +1,129 @@
-<h2> Log in: </h2>
-<pre>
-    <div style="text-align: center">
-        Username: <input type="text" #usernameInput >
-        Password: <input type="password" #passwordInput >
-        <button (click)="checkAccount(usernameInput.value, passwordInput.value)">Login</button>
-
-        <button (click)="goRegisterPage()">No account? Register here</button>
-      
-
-    <button (click)="revealInput()" id="revealButton">forgot account info?</button>
-    <ng-container *ngIf="show">            
-        <div id="hiddenInput">
-            E-mail: <input type="text" id="emailForgot" #forgotEmail>     
-            <button style="color: crimson" (click)="forgotInfo()">Submit</button>   
-        </div>     
-         
-    </ng-container>   
+<!-- Header & navigatiebar (voor iedere pagina) -->
+<div class="header">
+    <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
 </div>
-</pre>
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="navbar">
+    <div class="dropdown">
+        <button class="dropbtn"> <i class="fa fa-user"></i> Account
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+    <a href="#cart"><i class="fa fa-shopping-cart"></i></a>
+    <a href="#shop">Shop</a>
+</div>
+
+<!-- <div class="grid-container">
+        <div class="Main">Main </div>  
+        <div class="Right">Right</div>
+        <div class="Footer">Footer</div>
+      </div> -->
+<!-- Eind van Header & Navigatiebar -->
+
+<div class="grid-container">
+    <div class="Main">
+        <!-- Slideshow version1 -->
+        <div class="carousel-wrapper">
+            <span id="item-1"></span>
+            <span id="item-2"></span>
+            <span id="item-3"></span>
+            <div class="carousel-item item-1">
+                <h5>Item 1</h5>
+                <p>Text</p>
+                <a class="arrow arrow-prev" href="#item-3"></a>
+                <p>Text2</p>
+                <a class="arrow arrow-next" href="#item-2"></a>
+                <p>Text3</p>
+            </div>
+
+            <div class="carousel-item item-2">
+                <h2>Item 2</h2>
+                <p>Text</p>
+                <a class="arrow arrow-prev" href="#item-1"></a>
+                <a class="arrow arrow-next" href="#item-3"></a>
+            </div>
+
+            <div class="carousel-item item-3">
+                <h2>Item 3</h2>
+                <p>Text</p>
+                <a class="arrow arrow-prev" href="#item-2"></a>
+                <a class="arrow arrow-next" href="#item-1"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="Right">
+
+        <h2> Inloggen: </h2>
+        <div style="text-align: left">
+            Username: <input type="text" #usernameInput>
+        </div>
+        <div>
+            Password: <input type="password" #passwordInput>
+        </div>
+        <br>
+        <div>
+            <button (click)="checkAccount(usernameInput.value, passwordInput.value)">Login</button>
+        </div>
+        <br>
+        <div style="text-align: left">
+            <button class="button" (click)="goRegisterPage()">No account? Register here</button>
+        </div>
+        <br>
+
+        <button (click)="revealInput()" id="revealButton">forgot account info?</button>
+        <ng-container *ngIf="show">
+            <div id="hiddenInput">
+                E-mail: <input type="text" id="emailForgot" #forgotEmail>
+                <button style="color: crimson" (click)="forgotInfo()">Submit</button>
+            </div>
+        </ng-container>
+    </div>
+
+</div>
+
+
+<div class="Footer">
+</div>
+
+<!-- Slideshow version2
+      <body>
+            <div class="carousel-wrapper">
+                    <span id="item-1"></span>
+                    <span id="item-2"></span>
+                    <span id="item-3"></span>
+                    <div class="carousel-item item-1">
+                      <h2>Item 1</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus   accumsan pretium dolor vel convallis. Aliquam erat volutpat. Maecenas lacus nunc, imperdiet sed mi et, finibus suscipit mi.</p>
+                      <a class="arrow arrow-prev" href="#item-3"></a>
+                      <a class="arrow arrow-next" href="#item-2"></a>
+                    </div>
+                    
+                    <div class="carousel-item item-2">
+                      <h2>Item 2</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan pretium dolor vel convallis. Aliquam erat volutpat.</p>
+                      <a class="arrow arrow-prev" href="#item-1"></a>
+                      <a class="arrow arrow-next" href="#item-3"></a>
+                    </div>
+                    
+                    <div class="carousel-item item-3">
+                      <h2>Item 3</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan pretium dolor vel convallis. Aliquam erat volutpat.</p>
+                      <a class="arrow arrow-prev" href="#item-2"></a>
+                      <a class="arrow arrow-next" href="#item-1"></a>
+                    </div>
+                  </div>
+        
+      </body> -->
+
 
 
 
