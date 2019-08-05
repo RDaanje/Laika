@@ -10,6 +10,7 @@ import { AccountComponent } from './Components/account/account.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { ModifyAccountComponent } from './Components/modify-account/modify-account.component';
 import { ProductComponent } from './Components/product/product.component';
+import { GameComponent } from './Components/game/game.component';
 
 
 
@@ -22,6 +23,7 @@ import { ProductComponent } from './Components/product/product.component';
     AccountComponent,
     ModifyAccountComponent,
     ProductComponent,
+    GameComponent,
       
 
    

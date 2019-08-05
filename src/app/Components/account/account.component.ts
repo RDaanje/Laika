@@ -26,6 +26,10 @@ export class AccountComponent implements OnInit {
 
   } 
 
+  goToGame()  {
+    this.router.navigate(['/game']);
+  }
+
   viewAccount() {
     this.accountservice.retrieveAll().subscribe(
       (accounts: Account[]) => 
