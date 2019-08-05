@@ -23,17 +23,23 @@ export class HomeComponent implements OnInit {
 
   checkAccount(usernameInput: string, passwordInput: string) {
     this.accountservice.accountOpslag.username = usernameInput;
+    console.log('controle: ' + this.accountservice.accountOpslag.username)
     this.accountservice.accountOpslag.password = passwordInput;
 
-    this.accountservice.checkAccount(this.accountservice.accountOpslag).subscribe(
-      (account: Account) =>
-        this.accountservice.accountOpslag = account,
-      () =>
-        alert("The username and/or password you provided are unknown to us"),
-      () =>
-        this.router.navigate(['account'])
-    )
-    console.log('controle: ' + this.accountservice.accountOpslag)
+    if (usernameInput != "" && passwordInput != "") {
+      this.accountservice.checkAccount(this.accountservice.accountOpslag).subscribe(
+        (account: Account) =>
+          this.accountservice.accountOpslag = account,
+        () =>
+          alert("The username and/or password you provided are unknown to us"),
+        () =>
+          this.router.navigate(['account'])
+      )
+      console.log('controle: ' + this.accountservice.accountOpslag)
+    }
+    else {
+      alert("The username and/or password you provided are unknown to us")
+    }
 
   }
 
