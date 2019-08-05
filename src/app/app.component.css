@@ -176,15 +176,15 @@
   .item-1 {
       z-index: 2;
       opacity: 1;
-    background:url('src/assets/images/LaikaLogoDog.png');
+    background:url('/assets/images/LaikaLogoDog.png');
     background-size: cover;
     }
   .item-2{
-    background:url('src/assets/images/Bert.jpg');
+    background:url('/assets/images/Bert.jpg');
      background-size:cover;
   }
   .item-3{
-    background:url('src/assets/images/LaikaLogo.png');
+    background:url('/assets/images/LaikaLogo.png');
      background-size:cover;
   }
   
