@@ -1,8 +1,24 @@
+<!-- Header & navigatiebar (voor iedere pagina) -->
+<div class="header">
+        <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
+    </div>
+    
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn"> <i class="fa fa-user"></i> Account
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+        <a href="#cart"><i class="fa fa-shopping-cart"></i></a>
+        <a href="#shop">Shop</a>
+    </div>
 
-
-  <app-home></app-home>
-
-
-
-
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>

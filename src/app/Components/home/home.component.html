@@ -1,26 +1,3 @@
-<!-- Header & navigatiebar (voor iedere pagina) -->
-<div class="header">
-    <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
-</div>
-
-<!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<div class="navbar">
-    <div class="dropdown">
-        <button class="dropbtn"> <i class="fa fa-user"></i> Account
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-        </div>
-    </div>
-    <a href="#cart"><i class="fa fa-shopping-cart"></i></a>
-    <a href="#shop">Shop</a>
-</div>
-
 <!-- <div class="grid-container">
         <div class="Main">Main </div>  
         <div class="Right">Right</div>
@@ -71,7 +48,7 @@
         </div>
         <br>
         <div>
-            <button (click)="checkAccount(usernameInput.value, passwordInput.value)">Login</button>
+            <button class="button" (click)="checkAccount(usernameInput.value, passwordInput.value)">Login</button>
         </div>
         <br>
         <div style="text-align: left">
@@ -79,9 +56,11 @@
         </div>
         <br>
 
-        <button (click)="revealInput()" id="revealButton">forgot account info?</button>
+        <button class="button" (click)="revealInput()" id="revealButton">forgot account info?</button>
+        
         <ng-container *ngIf="show">
             <div id="hiddenInput">
+                <br>
                 E-mail: <input type="text" id="emailForgot" #forgotEmail>
                 <button style="color: crimson" (click)="forgotInfo()">Submit</button>
             </div>
