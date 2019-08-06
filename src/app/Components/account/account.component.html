@@ -1,0 +1,24 @@
+
+    <div style= "text-align: center">
+            <ul>
+                    Username:<li>{{accountservice.accountOpslag.username}}</li> 
+                    <br>
+                    E-mail:<li>{{accountservice.accountOpslag.email}}</li>
+                    <br>
+                    Firsname:<li>{{accountservice.accountOpslag.firstname}}</li>
+                    <br>
+                    Lastname:<li>{{accountservice.accountOpslag.lastname}}</li>
+                    <br>
+                    Street:<li>{{accountservice.accountOpslag.street}}</li>
+                    <br>
+                    House number:<li>{{accountservice.accountOpslag.houseNumber}}</li>
+                    <br>
+                    Zipcode:<li>{{accountservice.accountOpslag.zipcode}}</li>
+                    <br>
+                    City:<li>{{accountservice.accountOpslag.city}}</li>
+            </ul>
+           
+            <button class="button" (click)="goToChangeAccount()">Change info</button>
+    </div>
+    <button class="button" (click)="goToGame()">Play Game!</button>
+    

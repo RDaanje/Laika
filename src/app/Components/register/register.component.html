@@ -1,0 +1,29 @@
+<form [formGroup]="registerForm">
+    <pre>
+        <div>
+                <label for="Username">
+                    Username:
+                </label>
+                <input id="Username" name="Username" class="form-control" formControlName="Username" required>
+            </div>
+            <div>
+                <label for="password">
+                    Password:
+                </label>
+                <input id="Password" type="password" formControlName="Password" required>
+            </div>
+            <div>
+                <label for="password2">
+                    Repeat password:
+                </label>
+                <input id="Password2" type="password" formControlName="Password2" required>
+                </div>
+            <div>
+                <label for="Email">
+                    E-mail:
+                </label>
+                <input id="Email" type="email" formControlName="Email" required>
+            </div> 
+            <button type="button" (click)="validateForm()">Submit</button>
+   </pre>
+</form>

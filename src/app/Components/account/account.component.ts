@@ -1,7 +1,8 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { Account } from '../domain/account';
-import { AccountService } from '../service/account.service';
+import { Account } from '../../domain/account';
+import { AccountService } from '../../service/account.service';
 import { Router } from '@angular/router'
+
 
 @Component({
   selector: 'app-account',
@@ -10,9 +11,7 @@ import { Router } from '@angular/router'
 })
 export class AccountComponent implements OnInit {
 
-  accounts: Account[];
-  public account: Account = new Account();
-  
+  accounts: Account[];  
 
   constructor(public accountservice: AccountService, private router: Router) { 
    
@@ -20,15 +19,16 @@ export class AccountComponent implements OnInit {
 
   ngOnInit() {
    
-   this.account = this.accountservice.accountOpslag;
-  
-     
   }
 
   goToChangeAccount() {
     this.router.navigate(['/modify-account']);
 
   } 
+
+  goToGame()  {
+    this.router.navigate(['/game']);
+  }
 
   viewAccount() {
     this.accountservice.retrieveAll().subscribe(
@@ -44,15 +44,12 @@ export class AccountComponent implements OnInit {
 
 
   createAccount() {
-    console.log(this.account);
-    this.account.id = 0;
+     
 
-    this.accountservice.createAccount(this.account).subscribe(
+    this.accountservice.createAccount(this.accountservice.accountOpslag).subscribe(
       (accountvandatabase : Account) => 
       {
-
-      console.log(accountvandatabase);
-      this.account = accountvandatabase;
+      this.accountservice.accountOpslag = accountvandatabase;
       }
 
 
@@ -60,10 +57,9 @@ export class AccountComponent implements OnInit {
   }
 
   getAccount() {
-    this.account.id = 1;
-    this.accountservice.retrieveOne(this.account).subscribe(
+    this.accountservice.retrieveOne(this.accountservice.accountOpslag).subscribe(
       (account: Account) => {
-        this.account = account;
+        this.accountservice.accountOpslag = account;
         console.log(account);
       }
     )
@@ -71,12 +67,14 @@ export class AccountComponent implements OnInit {
 
   updateEmail() {    
 
-    this.accountservice.changeEmail(this.account).subscribe(
+    this.accountservice.changeEmail(this.accountservice.accountOpslag).subscribe(
       (account: Account) => {
-      this.account = account;
+      this.accountservice.accountOpslag = account;
       console.log(account);
       
       }
     )
   }
+
+
 }

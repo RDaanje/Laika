@@ -33,7 +33,7 @@ export class AccountService {
 
   public retrieveOne(account : Account): Observable<Account> {
     return this.http.get<Account>(`http://localhost:8080/api/account/${account.id}`);
-
+    
   }
 
   public createAccount(account : Account): Observable<Account> {
@@ -50,12 +50,8 @@ export class AccountService {
     return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/${account.email}`, account, this.httpOptions);
   }
 
-public forgotPassword(account : Account): Observable<Account> {
-  return this.http.get<Account>(`http://localhost:8080/api/account/forgotpassword/${account.email}`);
-}
-
-public forgotUsername(account : Account): Observable<Account> {
-  return this.http.get<Account>(`http://localhost:8080/api/account/forgotpassword/${account.email}`)
+public forgotInfo(account : Account): Observable<Account> {
+  return this.http.get<Account>(`http://localhost:8080/api/account/forgot/${account.email}`);
 }
 
   }

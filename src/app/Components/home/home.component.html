@@ -1,0 +1,109 @@
+<!-- <div class="grid-container">
+        <div class="Main">Main </div>  
+        <div class="Right">Right</div>
+        <div class="Footer">Footer</div>
+      </div> -->
+<!-- Eind van Header & Navigatiebar -->
+
+<div class="grid-container">
+    <div class="Main">
+        <!-- Slideshow version1 -->
+        <div class="carousel-wrapper">
+            <span id="item-1"></span>
+            <span id="item-2"></span>
+            <span id="item-3"></span>
+            <div class="carousel-item item-1">
+                <h5>Item 1</h5>
+                <p>Text</p>
+                <a class="arrow arrow-prev" href="#item-3"></a>
+                <p>Text2</p>
+                <a class="arrow arrow-next" href="#item-2"></a>
+                <p>Text3</p>
+            </div>
+
+            <div class="carousel-item item-2">
+                <h2>Item 2</h2>
+                <p>Text</p>
+                <a class="arrow arrow-prev" href="#item-1"></a>
+                <a class="arrow arrow-next" href="#item-3"></a>
+            </div>
+
+            <div class="carousel-item item-3">
+                <h2>Item 3</h2>
+                <p>Text</p>
+                <a class="arrow arrow-prev" href="#item-2"></a>
+                <a class="arrow arrow-next" href="#item-1"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="Right">
+
+        <h2> Inloggen: </h2>
+        <div style="text-align: left">
+            Username: <input type="text" #usernameInput>
+        </div>
+        <div>
+            Password: <input type="password" #passwordInput>
+        </div>
+        <br>
+        <div>
+            <button class="button" (click)="checkAccount(usernameInput.value, passwordInput.value)">Login</button>
+        </div>
+        <br>
+        <div style="text-align: left">
+            <button class="button" (click)="goRegisterPage()">No account? Register here</button>
+        </div>
+        <br>
+
+        <button class="button" (click)="revealInput()" id="revealButton">forgot account info?</button>
+        
+        <ng-container *ngIf="show">
+            <div id="hiddenInput">
+                <br>
+                E-mail: <input type="text" id="emailForgot" #forgotEmail>
+                <button style="color: crimson" (click)="forgotInfo()">Submit</button>
+            </div>
+        </ng-container>
+    </div>
+
+</div>
+
+
+<div class="Footer">
+</div>
+
+<!-- Slideshow version2
+      <body>
+            <div class="carousel-wrapper">
+                    <span id="item-1"></span>
+                    <span id="item-2"></span>
+                    <span id="item-3"></span>
+                    <div class="carousel-item item-1">
+                      <h2>Item 1</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus   accumsan pretium dolor vel convallis. Aliquam erat volutpat. Maecenas lacus nunc, imperdiet sed mi et, finibus suscipit mi.</p>
+                      <a class="arrow arrow-prev" href="#item-3"></a>
+                      <a class="arrow arrow-next" href="#item-2"></a>
+                    </div>
+                    
+                    <div class="carousel-item item-2">
+                      <h2>Item 2</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan pretium dolor vel convallis. Aliquam erat volutpat.</p>
+                      <a class="arrow arrow-prev" href="#item-1"></a>
+                      <a class="arrow arrow-next" href="#item-3"></a>
+                    </div>
+                    
+                    <div class="carousel-item item-3">
+                      <h2>Item 3</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan pretium dolor vel convallis. Aliquam erat volutpat.</p>
+                      <a class="arrow arrow-prev" href="#item-2"></a>
+                      <a class="arrow arrow-next" href="#item-1"></a>
+                    </div>
+                  </div>
+        
+      </body> -->
+
+
+
+
+<!-- <img src="assets/images/Bert.jpg" alt="nextprogram.com" width="150" height="200" /> -->

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Account } from './domain/account';
+
+
 
 
 @Component({
@@ -9,5 +9,5 @@ import { Account } from './domain/account';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Laika';
+  title = 'Laika';  
 }
