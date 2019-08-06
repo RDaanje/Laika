@@ -61,8 +61,8 @@
         <ng-container *ngIf="show">
             <div id="hiddenInput">
                 <br>
-                E-mail: <input type="text" id="emailForgot" #forgotEmail>
-                <button style="color: crimson" (click)="forgotInfo()">Submit</button>
+                E-mail: <input type="text" id="emailInput" #emailInput>
+                <button style="color: crimson" (click)="forgotInfo(emailInput.value)">Submit</button>
             </div>
         </ng-container>
     </div>

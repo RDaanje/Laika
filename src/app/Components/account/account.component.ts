@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Account } from '../../domain/account';
 import { AccountService } from '../../service/account.service';
 import { Router } from '@angular/router'
@@ -43,8 +43,7 @@ export class AccountComponent implements OnInit {
   }
 
 
-  createAccount() {
-     
+  createAccount() {   
 
     this.accountservice.createAccount(this.accountservice.accountOpslag).subscribe(
       (accountvandatabase : Account) => 
@@ -76,5 +75,6 @@ export class AccountComponent implements OnInit {
     )
   }
 
+ 
 
 }

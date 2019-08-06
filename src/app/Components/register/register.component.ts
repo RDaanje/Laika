@@ -3,9 +3,8 @@ import { Router } from '@angular/router';
 import { Account } from '../../domain/account';
 import { AccountService } from '../../service/account.service';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
-import { catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
+
 
 
 
@@ -48,7 +47,7 @@ export class RegisterComponent implements OnInit {
         if (error.status == 409){         
           alert(`This username is already taken!`);
         } else if (error.status == 302) {
-          alert(`This username is already registered!`);
+          alert(`This e-mail is already registered!`);
         }
       },         
       () =>

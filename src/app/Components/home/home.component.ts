@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Account } from '../../domain/account';
 import { AccountService } from '../../service/account.service';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public accountservice: AccountService,
-    private router: Router) { }
+    private router: Router,
+    private app: AppComponent) { }
 
   ngOnInit() {
 
@@ -28,12 +30,16 @@ export class HomeComponent implements OnInit {
 
     if (usernameInput != "" && passwordInput != "") {
       this.accountservice.checkAccount(this.accountservice.accountOpslag).subscribe(
-        (account: Account) =>
-          this.accountservice.accountOpslag = account,
+        (account: Account) => {
+          this.accountservice.accountOpslag = account;
+          this.accountservice.accountOpslag.signedIn = true;
+        },
         () =>
           alert("The username and/or password you provided are unknown to us"),
-        () =>
-          this.router.navigate(['account'])
+        () => {         
+          this.router.navigate(['account']);          
+        }
+        
       )
       console.log('controle: ' + this.accountservice.accountOpslag)
     }
@@ -45,14 +51,20 @@ export class HomeComponent implements OnInit {
 
 
   forgotInfo(emailInput: string) {
-    this.accountservice.accountOpslag.email = emailInput;
+    this.accountservice.accountOpslag.email = emailInput;    
     this.accountservice.forgotInfo(this.accountservice.accountOpslag).subscribe(
-      (account: Account) =>
-        this.accountservice.accountOpslag.password = account.password,
+      (account: Account) => {
+        this.accountservice.accountOpslag.password = account.password;
+        this.accountservice.accountOpslag.username = account.username;
+      },
+            
       () =>
         alert('This E-mail is unknown to us'),
-      () =>
-        alert('Your password is: ' + this.accountservice.accountOpslag.password)
+      () => {
+        alert('Your username is: ' + this.accountservice.accountOpslag.username +'\n'+ 'Your password is: ' + this.accountservice.accountOpslag.password);
+
+      }
+       
     )
 
   }
