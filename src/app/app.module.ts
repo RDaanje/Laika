@@ -13,6 +13,8 @@ import { ProductComponent } from './Components/product/product.component';
 import { GameComponent } from './Components/game/game.component';
 import { SignoutComponent } from './Components/signout/signout.component';
 import { WalletComponent } from './Components/wallet/wallet.component';
+import { ShopComponent } from './Components/shop/shop.component';
+
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { WalletComponent } from './Components/wallet/wallet.component';
     GameComponent,
     SignoutComponent,
     WalletComponent, 
+    ShopComponent
 
     
   ],
