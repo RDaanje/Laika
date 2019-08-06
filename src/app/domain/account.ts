@@ -17,6 +17,8 @@ export class Account {
     euro: number;
     coins: number;
 
+    signedIn: boolean;
+    
     // get Firstname(): string {
     //     return this.firstname;
     // }
