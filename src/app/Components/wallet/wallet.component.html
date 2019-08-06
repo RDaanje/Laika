@@ -8,8 +8,11 @@
                     <input type = "number" id="euroInput" name="euroInput" class="form-control" formControlName="euro" required>
                 </div>                                                                                                         
                 <button class="button" (click) = "validateForm()">Add Euro</button>
-                                          
-                    {{accountservice.accountOpslag.euro}}
-                    {{accountservice.accountOpslag.coins}}  
+
+                
+                Je hebt nu {{accountservice.accountOpslag.wallet.euro}} euro!                                       
+                
+                   
        </pre>
+
 </form>
