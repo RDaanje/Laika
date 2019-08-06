@@ -1,9 +1,11 @@
 export class Product {
 
-    private  id: number; 
+    id: number; 
 	private  name: string;
 	private  supplier: string;
     private  stock: number;
+    
+    public Product() {}
     
     get Id()    {
         return this.id;

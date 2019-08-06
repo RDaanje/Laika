@@ -6,6 +6,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { AccountComponent } from './Components/account/account.component';
 import { ProductComponent } from './Components/product/product.component';
 import { GameComponent } from './Components/game/game.component';
+import { ShopComponent } from './Components/shop/shop.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
 {path: "modify-account", component: ModifyAccountComponent },
 {path: "product" , component: ProductComponent},
 {path: "game", component: GameComponent},
+{path: "shop", component: ShopComponent},
 {path: "**", redirectTo: "home"}
 
 ];
