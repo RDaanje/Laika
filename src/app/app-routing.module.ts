@@ -12,7 +12,8 @@ const routes: Routes = [
 {path:"register", component: RegisterComponent},
 {path:"account", component: AccountComponent},
 {path: "modify-account", component: ModifyAccountComponent },
-{path: "**", redirectTo: "register"}
+
+
 ];
 
 @NgModule({

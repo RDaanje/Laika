@@ -13,42 +13,37 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   accounts: Account[];
-  account: Account = new Account();
+  //account: Account = new Account();
 
   constructor(
     public accountservice: AccountService,
     private router: Router) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   checkAccount() {
-    this.accountservice.checkAccount(this.account).subscribe(
+    this.accountservice.checkAccount(this.accountservice.accountOpslag).subscribe(
       (account: Account) =>
-        this.account = account,
+        this.accountservice.accountOpslag = account,
       (f: HttpErrorResponse) =>
         alert("There is a problem: " +
           f.error.error.status + " " + f.error.error + "\n" +
           "\nMessage:\n" + f.error.message)
     )
-    this.accountservice.accountOpslag = this.account,
       this.router.navigate(['account'])
   }
 
 
   forgotPassword() {
-    this.accountservice.forgotPassword(this.account).subscribe(
+    this.accountservice.forgotPassword(this.accountservice.accountOpslag).subscribe(
       (account: Account) => {
-        this.account.password = account.password;
       }
     )
   }
 
   forgotUsername() {
-    this.accountservice.forgotUsername(this.account).subscribe(
+    this.accountservice.forgotUsername(this.accountservice.accountOpslag).subscribe(
       (account: Account) => {
-        this.account.username = account.username;
       }
     )
   }

@@ -18,7 +18,7 @@ import { ModifyAccountComponent } from './modify-account/modify-account.componen
     RegisterComponent,    
     HomeComponent,    
     AccountComponent,
-    ModifyAccountComponent       
+    ModifyAccountComponent   
 
    
   ],

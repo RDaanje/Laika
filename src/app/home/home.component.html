@@ -4,8 +4,8 @@
 
 <h2> Inloggen: </h2>
 <div style="text-align: left">
-    Username: <input type="text" id="username" [(ngModel)]="account.username">
-    Password: <input type="text" id="password" [(ngModel)]="account.password">
+    Username: <input type="text" id="username" [(ngModel)]="this.accountservice.accountOpslag.username">
+    Password: <input type="text" id="password" [(ngModel)]="this.accountservice.accountOpslag.password">
     <button (click)="checkAccount()">Login</button>
     {{account.id}}
 </div>
@@ -21,13 +21,13 @@
 <br>
 
 <div style="text-align: left">
-    E-mail: <input type="text" id="email" [(ngModel)]="account.email">
+    E-mail: <input type="text" id="email" [(ngModel)]="this.accountservice.accountOpslag.email">
     <button style="color: crimson" (click)="forgotPassword()">Forgot password?</button>
     {{account.password}}
-</div>
+</div>  
 
 <div style="text-align: left">
-    E-mail: <input type="text" id="email" [(ngModel)]="account.email">
+    E-mail: <input type="text" id="email" [(ngModel)]="this.accountservice.accountOpslag.email">
     <button style="color: mediumseagreen" (click)="forgotUsername()">Forgot username?</button>
     {{account.username}}
 </div>

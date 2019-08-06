@@ -22,13 +22,4 @@ export class HomeService {
     return this.http.get<Account>(`http://localhost:8080/api/account/get/${account.username}/${account.password}`);
   }
 
-// public forgotPassword(account : Account): Observable<Account> {
-//   return this.http.get<Account>(`http://localhost:8080/api/account/get/{id}`);
-// }
-
-// public forgotUsername(account : Account): Observable<Account> {
-//   return this.http.get<Account>(`http://localhost:8080/api/account/get/{id}`)
-// }
-
-
 }

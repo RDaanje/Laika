@@ -16,35 +16,37 @@ export class Account {
 
     euro: number;
     coins: number;
-    // get id(): number {
-    //     return this._id;
+
+
+    getid(): number {
+        return this.id;
+    }
+
+    setid(id) {
+        this.id = id;
+    }
+
+    getusername(): string {
+        return this.username;
+    }
+
+    setusername(username) {
+        this.username = username;
+    }
+
+    // get password(): string {
+    //     return this._password;
     // }
 
-    // set id(id) {
-    //     this._id = id;
+    // set password(password) {
+    //     this.password = password;
     // }
 
-    // get username(): string {
-    //     return this._username;
-    // }
+    getemail() {
+        return this.email;
+    }
 
-    // set username(username) {
-    //     this._username = username;
-    // }
-
-    // // get password(): string {
-    // //     return this._password;
-    // // }
-
-    // // set password(password) {
-    // //     this.password = password;
-    // // }
-
-    // get email() {
-    //     return this._email;
-    // }
-
-    // set email(email) {
-    //     this._email = email
-    // }
+    setemail(email) {
+        this.email = email
+    }
 }

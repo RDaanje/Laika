@@ -13,12 +13,11 @@ export class RegisterComponent implements OnInit {
 
   
   accounts: Account[];
-  account: Account = new Account();
+  //account: Account = new Account();
   
   constructor(public accountservice: AccountService, private router: Router) {}
 
-  ngOnInit() {
-    this.account = this.accountservice.accountOpslag;    
+  ngOnInit() { 
   }
 
   goAccountPage(){
@@ -27,16 +26,14 @@ export class RegisterComponent implements OnInit {
 
 
 createAccount() {
-  console.log(this.account);
-  this.account.id = 0;
+  //console.log(this.account);
 
-  this.accountservice.createAccount(this.account).subscribe(
+  this.accountservice.createAccount(this.accountservice.accountOpslag).subscribe(
     (accountvandatabase : Account) => 
     {
 
-    console.log(accountvandatabase);
-    this.account = accountvandatabase;
-    this.accountservice.accountOpslag = this.account;
+    //console.log(accountvandatabase);
+    this.accountservice.accountOpslag = accountvandatabase;
     }
   )
   this.goAccountPage();
@@ -53,10 +50,10 @@ viewAccount() {
   }
 
   retrieveOne() {
-    this.accountservice.retrieveOne(this.account).subscribe(
+    this.accountservice.retrieveOne(this.accountservice.accountOpslag).subscribe(
       (accountvandatabase: Account) => 
       {
-        this.account = accountvandatabase;
+        this.accountservice.accountOpslag = accountvandatabase;
       }
       
     )

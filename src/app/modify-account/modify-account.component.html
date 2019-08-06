@@ -1,22 +1,22 @@
-<div style="text-align: left">
+<div    >>
     <pre>
-            Firstname: <input type="text" id="firstname" [(ngModel)]="account.firstname">
+            Firstname: <input type="text" id="firstname" [(ngModel)]="this.accountservice.accountOpslag.firstname">
 
-            Lastname: <input type="text" id="lastname" [(ngModel)]="account.lastname">
+            Lastname: <input type="text" id="lastname" [(ngModel)]="this.accountservice.accountOpslag.lastname">
         
-            Username: <input type="text" id="username" [(ngModel)]="account.username">
+            Username: <input type="text" id="username" [(ngModel)]="this.accountservice.accountOpslag.username">
         
-            Password: <input type="text" id="password" [(ngModel)]="account.password">
+            Password: <input type="text" id="password" [(ngModel)]="this.accountservice.accountOpslag.password">
         
-            E-mail: <input type="text" id="email" [(ngModel)]="account.email">
+            E-mail: <input type="text" id="email" [(ngModel)]="this.accountservice.accountOpslag.email">
         
-            Street: <input type="text" id="street" [(ngModel)]="account.street">
+            Street: <input type="text" id="street" [(ngModel)]="this.accountservice.accountOpslag.street">
         
-            House number: <input type="text" id="houseNumber" [(ngModel)]="account.houseNumber">
+            House number: <input type="text" id="houseNumber" [(ngModel)]="this.accountservice.accountOpslag.houseNumber">
         
-            Zipcode: <input type="text" id="zipcode" [(ngModel)]="account.zipcode">
+            Zipcode: <input type="text" id="zipcode" [(ngModel)]="this.accountservice.accountOpslag.zipcode">
         
-            City: <input type="text" id="city" [(ngModel)]="account.city">
+            City: <input type="text" id="city" [(ngModel)]="this.accountservice.accountOpslag.city">
 
             <button (click)="changeInfo()" >Submit</button>
             

@@ -1,9 +1,9 @@
 <p>register works!</p>
 
 <div style="text-align: left">
-    Username: <input type="text" id="username" [(ngModel)]="account.username" >
-    Password: <input type="text" id="password" [(ngModel)]="account.password">
-    E-mail:   <input type="text" id="email" [(ngModel)]="account.email">
+    Username: <input type="text" id="username" [(ngModel)]="this.accountservice.accountOpslag.username" >
+    Password: <input type="text" id="password" [(ngModel)]="this.accountservice.accountOpslag.password">
+    E-mail:   <input type="text" id="email" [(ngModel)]="this.accountservice.accountOpslag.email">
     <button (click)="createAccount()">Submit</button>
     </div>
 
@@ -18,8 +18,6 @@
     <!-- {{accounts | json}} -->
 
     <div *ngFor="let account of accounts">
-        {{account.username}}
-        {{account.password}}
-        {{account.email}}
+        {{this.accountservice}}
     </div>
     <!-- EINDE -->

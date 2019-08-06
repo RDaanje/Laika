@@ -11,8 +11,7 @@ import { Router } from '@angular/router'
 export class AccountComponent implements OnInit {
 
   accounts: Account[];
-  public account: Account = new Account();
-  
+  //public account: Account = new Account();  
 
   constructor(public accountservice: AccountService, private router: Router) { 
    
@@ -20,9 +19,7 @@ export class AccountComponent implements OnInit {
 
   ngOnInit() {
    
-   this.account = this.accountservice.accountOpslag;
-  
-     
+  //  this.accountservice. = this.accountservice.accountOpslag;
   }
 
   goToChangeAccount() {
@@ -42,40 +39,25 @@ export class AccountComponent implements OnInit {
     )
   }
 
-
   createAccount() {
-    console.log(this.account);
-    this.account.id = 0;
+    //console.log(this.account);
+    //this.account.id = 0;
 
-    this.accountservice.createAccount(this.account).subscribe(
+    this.accountservice.createAccount(this.accountservice.accountOpslag).subscribe(
       (accountvandatabase : Account) => 
       {
 
       console.log(accountvandatabase);
-      this.account = accountvandatabase;
+      this.accountservice.accountOpslag = accountvandatabase;
       }
-
-
     )
   }
 
   getAccount() {
-    this.account.id = 1;
-    this.accountservice.retrieveOne(this.account).subscribe(
+    //this.account.id = 1;
+    this.accountservice.retrieveOne(this.accountservice.accountOpslag).subscribe(
       (account: Account) => {
-        this.account = account;
-        console.log(account);
-      }
-    )
-  }
-
-  updateEmail() {    
-
-    this.accountservice.changeEmail(this.account).subscribe(
-      (account: Account) => {
-      this.account = account;
-      console.log(account);
-      
+        this.accountservice.accountOpslag = account
       }
     )
   }

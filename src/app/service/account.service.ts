@@ -9,7 +9,7 @@ import { Account } from '../domain/account';
 export class AccountService {
 
 
-  public accountOpslag : Account = new Account();
+  public accountOpslag : Account = new Account()
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -32,8 +32,9 @@ export class AccountService {
   }
 
   public retrieveOne(account : Account): Observable<Account> {
-    return this.http.get<Account>(`http://localhost:8080/api/account/${account.id}`);
 
+    return this.http.get<Account>(`http://localhost:8080/api/account/${account.id}`);
+    
   }
 
   public createAccount(account : Account): Observable<Account> {
@@ -58,6 +59,11 @@ public forgotUsername(account : Account): Observable<Account> {
   return this.http.get<Account>(`http://localhost:8080/api/account/forgotpassword/${account.email}`)
 }
 
+//NEW
+public collectDataAccount(account : Account): Observable<Account>{
+  return this.http.get<Account>(`http://localhost:8080/api/account/${account.email}/${account.username}/${account.firstname}/${account.houseNumber}/${account.id}/${account.lastname}/${account.password}/${account.street}/${account.zipcode}`)
+}
+//NEW - END
   }
 
 
