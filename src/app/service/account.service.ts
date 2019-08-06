@@ -50,7 +50,7 @@ export class AccountService {
   }
 
   public addMoney(account: Account): Observable<Account>  {
-    return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/wallet/${money}`, account, this.httpOptions);
+    return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/wallet/${account.euro}`, account, this.httpOptions);
   }
 
   
