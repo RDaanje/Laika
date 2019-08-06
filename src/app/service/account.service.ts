@@ -17,8 +17,6 @@ export class AccountService {
 
   constructor(public http: HttpClient) { }
 
-  
-
   public retrieveAll(): Observable<Account[]> {
     return this.http.get<Account[]>(`http://localhost:8080/api/account/get`);
   }

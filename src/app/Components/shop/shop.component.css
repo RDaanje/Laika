@@ -1,0 +1,33 @@
+
+table {
+  width: 100%;
+}
+td {
+  background-color: rgba(223, 217, 217, 0.486);
+  padding: 20px 0;
+  font-size: 20px;
+  font-family: Arial;
+  width: 75%;
+  
+}
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color:#dd0e00}
+
+.button:active {
+  background-color: #dd0e00;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

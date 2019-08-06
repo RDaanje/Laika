@@ -11,6 +11,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { ModifyAccountComponent } from './Components/modify-account/modify-account.component';
 import { ProductComponent } from './Components/product/product.component';
 import { GameComponent } from './Components/game/game.component';
+import { ShopComponent } from './Components/shop/shop.component';
 
 
 
@@ -24,6 +25,8 @@ import { GameComponent } from './Components/game/game.component';
     ModifyAccountComponent,
     ProductComponent,
     GameComponent,
+    ShopComponent
+
       
 
    
