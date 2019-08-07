@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Account } from '../../domain/account';
 import { AccountService } from '../../service/account.service';
 import { Router } from '@angular/router';
-import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-home',
@@ -12,27 +11,38 @@ import { AppComponent } from 'src/app/app.component';
 export class HomeComponent implements OnInit {
 
   public show: boolean = false;
-
+  lokaalVar: Account = new Account();
 
   constructor(
     public accountservice: AccountService,
-    private router: Router,
-    private app: AppComponent) { }
+    private router: Router) { 
+
+      if (this.accountservice.currentUserValue) { 
+        this.router.navigate(['/account']);
+
+    }
+    }
 
   ngOnInit() {
+    
+      this.accountservice.getOpslag('currentUser');
+    
+    
 
   }
 
   checkAccount(usernameInput: string, passwordInput: string) {
-    this.accountservice.accountOpslag.username = usernameInput;
-    console.log('controle: ' + this.accountservice.accountOpslag.username)
-    this.accountservice.accountOpslag.password = passwordInput;
+   
+    this.lokaalVar.username = usernameInput;
+  
+    this.lokaalVar.password = passwordInput;
 
     if (usernameInput != "" && passwordInput != "") {
-      this.accountservice.checkAccount(this.accountservice.accountOpslag).subscribe(
+      this.accountservice.checkAccount(this.lokaalVar).subscribe(
         (account: Account) => {
-          this.accountservice.accountOpslag = account;
-          this.accountservice.accountOpslag.signedIn = true;
+          this.accountservice.setOpslag('currentUser', account);
+          this.accountservice.currentUserSubject.next(account);
+          this.accountservice.username();
         },
         () =>
           alert("The username and/or password you provided are unknown to us"),
@@ -41,7 +51,9 @@ export class HomeComponent implements OnInit {
         }
         
       )
-      console.log('controle: ' + this.accountservice.accountOpslag)
+      // console.log('controle: ' + this.accountservice.getOpslag('currentUser'));
+      // console.log('controle: ' + this.accountservice.getOpslag('currentUser').username);
+      // console.log('controle: ' + this.accountservice.getOpslag('currentUser').password);
     }
     else {
       alert("The username and/or password you provided are unknown to us")
@@ -51,17 +63,17 @@ export class HomeComponent implements OnInit {
 
 
   forgotInfo(emailInput: string) {
-    this.accountservice.accountOpslag.email = emailInput;    
-    this.accountservice.forgotInfo(this.accountservice.accountOpslag).subscribe(
+    this.accountservice.getOpslag('currentUser').email = emailInput;    
+    this.accountservice.forgotInfo(this.accountservice.getOpslag('currentUser')).subscribe(
       (account: Account) => {
-        this.accountservice.accountOpslag.password = account.password;
-        this.accountservice.accountOpslag.username = account.username;
+        this.accountservice.getOpslag('currentUser').password = account.password;
+        this.accountservice.getOpslag('currentUser').username = account.username;
       },
             
       () =>
         alert('This E-mail is unknown to us'),
       () => {
-        alert('Your username is: ' + this.accountservice.accountOpslag.username +'\n'+ 'Your password is: ' + this.accountservice.accountOpslag.password);
+        alert('Your username is: ' + this.accountservice.getOpslag('currentUser').username +'\n'+ 'Your password is: ' + this.accountservice.getOpslag('currentUser').password);
 
       }
        
