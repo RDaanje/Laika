@@ -23,11 +23,10 @@ const routes: Routes = [
 {path: "shop", component: ShopComponent},
 {path: "**", redirectTo: "home"}
 
-
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
