@@ -15,8 +15,8 @@ export class Account {
     zipcode: string;
     city: string;   
 
-    euro: number;
-    coins: number;
+    // euro: number;
+    // coins: number;
 
     wallet: Wallet;
     

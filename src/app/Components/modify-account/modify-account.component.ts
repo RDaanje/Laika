@@ -17,16 +17,15 @@ export class ModifyAccountComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.accountservice.accountOpslag);
-     this.accountservice.accountOpslag = this.accountservice.accountOpslag;
+    console.log(localStorage.getOpslag('currentUser'));
+    localStorage.getOpslag('currentUser');
   
   }
 
   changeInfo() {
-    this.accountservice.updateAccount(this.accountservice.accountOpslag).subscribe(
+    this.accountservice.updateAccount(localStorage.getOpslag('currentUser')).subscribe(
       (account: Account) => {
-        this.accountservice.accountOpslag = account;
-
+        localStorage.getOpslag('currentUser', account);
       }
 
     )
