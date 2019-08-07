@@ -10,16 +10,28 @@ export class AccountService {
 
   public currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
-  
+  public userName: string;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  ngonInit()  {
+    
+  }
+
   constructor(public http: HttpClient) { 
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-  
+    this.username();
+  }
+
+  public username() {
+    if (this.getOpslag('currentUser') != null) {
+      this.userName = this.getOpslag('currentUser').username;
+    } else{
+      this.userName = "";
+    }    
   }
 
   public get currentUserValue() {
@@ -29,6 +41,7 @@ export class AccountService {
   public logOut() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.username();
   
   }
 

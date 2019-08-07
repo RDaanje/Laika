@@ -12,9 +12,12 @@ import { Account } from 'src/app/domain/account';
 export class WalletComponent implements OnInit {
 
   euroForm;
+  localAccount: Account = new Account();
 
   constructor(private accountservice: AccountService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder) {
+      this.localAccount = this.accountservice.getOpslag('currentUser');
+     }
 
   ngOnInit() {
     this.euroForm = this.formBuilder.group({
@@ -25,9 +28,9 @@ export class WalletComponent implements OnInit {
   }
 
   addEuro(euro: number) {
-    console.log('check: '+this.accountservice.getOpslag('currentUser').wallet.euro);
-    this.accountservice.getOpslag('currentUser').wallet.euro = euro;
-    console.log('check: '+this.accountservice.getOpslag('currentUser').wallet.euro);
+    console.log('check: '+this.localAccount.wallet.euro);
+    this.localAccount.wallet.euro = euro;
+    console.log('check: '+this.localAccount.wallet.euro);
     
   }
 
@@ -40,9 +43,10 @@ export class WalletComponent implements OnInit {
     }
     this.addEuro(a);
     console.log(this.accountservice.getOpslag('currentUser'));
-    this.accountservice.addMoney(this.accountservice.getOpslag('currentUser')).subscribe(
+    this.accountservice.addMoney(this.localAccount).subscribe(
       (account: Account) => {
         this.accountservice.setOpslag('currentUser', account);
+        console.log(this.accountservice.getOpslag('currentUser'));
       }
     )
   }
