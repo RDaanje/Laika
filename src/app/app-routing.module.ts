@@ -19,7 +19,6 @@ const routes: Routes = [
 {path: "modify-account", component: ModifyAccountComponent },
 {path: "product", component: ProductComponent},
 {path: "game", component: GameComponent},
-
 {path: "logout", component: SignoutComponent},
 {path: "shop", component: ShopComponent},
 {path: "**", redirectTo: "home"}
@@ -28,7 +27,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

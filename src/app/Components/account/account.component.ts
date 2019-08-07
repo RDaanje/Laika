@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Account } from '../../domain/account';
 import { AccountService } from '../../service/account.service';
-import { Router } from '@angular/router'
+import { Router} from '@angular/router'
 
 
 @Component({
@@ -18,7 +18,7 @@ export class AccountComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+    
   }
 
   goToChangeAccount() {
@@ -44,10 +44,10 @@ export class AccountComponent implements OnInit {
 
 
   createAccount() {   
-
+    console.log('in create acount');
     this.accountservice.createAccount(this.accountservice.accountOpslag).subscribe(
       (accountvandatabase : Account) => 
-      {
+      {            
       this.accountservice.accountOpslag = accountvandatabase;
       }
 
