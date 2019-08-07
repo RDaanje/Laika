@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit {
         (account: Account) => {
           this.accountservice.setOpslag('currentUser', account);
           this.accountservice.currentUserSubject.next(account);
+          this.accountservice.username();
         },
         () =>
           alert("The username and/or password you provided are unknown to us"),

@@ -12,20 +12,22 @@ import { Account } from '../../domain/account';
 })
 export class ModifyAccountComponent implements OnInit {
 
+  localAccount: Account = new Account();
+
   constructor(private accountservice: AccountService, private router: Router) {
-   
+   this.localAccount = this.accountservice.getOpslag('currentUser');
   }
 
   ngOnInit() {
-    console.log(localStorage.getOpslag('currentUser'));
-    localStorage.getOpslag('currentUser');
   
   }
 
   changeInfo() {
-    this.accountservice.updateAccount(localStorage.getOpslag('currentUser')).subscribe(
+
+    this.accountservice.updateAccount(this.localAccount).subscribe(
       (account: Account) => {
-        localStorage.getOpslag('currentUser', account);
+        console.log(this.accountservice.getOpslag('currentUser'));
+        this.accountservice.setOpslag('currentUser', account);
       }
 
     )

@@ -21,6 +21,7 @@ export class AppComponent {
 
   logOut()  { 
     console.log( 'logging out');
+    
     this.accountservice.logOut();
     this.router.navigate(['/home']);
   }
