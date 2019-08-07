@@ -25,7 +25,7 @@ export class ShopComponent implements OnInit {
       {
    
         this.products = products;
-
+        this.accountservice.accountOpslag= this.accountservice.accountOpslag;
       }
     )
     }
@@ -40,5 +40,7 @@ export class ShopComponent implements OnInit {
         }
       )
     }
+
+
   
   }
