@@ -19,8 +19,6 @@ export class Account {
     coins: number;
 
     wallet: Wallet;
-
-    signedIn: boolean;
     
     // get Firstname(): string {
     //     return this.firstname;
