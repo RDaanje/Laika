@@ -30,6 +30,10 @@ export class ShopComponent implements OnInit {
     )
     }
 
+    show(){
+      this.accountservice.accountOpslag.cart.productArray;
+    }
+
     addToCart(productInvoer: Product){
       console.log(productInvoer);  
       this.accountservice.addToCart(productInvoer,this.accountInvoer).subscribe(
@@ -40,5 +44,7 @@ export class ShopComponent implements OnInit {
         }
       )
     }
+
+
   
   }
