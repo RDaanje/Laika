@@ -43,17 +43,21 @@ export class RegisterComponent implements OnInit {
 
 
     this.accountservice.createAccount(this.accountservice.accountOpslag).subscribe(
-      (accountvandatabase: Account) => 
-        this.accountservice.accountOpslag = accountvandatabase,
+      (accountvandatabase: Account) =>  {       
+        this.accountservice.accountOpslag = accountvandatabase;
+        this.accountservice.signedIn = true;
+      },        
       (error: HttpErrorResponse) => { 
         if (error.status == 409){         
-          alert(`This username is already taken!`);
+          alert(`This username is already taken!`);          
         } else if (error.status == 302) {
           alert(`This e-mail is already registered!`);
         }
       },         
-      () =>
-        this.router.navigate(['account'])
+      () => {        
+        this.router.navigate(['account']);        
+      }
+        
     )    
   }
 

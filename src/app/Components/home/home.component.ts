@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       this.accountservice.checkAccount(this.accountservice.accountOpslag).subscribe(
         (account: Account) => {
           this.accountservice.accountOpslag = account;
-          this.accountservice.accountOpslag.signedIn = true;
+          this.accountservice.signedIn = true;
         },
         () =>
           alert("The username and/or password you provided are unknown to us"),

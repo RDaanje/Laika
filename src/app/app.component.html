@@ -17,7 +17,7 @@
 
 <div class="navbar">
     <div class="dropdown">
-        <button class="dropbtn"> <i class="fa fa-user"></i> Account
+        <button class="dropbtn"> <i class="fa fa-user"></i> {{accountservice.accountOpslag.username}}
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
@@ -27,6 +27,8 @@
         </div>
         <a href="#cart"><i class="fa fa-shopping-cart"></i></a>
         <a [routerLink]="['shop']">Shop</a>
-   
+   </div>
+</div>
 
 <router-outlet></router-outlet>
+{{accountservice.signedIn}}

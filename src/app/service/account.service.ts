@@ -8,8 +8,9 @@ import { Account } from '../domain/account';
 })
 export class AccountService {
 
-
+  localStorage
   public accountOpslag: Account = new Account();
+  // @localStorage accounts: Account = new Account();
   public signedIn : boolean = false;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,11 +18,35 @@ export class AccountService {
 
   constructor(public http: HttpClient) { }
 
+  set(key: string, data: any): void {
+    console.log('in set account');
+
+    try {
+      console.log('in localstorage')
+      localStorage.setItem(key, JSON.stringify(data));
+    } catch (e) {
+      console.error('Error saving to localStorage', e);
+    }
+  }
+  
+  get(key: string) {
+    try {
+      console.log('from localstorage')
+      return JSON.parse(localStorage.getItem(key));
+    } catch (e) {
+      console.error('Error getting data from localStorage', e);
+      return null;
+    }
+  }
+
+
   public retrieveAll(): Observable<Account[]> {
     return this.http.get<Account[]>(`http://localhost:8080/api/account/get`);
   }
 
   public checkAccount(account: Account): Observable<Account> {
+    this.set(account.username, account);
+    console.log(this.get(account.username)+ 'opgeslagen');
     return this.http.get<Account>(`http://localhost:8080/api/account/get/${account.username}/${account.password}`);
   }
 
@@ -35,6 +60,7 @@ export class AccountService {
   }
 
   public createAccount(account: Account): Observable<Account> {
+    console.log('')
     console.log(`http://localhost:8080/api/account/create`, account, this.httpOptions);
     return this.http.post<Account>(`http://localhost:8080/api/account/create`, account, this.httpOptions);
   }

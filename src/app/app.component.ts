@@ -15,7 +15,7 @@ export class AppComponent {
   }
 
 signedIn()  {
-    return this.accountservice.accountOpslag.signedIn;
+    return this.accountservice.signedIn;
   }
 }
 
