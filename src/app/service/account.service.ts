@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable, Subject } from 'rxjs';
+import { Observable} from 'rxjs';
 import { Account } from '../domain/account';
 
 @Injectable({
@@ -9,8 +9,8 @@ import { Account } from '../domain/account';
 export class AccountService {
 
 
-  public accountOpslag : Account = new Account();
-
+  public accountOpslag: Account = new Account();
+  public signedIn : boolean = false;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -21,40 +21,35 @@ export class AccountService {
     return this.http.get<Account[]>(`http://localhost:8080/api/account/get`);
   }
 
-  public checkAccount(account : Account): Observable<Account> {
+  public checkAccount(account: Account): Observable<Account> {
     return this.http.get<Account>(`http://localhost:8080/api/account/get/${account.username}/${account.password}`);
   }
 
-  public setAccount(account: Account): Observable<Account>{
-    return this.http.post<Account>(`http://localhost:8080/api/account/create`, account, this.httpOptions);
+  public forgotInfo(account: Account): Observable<Account> {
+    return this.http.get<Account>(`http://localhost:8080/api/account/forgot/${account.email}`);
   }
 
-  public retrieveOne(account : Account): Observable<Account> {
+  public retrieveOne(account: Account): Observable<Account> {
     return this.http.get<Account>(`http://localhost:8080/api/account/${account.id}`);
-    
+
   }
 
-  public createAccount(account : Account): Observable<Account> {
+  public createAccount(account: Account): Observable<Account> {
     console.log(`http://localhost:8080/api/account/create`, account, this.httpOptions);
     return this.http.post<Account>(`http://localhost:8080/api/account/create`, account, this.httpOptions);
   }
-  
-  public updateAccount(account : Account): Observable<Account> {
+
+  public updateAccount(account: Account): Observable<Account> {
     return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/update`, account, this.httpOptions);
   }
 
-  public changeEmail(account : Account): Observable<Account> {
-    
+  public changeEmail(account: Account): Observable<Account> {
     return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/${account.email}`, account, this.httpOptions);
   }
 
-public forgotInfo(account : Account): Observable<Account> {
-  return this.http.get<Account>(`http://localhost:8080/api/account/forgot/${account.email}`);
-}
-
+  public addMoney(account: Account): Observable<Account>  {
+    return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/wallet/${account.euro}`, account, this.httpOptions);
   }
 
-
-
-
-
+  
+}

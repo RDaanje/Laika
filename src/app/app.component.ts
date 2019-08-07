@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-
+import { AccountService } from './service/account.service';
 
 
 @Component({
@@ -10,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Laika';  
+  
+  constructor(private accountservice: AccountService) {
+  
+  }
+
+signedIn()  {
+    return this.accountservice.accountOpslag.signedIn;
+  }
 }
+
+

@@ -11,8 +11,9 @@ import { RegisterComponent } from './Components/register/register.component';
 import { ModifyAccountComponent } from './Components/modify-account/modify-account.component';
 import { ProductComponent } from './Components/product/product.component';
 import { GameComponent } from './Components/game/game.component';
+import { SignoutComponent } from './Components/signout/signout.component';
+import { WalletComponent } from './Components/wallet/wallet.component';
 import { ShopComponent } from './Components/shop/shop.component';
-
 
 
 
@@ -25,11 +26,11 @@ import { ShopComponent } from './Components/shop/shop.component';
     ModifyAccountComponent,
     ProductComponent,
     GameComponent,
+    SignoutComponent,
+    WalletComponent, 
     ShopComponent
 
-      
-
-   
+    
   ],
   imports: [
     BrowserModule,
@@ -43,3 +44,4 @@ import { ShopComponent } from './Components/shop/shop.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

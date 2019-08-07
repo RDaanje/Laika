@@ -1,3 +1,4 @@
+import { Wallet } from './wallet';
 
 export class Account {
     id : number;
@@ -17,6 +18,10 @@ export class Account {
     euro: number;
     coins: number;
 
+    wallet: Wallet;
+
+    signedIn: boolean;
+    
     // get Firstname(): string {
     //     return this.firstname;
     // }
