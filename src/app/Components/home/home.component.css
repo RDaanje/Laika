@@ -1,4 +1,4 @@
-Header & navigatiebar & grid (voor iedere pagina)
+/* Header & navigatiebar & grid (voor iedere pagina) */
 
 .Main { grid-area: main; }
 .Right { grid-area: right; }
@@ -7,7 +7,7 @@ Header & navigatiebar & grid (voor iedere pagina)
 .grid-container {
   display: grid;
   grid-template-areas:
-    'main main main main main right right'
+    'main main main main right right'
     'footer footer footer footer footer footer';
   grid-gap: 10px;
   padding: 10px;
@@ -169,22 +169,22 @@ Header & navigatiebar & grid (voor iedere pagina)
   }
   
   /*Select every element*/
-  /* [id^="item"] {
+  [id^="item"] {
       display: none;
-    } */
+    }
   
-  /* .item-1 {
+  .item-1 {
       z-index: 2;
       opacity: 1;
-    background:url('src/assets/images/LaikaLogoDog.png');
+    background:url('/assets/images/LaikaLogoDog.png');
     background-size: cover;
     }
   .item-2{
-    background:url('src/assets/images/Bert.jpg');
+    background:url('/assets/images/Bert.jpg');
      background-size:cover;
   }
   .item-3{
-    background:url('src/assets/images/LaikaLogo.png');
+    background:url('/assets/images/LaikaLogo.png');
      background-size:cover;
   }
   
@@ -199,6 +199,5 @@ Header & navigatiebar & grid (voor iedere pagina)
   #item-2:target ~ .item-2, #item-3:target ~ .item-3 {
       z-index: 3;
       opacity: 1;
-    } */
+    }
     /* End Slideshow */
-  
