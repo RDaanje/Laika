@@ -13,6 +13,8 @@ export class AccountService {
   public currentUser: Observable<any>;
   public userName: string;
 
+  accountOpslag: Account = this.getOpslag('currentUser');
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -102,4 +104,8 @@ export class AccountService {
     return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/cart`, product, this.httpOptions);
   }
   
+  public getItemsCart(account : Account): Observable<Product[]> {
+    return this.http.get<Product[]>(`http://localhost:8080/api/account/${account.id}/cart`);
+  }
+
 }
