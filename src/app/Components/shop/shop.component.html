@@ -1,0 +1,28 @@
+<h1>Shop for Laika!</h1>
+
+<div class="grid-container">
+<table>
+<tr *ngFor ='let product of products'>
+    <td>
+                {{product.name}}
+                <br>
+                <br>
+                Itemnr.{{product.id}}<p><img src="assets/images/Bert.jpg" alt="Item 1" width=30% height=30%></p>
+              
+            </td>
+                <br>
+                <td>
+                                    Quantity:
+                                    {{product.stock}}
+                                    <br>
+                                    <br>
+                                    Supplier:
+                                    {{product.supplier}}
+                                    <br>
+                                    <br>
+                                    <button class="button" (click)="addToCart(product)">Add to cart</button>          
+                                    <br>
+                                    <br>
+                            </td>
+    </tr>
+</table>

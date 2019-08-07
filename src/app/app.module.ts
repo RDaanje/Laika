@@ -1,14 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
  
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
-import { AccountComponent } from './account/account.component';
-import { RegisterComponent } from './register/register.component';
-import { ModifyAccountComponent } from './modify-account/modify-account.component';
+import { HomeComponent } from './Components/home/home.component';
+import { AccountComponent } from './Components/account/account.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { ModifyAccountComponent } from './Components/modify-account/modify-account.component';
+import { ProductComponent } from './Components/product/product.component';
+import { GameComponent } from './Components/game/game.component';
+import { SignoutComponent } from './Components/signout/signout.component';
+import { WalletComponent } from './Components/wallet/wallet.component';
+import { ShopComponent } from './Components/shop/shop.component';
+import { ShopcartComponent } from './Components/shopcart/shopcart.component';
+import { ProductRegisterComponent } from './Components/product-register/product-register.component';
 
 
 
@@ -18,18 +25,25 @@ import { ModifyAccountComponent } from './modify-account/modify-account.componen
     RegisterComponent,    
     HomeComponent,    
     AccountComponent,
-    ModifyAccountComponent   
+    ModifyAccountComponent,
+    ProductComponent,
+    GameComponent,
+    SignoutComponent,
+    WalletComponent, 
+    ShopComponent, ShopcartComponent, ProductRegisterComponent
 
-   
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

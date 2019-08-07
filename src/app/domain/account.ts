@@ -1,3 +1,5 @@
+import { Wallet } from './wallet';
+import { Cart } from './cart';
 
 export class Account {
     id : number;
@@ -17,36 +19,52 @@ export class Account {
     euro: number;
     coins: number;
 
+    wallet: Wallet;
+    cart: Cart;
 
-    getid(): number {
+    signedIn: boolean;
+    
+    // get Firstname(): string {
+    //     return this.firstname;
+    // }
+
+    // set Firstname(firstname) {
+    //     this.firstname = firstname;
+    // }
+
+    constructor() {
+      
+    }
+
+    get Id(): number {
         return this.id;
     }
 
-    setid(id) {
+    set Id(id) {
         this.id = id;
     }
 
-    getusername(): string {
+    get Username(): string {
         return this.username;
     }
 
-    setusername(username) {
+    set Username(username) {
         this.username = username;
     }
 
-    // get password(): string {
-    //     return this._password;
-    // }
+    get Password(): string {
+        return this.password;
+    }
 
-    // set password(password) {
-    //     this.password = password;
-    // }
+    set Password(password) {
+        this.password = password;
+    }
 
-    getemail() {
+    get Email() {
         return this.email;
     }
 
-    setemail(email) {
+    set Email(email) {
         this.email = email
     }
 }

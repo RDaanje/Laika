@@ -1,0 +1,25 @@
+<p>product-register works!</p>
+
+<form [formGroup]="registerForm">
+    <pre>
+        <div>
+                <label for="ProductName">
+                    ProductName:
+                </label>
+                <input id="ProductName" name="ProductName" class="form-control" formControlName="ProductName" placeholder= "ProductName" required>
+            </div>
+            <div>
+                <label for="Supplier">
+                    Supplier:
+                </label>
+                <input id="Supplier" type="Supplier" formControlName="Supplier" placeholder= "Supplier" required>
+            </div>
+            <div>
+                <label for="Stock">
+                    Stock:
+                </label>
+                <input id="Stock" type="number" formControlName="Stock" placeholder= "Stock" required>
+                </div>
+            <button type="button" (click)="validateForm()">Submit</button>
+   </pre>
+</form>

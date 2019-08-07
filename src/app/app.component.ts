@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Account } from './domain/account';
+import { AccountService } from './service/account.service';
 
 
 @Component({
@@ -9,5 +8,15 @@ import { Account } from './domain/account';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Laika';
+  title = 'Laika';  
+  
+  constructor(private accountservice: AccountService) {
+  
+  }
+
+signedIn()  {
+    return this.accountservice.accountOpslag.signedIn;
+  }
 }
+
+
