@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable, BehaviorSubject} from 'rxjs';
 import { Account } from '../domain/account';
+import { Product } from '../domain/product';
 
 @Injectable({
   providedIn: 'root'
@@ -97,5 +98,9 @@ export class AccountService {
     return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/wallet/${account.wallet.euro}`, account, this.httpOptions);
   }
 
+  public addToCart(product : Product, account : Account): Observable<Account> {
+    console.log(product);
+    return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/cart`, product, this.httpOptions);
+  }
   
 }

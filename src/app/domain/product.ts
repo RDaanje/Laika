@@ -10,35 +10,35 @@ export class Product {
     public Product() {}
 
     
-    get Id()    {
+    getId()    {
         return this.id;
     }
 
-    set Id(id: number)  {
+    setId(id: number)  {
         this.id = id;
     }
 
-    get Name()  {
+    getName()  {
         return this.name;
     }
 
-    set Name(name: string)    {
+    setName(name: string)    {
         this.name = name;
     }
 
-    get Supplier()  {
+    getSupplier()  {
         return this.supplier;
     }
    
-    set Supplier(supplier: string)  {
+    setSupplier(supplier: string)  {
         this.supplier = supplier;
     }
 
-    get Stock()     {
+    getStock()     {
         return this.stock;
     } 
 
-    set Stock(stock: number)     {
+    setStock(stock: number)     {
         this.stock = stock
     }
    

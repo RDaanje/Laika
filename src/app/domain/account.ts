@@ -1,4 +1,5 @@
 import { Wallet } from './wallet';
+import { Cart } from './cart';
 
 export class Account {
     id : number;
@@ -19,6 +20,7 @@ export class Account {
     // coins: number;
 
     wallet: Wallet;
+    cart: Cart;
     
     // get Firstname(): string {
     //     return this.firstname;

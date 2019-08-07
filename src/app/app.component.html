@@ -17,12 +17,15 @@
 
 <div class="navbar">
     <div class="dropdown">
+
         <button class="dropbtn"> <i class="fa fa-user"></i> {{this.accountservice.userName}}
             <i class="fa fa-caret-down"></i>                
+
         </button>
         <div class="dropdown-content">
-            <a href="#">Link 1</a>
+            <a [routerLink]="['shopcart']">Cart</a>
             <a [routerLink]="['wallet']">Wallet</a>
+            <a [routerLink]="['product-register']">Update da shop</a>
             <a (click)="logOut()">Log out</a>
         </div>
         <a href="#cart"><i class="fa fa-shopping-cart"></i></a>
@@ -31,4 +34,3 @@
 </div>
 
 <router-outlet></router-outlet>
-

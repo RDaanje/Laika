@@ -42,6 +42,7 @@ export class AccountComponent implements OnInit {
     )
   }
 
+
   getAccount() {
     this.accountservice.retrieveOne(this.accountservice.getOpslag('currentUser')).subscribe(
       (account: Account) => {
