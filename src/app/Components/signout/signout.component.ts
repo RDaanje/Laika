@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/service/account.service';
 import { Router } from '@angular/router';
-import { AppComponent } from 'src/app/app.component';
-import { Account } from 'src/app/domain/account';
+
 
 @Component({
   selector: 'app-signout',
@@ -13,17 +12,18 @@ export class SignoutComponent implements OnInit {
 
   constructor(
     private accountservice: AccountService,
-    private router: Router,
-    private app: AppComponent) { }
+    private router: Router) { }
 
   ngOnInit() {
-    this.logOut();
+    // this.logOut();
   }
 
-  logOut()  {   
-    this.accountservice.accountOpslag = new Account();
-    this.router.navigate(['home']);
+  // logOut()  { 
+  //   localStorage.removeItem('currentUser');
+  //   console.log(localStorage.length);
+  //   this.accountservice.currentUserSubject.next(null);
+  //   this.router.navigate(['/logged-out']);
     
-  }
+  // }
 
 }

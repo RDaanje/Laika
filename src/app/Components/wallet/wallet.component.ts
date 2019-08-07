@@ -25,20 +25,10 @@ export class WalletComponent implements OnInit {
   }
 
   addEuro(euro: number) {
-    if (this.accountservice.accountOpslag.euro >= 0)  	{
-      this.accountservice.accountOpslag.euro = this.accountservice.accountOpslag.euro + euro;
-    }
-    else {
-      this.accountservice.accountOpslag.euro = euro
-    }
-  }
-
-  addCoins(coins: number) {
-    if (this.accountservice.accountOpslag.coins >= 0)
-      this.accountservice.accountOpslag.coins = this.accountservice.accountOpslag.coins + coins;
-    else {
-      this.accountservice.accountOpslag.coins = coins
-    }
+    console.log('check: '+this.accountservice.getOpslag('currentUser').wallet.euro);
+    this.accountservice.getOpslag('currentUser').wallet.euro = euro;
+    console.log('check: '+this.accountservice.getOpslag('currentUser').wallet.euro);
+    
   }
 
   validateForm() {
@@ -49,10 +39,10 @@ export class WalletComponent implements OnInit {
       return false;
     }
     this.addEuro(a);
-   
-    this.accountservice.addMoney(this.accountservice.accountOpslag).subscribe(
+    console.log(this.accountservice.getOpslag('currentUser'));
+    this.accountservice.addMoney(this.accountservice.getOpslag('currentUser')).subscribe(
       (account: Account) => {
-        this.accountservice.accountOpslag = account;
+        this.accountservice.setOpslag('currentUser', account);
       }
     )
   }

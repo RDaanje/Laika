@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable} from 'rxjs';
+import { Observable, BehaviorSubject} from 'rxjs';
 import { Account } from '../domain/account';
 
 @Injectable({
@@ -8,45 +8,54 @@ import { Account } from '../domain/account';
 })
 export class AccountService {
 
-  localStorage
-  public accountOpslag: Account = new Account();
-  // @localStorage accounts: Account = new Account();
-  public signedIn : boolean = false;
+  public currentUserSubject: BehaviorSubject<any>;
+  public currentUser: Observable<any>;
+  
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient) { 
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  
+  }
 
-  set(key: string, data: any): void {
+  public get currentUserValue() {
+    return this.currentUserSubject.value;
+  } 
+
+  public logOut() {
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+  
+  }
+
+  public setOpslag(key: string, data: any): void {
     console.log('in set account');
-
     try {
-      console.log('in localstorage')
       localStorage.setItem(key, JSON.stringify(data));
     } catch (e) {
       console.error('Error saving to localStorage', e);
     }
   }
   
-  get(key: string) {
-    try {
-      console.log('from localstorage')
+  public getOpslag(key: string) {
+    try { 
       return JSON.parse(localStorage.getItem(key));
     } catch (e) {
       console.error('Error getting data from localStorage', e);
       return null;
     }
-  }
-
+  }       
 
   public retrieveAll(): Observable<Account[]> {
     return this.http.get<Account[]>(`http://localhost:8080/api/account/get`);
   }
 
   public checkAccount(account: Account): Observable<Account> {
-    this.set(account.username, account);
-    console.log(this.get(account.username)+ 'opgeslagen');
+    
     return this.http.get<Account>(`http://localhost:8080/api/account/get/${account.username}/${account.password}`);
   }
 
@@ -56,11 +65,9 @@ export class AccountService {
 
   public retrieveOne(account: Account): Observable<Account> {
     return this.http.get<Account>(`http://localhost:8080/api/account/${account.id}`);
-
   }
 
   public createAccount(account: Account): Observable<Account> {
-    console.log('')
     console.log(`http://localhost:8080/api/account/create`, account, this.httpOptions);
     return this.http.post<Account>(`http://localhost:8080/api/account/create`, account, this.httpOptions);
   }
@@ -74,7 +81,7 @@ export class AccountService {
   }
 
   public addMoney(account: Account): Observable<Account>  {
-    return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/wallet/${account.euro}`, account, this.httpOptions);
+    return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/wallet/${account.wallet.euro}`, account, this.httpOptions);
   }
 
   

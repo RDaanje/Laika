@@ -1,22 +1,22 @@
 <div style="text-align: left">
     <pre>
-            Firstname: <input type="text" id="firstname" [(ngModel)]="accountservice.accountOpslag.firstname">
+            Firstname: <input type="text" id="firstname" [(ngModel)]="localStorage.getOpslag('currentUser').firstname">
 
-            Lastname: <input type="text" id="lastname" [(ngModel)]="accountservice.accountOpslag.lastname">
+            Lastname: <input type="text" id="lastname" [(ngModel)]="localStorage.getOpslag('currentUser').lastname">
         
-            Username: <input type="text" id="username" [(ngModel)]="accountservice.accountOpslag.username">
+            Username: <input type="text" id="username" [(ngModel)]="localStorage.getOpslag('currentUser').username">
         
-            Password: <input type="text" id="password" [(ngModel)]="accountservice.accountOpslag.password">
+            Password: <input type="text" id="password" [(ngModel)]="localStorage.getOpslag('currentUser').password">
         
-            E-mail: <input type="text" id="email" [(ngModel)]="accountservice.accountOpslag.email">
+            E-mail: <input type="text" id="email" [(ngModel)]="localStorage.getOpslag('currentUser').email">
         
-            Street: <input type="text" id="street" [(ngModel)]="accountservice.accountOpslag.street">
+            Street: <input type="text" id="street" [(ngModel)]="localStorage.getOpslag('currentUser').street">
         
-            House number: <input type="text" id="houseNumber" [(ngModel)]="accountservice.accountOpslag.houseNumber">
+            House number: <input type="text" id="houseNumber" [(ngModel)]="localStorage.getOpslag('currentUser').houseNumber">
         
-            Zipcode: <input type="text" id="zipcode" [(ngModel)]="accountservice.accountOpslag.zipcode">
+            Zipcode: <input type="text" id="zipcode" [(ngModel)]="localStorage.getOpslag('currentUser').zipcode">
         
-            City: <input type="text" id="city" [(ngModel)]="accountservice.accountOpslag.city">
+            City: <input type="text" id="city" [(ngModel)]="localStorage.getOpslag('currentUser').city">
 
             <button (click)="changeInfo()" >Submit</button>
             
