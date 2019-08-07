@@ -1,12 +1,14 @@
 import { Product } from './product';
+import { ProductService } from '../service/product.service';
 
 export class Cart {
 
-constructor(public productArray : Product[]){
+id: number;
+products: Product[];
+// product: Blob;
+
+constructor(){
 }
 
-addProduct(productInput : Product){
-this.productArray.push(productInput);
 }
 
-}

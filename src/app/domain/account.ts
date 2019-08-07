@@ -16,19 +16,8 @@ export class Account {
     zipcode: string;
     city: string;   
 
-    // euro: number;
-    // coins: number;
-
     wallet: Wallet;
     cart: Cart;
-    
-    // get Firstname(): string {
-    //     return this.firstname;
-    // }
-
-    // set Firstname(firstname) {
-    //     this.firstname = firstname;
-    // }
 
     constructor() {
       

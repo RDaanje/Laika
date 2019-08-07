@@ -15,30 +15,36 @@ export class ShopComponent implements OnInit {
   private product = new Product();
   private router: Router;
 
-  accountInvoer = this.accountservice.accountOpslag;
+  accountInvoer: Account = new Account();
 
   constructor(private productservice: ProductService, private accountservice: AccountService) { }
 
   ngOnInit() {
+    this.accountInvoer = this.accountservice.getOpslag('currentUser');
+    console.log(this.accountInvoer);
     this.productservice.retrieveAll().subscribe(
       (products: Product[]) => 
-      {
-   
+      {   
         this.products = products;
-
       }
     )
     }
 
     addToCart(productInvoer: Product){
-      console.log(productInvoer);  
       this.accountservice.addToCart(productInvoer,this.accountInvoer).subscribe(
 
         (account: Account) =>
         {
-          this.accountservice.accountOpslag = account;
+          // this.accountInvoer.cart.products.push(account.cart.product);
+          this.accountservice.setOpslag('currentUser', account);
+          console.log('lokaal: ' +this.accountInvoer);
+          this.accountInvoer = this.accountservice.getOpslag('currentUser');
+          console.log(this.accountservice.getOpslag('currentUser'));
+          console.log('lokaal: ' +this.accountInvoer);
         }
       )
-    }
+    } 
+
+    
   
   }

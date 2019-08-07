@@ -14,7 +14,7 @@ export class ShopcartComponent implements OnInit {
   ngOnInit() {
   }
 
-  addProductToCart(product: Product) {
-      this.accountservice.accountOpslag.cart.addProduct(product)
-}
+//   addProductToCart(product: Product) {
+//       this.accountservice.accountOpslag.cart.addProduct(product)
+// }  Gemaakt, maar functionaliteit onzeker. Moet gecheckt worden
 }

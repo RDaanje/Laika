@@ -99,7 +99,6 @@ export class AccountService {
   }
 
   public addToCart(product : Product, account : Account): Observable<Account> {
-    console.log(product);
     return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/cart`, product, this.httpOptions);
   }
   
