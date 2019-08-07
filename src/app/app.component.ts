@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AccountService } from './service/account.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -9,14 +11,22 @@ import { AccountService } from './service/account.service';
 })
 export class AppComponent {
   title = 'Laika';  
-  
-  constructor(private accountservice: AccountService) {
-  
+  currentUser: any;
+  username: string;
+
+  constructor(private accountservice: AccountService, private router: Router) {
+    this.accountservice.currentUser.subscribe(x => this.currentUser = x);
   }
 
-signedIn()  {
-    return this.accountservice.accountOpslag.signedIn;
+
+  logOut()  { 
+    console.log( 'logging out');
+    
+    this.accountservice.logOut();
+    this.router.navigate(['/home']);
   }
+
+  
 }
 
 

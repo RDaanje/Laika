@@ -7,7 +7,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,11 +16,14 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class RegisterComponent implements OnInit {
 
   registerForm;
+  currentUser: any;
+
+  lokaalVar: Account = new Account();
 
   constructor(public accountservice: AccountService, 
     private router: Router, 
     private formBuilder: FormBuilder) {
-
+      this.accountservice.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngOnInit() {
@@ -37,23 +39,29 @@ export class RegisterComponent implements OnInit {
   }
 
   createAccount(newUsername: string, newPassword: string, newEmail: string) {
-    this.accountservice.accountOpslag.username = newUsername;
-    this.accountservice.accountOpslag.password = newPassword;
-    this.accountservice.accountOpslag.email = newEmail;
+    this.lokaalVar.username = newUsername;
+    this.lokaalVar.password = newPassword;
+    this.lokaalVar.email = newEmail;
 
 
-    this.accountservice.createAccount(this.accountservice.accountOpslag).subscribe(
-      (accountvandatabase: Account) => 
-        this.accountservice.accountOpslag = accountvandatabase,
+    this.accountservice.createAccount(this.lokaalVar).subscribe(
+      (accountvandatabase: Account) =>  {       
+        this.accountservice.setOpslag('currentUser', accountvandatabase);
+        this.accountservice.username();
+        // this.accountservice.currentUserSubject.next(accountvandatabase);
+        
+      },        
       (error: HttpErrorResponse) => { 
         if (error.status == 409){         
-          alert(`This username is already taken!`);
+          alert(`This username is already taken!`);          
         } else if (error.status == 302) {
           alert(`This e-mail is already registered!`);
         }
       },         
-      () =>
-        this.router.navigate(['account'])
+      () => {        
+        this.router.navigate(['account']);        
+      }
+        
     )    
   }
 

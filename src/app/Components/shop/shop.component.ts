@@ -25,13 +25,9 @@ export class ShopComponent implements OnInit {
       {
    
         this.products = products;
-
+        this.accountservice.accountOpslag= this.accountservice.accountOpslag;
       }
     )
-    }
-
-    show(){
-      this.accountservice.accountOpslag.cart.productArray;
     }
 
     addToCart(productInvoer: Product){
