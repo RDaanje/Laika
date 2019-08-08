@@ -20,7 +20,7 @@ export class AccountService {
   };
 
   ngonInit()  {
-    this.accountOpslag = this.getOpslag('currentUser')
+    // this.accountOpslag = this.getOpslag('currentUser')
   }
 
   constructor(public http: HttpClient) { 
