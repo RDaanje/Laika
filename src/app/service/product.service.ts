@@ -28,4 +28,7 @@ export class ProductService {
   public createProduct(product : Product): Observable<Product> {
     return this.http.post<Product>(`http://localhost:8080/api/product/create`, product, this.httpOptions);
   }
+  public deleteProduct(product: Product): Observable<void> {
+    return this.http.delete<void>(`http://localhost:8080/api/product/delete/${product.id}`, this.httpOptions);
+  }
 }

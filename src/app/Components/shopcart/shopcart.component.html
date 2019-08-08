@@ -1,1 +1,12 @@
 <p>shopcart works!</p>
+       
+<tr *ngFor ='let cartlong of this.accountservice.accountOpslag.cart.productsFromCart'>
+        {{cartlong}}
+        <br>
+        <br>
+        <button class="button" (click)="deleteProductFromCart(product)">Delete product</button>  
+        <br>        
+        <br>
+                                    
+</tr>
+
