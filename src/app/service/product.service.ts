@@ -25,6 +25,12 @@ export class ProductService {
     
   }
 
+  public retrieveOneWithLong(longInput : Number): Observable<Product> {
+    // console.log(this.http.get<Product>(`http://localhost:8080/api/product/get/${longInput}`));
+    return this.http.get<Product>(`http://localhost:8080/api/product/get/${longInput}`);
+    
+  }
+
   public createProduct(product : Product): Observable<Product> {
     return this.http.post<Product>(`http://localhost:8080/api/product/create`, product, this.httpOptions);
   }
