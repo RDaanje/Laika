@@ -1,35 +1,40 @@
 <!-- Header & navigatiebar (voor iedere pagina) -->
 <div class="header"></div>
-<!-- <div [hidden]= !signedIn()>
+<div [hidden]=!this.accountservice.currentUserValue>
     <a [routerLink]="['account']">
         <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
     </a>
-</div> -->
+</div>
 
-
+<div [hidden]=this.accountservice.currentUserValue>
     <a [routerLink]="['home']">
         <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
     </a>
-
+</div>
 
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="navbar">
+    <a [routerLink]="['shopcart']"><i class="fa fa-shopping-cart"></i></a>
+    <a [routerLink]="['shop']">Shop</a>
     <div class="dropdown">
 
         <button class="dropbtn"> <i class="fa fa-user"></i> {{this.accountservice.userName}}
-            <i class="fa fa-caret-down"></i>                
+            <i class="fa fa-caret-down"></i>
 
         </button>
         <div class="dropdown-content">
+            <a [routerLink]="['account']">Account info</a>
             <a [routerLink]="['shopcart']">Cart</a>
             <a [routerLink]="['wallet']">Wallet</a>
-            <a [routerLink]="['product-register']">Update da shop</a>
+            <a [routerLink]="['admin/product-register']">Update da shop</a>
             <a (click)="logOut()">Log out</a>
         </div>
-        <a [routerLink]="['shopcart']"><i class="fa fa-shopping-cart"></i></a>
-        <a [routerLink]="['shop']">Shop</a>
-   </div>
+
+    </div>
+
 </div>
+
 <router-outlet></router-outlet>
+

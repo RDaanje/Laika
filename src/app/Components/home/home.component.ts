@@ -17,18 +17,13 @@ export class HomeComponent implements OnInit {
     public accountservice: AccountService,
     private router: Router) { 
 
-      if (this.accountservice.currentUserValue) { 
-        this.router.navigate(['/account']);
-
-    }
+      // if (this.accountservice.currentUserValue) { 
+      //   this.router.navigate(['/account']);
+    // }
     }
 
   ngOnInit() {
     
-      this.accountservice.getOpslag('currentUser');
-    
-    
-
   }
 
   checkAccount(usernameInput: string, passwordInput: string) {
@@ -42,6 +37,9 @@ export class HomeComponent implements OnInit {
         (account: Account) => {
           this.accountservice.setOpslag('currentUser', account);
           this.accountservice.currentUserSubject.next(account);
+          this.accountservice.accountOpslag =  this.accountservice.getOpslag('currentUser');
+          console.log(this.accountservice.accountOpslag);
+
           this.accountservice.username();
         },
         () =>
@@ -51,9 +49,6 @@ export class HomeComponent implements OnInit {
         }
         
       )
-      // console.log('controle: ' + this.accountservice.getOpslag('currentUser'));
-      // console.log('controle: ' + this.accountservice.getOpslag('currentUser').username);
-      // console.log('controle: ' + this.accountservice.getOpslag('currentUser').password);
     }
     else {
       alert("The username and/or password you provided are unknown to us")
@@ -63,18 +58,17 @@ export class HomeComponent implements OnInit {
 
 
   forgotInfo(emailInput: string) {
-    this.accountservice.getOpslag('currentUser').email = emailInput;    
-    this.accountservice.forgotInfo(this.accountservice.getOpslag('currentUser')).subscribe(
+    this.lokaalVar.email = emailInput;    
+    this.accountservice.forgotInfo(this.lokaalVar).subscribe(
       (account: Account) => {
-        this.accountservice.getOpslag('currentUser').password = account.password;
-        this.accountservice.getOpslag('currentUser').username = account.username;
-      },
-            
-      () =>
-        alert('This E-mail is unknown to us'),
+        this.accountservice.accountOpslag.password = account.password;
+        this.accountservice.accountOpslag.username = account.username;
+      },            
       () => {
-        alert('Your username is: ' + this.accountservice.getOpslag('currentUser').username +'\n'+ 'Your password is: ' + this.accountservice.getOpslag('currentUser').password);
-
+        alert('This E-mail is unknown to us');
+      },
+      () => {
+        alert('Your username is: ' + this.accountservice.accountOpslag.username +'\n'+ 'Your password is: ' + this.accountservice.accountOpslag.password);
       }
        
     )

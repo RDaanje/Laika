@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 //Let op: werkt (nog) niet!
 
 ///#region Method which is defined in the JS file.
-declare function game(): any;
+declare function game();
+// declare function game2();
 //#endregion
 
 @Component({
@@ -18,7 +19,9 @@ export class GameComponent implements OnInit {
    }
 
   ngOnInit() {
+    // game2()
     game();  //JS file call
+   
   
   }
   
