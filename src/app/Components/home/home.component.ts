@@ -82,5 +82,9 @@ export class HomeComponent implements OnInit {
   revealInput() {
     this.show = !this.show;
   }
+
+  showCurrentUser(){
+  this.accountservice.getOpslag('currentUser');
+  }
 }
 
