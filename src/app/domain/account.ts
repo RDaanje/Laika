@@ -19,6 +19,8 @@ export class Account {
     wallet: Wallet;
     cart: Cart;
 
+    isAdmin: boolean;
+    
     constructor() {
       
     }
