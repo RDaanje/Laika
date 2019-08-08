@@ -20,7 +20,9 @@ export class AccountService {
   };
 
   ngonInit()  {
+
   //  this.accountOpslag = this.getOpslag('currentUser') waarschijnlijk niet functioneel. checken
+
   }
 
   constructor(public http: HttpClient) { 
