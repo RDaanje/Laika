@@ -10,7 +10,7 @@
                 <button class="button" (click) = "validateForm()">Add Euro</button>
 
                 
-                Je hebt nu {{accountservice.accountOpslag.wallet.euro}} euro!                                       
+                Je hebt nu {{accountservice.getOpslag('currentUser').wallet.euro}} euro!                                       
                 
                    
        </pre>

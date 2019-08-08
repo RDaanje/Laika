@@ -17,8 +17,8 @@ export class AccountComponent implements OnInit {
    
   }
 
-  ngOnInit() {
-    
+  ngOnInit() {  
+
   }
 
   goToChangeAccount() {
@@ -43,22 +43,10 @@ export class AccountComponent implements OnInit {
   }
 
 
-  createAccount() {   
-    console.log('in create acount');
-    this.accountservice.createAccount(this.accountservice.accountOpslag).subscribe(
-      (accountvandatabase : Account) => 
-      {            
-      this.accountservice.accountOpslag = accountvandatabase;
-      }
-
-
-    )
-  }
-
   getAccount() {
-    this.accountservice.retrieveOne(this.accountservice.accountOpslag).subscribe(
+    this.accountservice.retrieveOne(this.accountservice.getOpslag('currentUser')).subscribe(
       (account: Account) => {
-        this.accountservice.accountOpslag = account;
+        this.accountservice.setOpslag('currentUser', account);
         console.log(account);
       }
     )
@@ -66,9 +54,9 @@ export class AccountComponent implements OnInit {
 
   updateEmail() {    
 
-    this.accountservice.changeEmail(this.accountservice.accountOpslag).subscribe(
+    this.accountservice.changeEmail(this.accountservice.getOpslag('currentUser')).subscribe(
       (account: Account) => {
-      this.accountservice.accountOpslag = account;
+      this.accountservice.setOpslag('currentUser', account);
       console.log(account);
       
       }

@@ -1,4 +1,5 @@
 import { Wallet } from './wallet';
+import { Cart } from './cart';
 
 export class Account {
     id : number;
@@ -15,10 +16,11 @@ export class Account {
     zipcode: string;
     city: string;   
 
-    euro: number;
-    coins: number;
+    // euro: number;
+    // coins: number;
 
     wallet: Wallet;
+    cart: Cart;
     
     // get Firstname(): string {
     //     return this.firstname;

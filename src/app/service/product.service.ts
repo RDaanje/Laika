@@ -24,4 +24,8 @@ export class ProductService {
     return this.http.get<Product>(`http://localhost:8080/api/product/get/${product.id}`);
     
   }
+
+  public createProduct(product : Product): Observable<Product> {
+    return this.http.post<Product>(`http://localhost:8080/api/product/create`, product, this.httpOptions);
+  }
 }
