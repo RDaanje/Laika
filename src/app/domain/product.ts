@@ -5,7 +5,7 @@ export class Product {
 	private  supplier: string;
     private  stock: number;
     private  price: number;
-    private image: Blob;
+    private image: string;
     
     public Product() {}
 
@@ -48,10 +48,10 @@ export class Product {
     public set Price(value: number) {
         this.price = value;
     }
-    public get Image(): Blob {
+    public get Image(): string {
         return this.image;
     }
-    public set Image(value: Blob) {
+    public set Image(value: string) {
         this.image = value;
     }
 
