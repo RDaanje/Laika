@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable, BehaviorSubject} from 'rxjs';
+import { Observable, BehaviorSubject, VirtualTimeScheduler} from 'rxjs';
 import { Account } from '../domain/account';
 import { Product } from '../domain/product';
 
@@ -20,7 +20,7 @@ export class AccountService {
   };
 
   ngonInit()  {
-    
+    this.accountOpslag = this.getOpslag('currentUser')
   }
 
   constructor(public http: HttpClient) { 
@@ -52,6 +52,7 @@ export class AccountService {
     console.log('in set account');
     try {
       localStorage.setItem(key, JSON.stringify(data));
+      this.accountOpslag = data;
     } catch (e) {
       console.error('Error saving to localStorage', e);
     }
@@ -101,7 +102,6 @@ export class AccountService {
   }
 
   public addToCart(product : Product, account : Account): Observable<Account> {
-    console.log(product);
     return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/cart`, product, this.httpOptions);
   }
   

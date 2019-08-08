@@ -47,6 +47,7 @@ export class RegisterComponent implements OnInit {
     this.accountservice.createAccount(this.lokaalVar).subscribe(
       (accountvandatabase: Account) =>  {       
         this.accountservice.setOpslag('currentUser', accountvandatabase);
+        this.accountservice.currentUserSubject.next(accountvandatabase);
         this.accountservice.username();
         // this.accountservice.currentUserSubject.next(accountvandatabase);
         

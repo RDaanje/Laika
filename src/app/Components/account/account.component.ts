@@ -18,7 +18,7 @@ export class AccountComponent implements OnInit {
   }
 
   ngOnInit() {  
-
+    
   }
 
   goToChangeAccount() {
@@ -47,6 +47,7 @@ export class AccountComponent implements OnInit {
     this.accountservice.retrieveOne(this.accountservice.getOpslag('currentUser')).subscribe(
       (account: Account) => {
         this.accountservice.setOpslag('currentUser', account);
+        this.accountservice.accountOpslag =  this.accountservice.getOpslag('currentUser');
         console.log(account);
       }
     )

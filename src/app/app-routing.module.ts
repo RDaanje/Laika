@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { RegisterComponent } from './Components/register/register.component';
 import { ModifyAccountComponent } from './Components/modify-account/modify-account.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -11,27 +12,41 @@ import { WalletComponent } from './Components/wallet/wallet.component';
 import { ShopComponent } from './Components/shop/shop.component';
 import { ShopcartComponent } from './Components/shopcart/shopcart.component';
 import { ProductRegisterComponent } from './Components/product-register/product-register.component';
+import { AuthguardComponent } from './service/authguard.service';
 
 const routes: Routes = [
-{path: "", redirectTo: "home", pathMatch: "full"},
-{path: "home", component: HomeComponent},    
-{path: "register", component: RegisterComponent},
-{path: "account", component: AccountComponent},
-{path: "wallet", component: WalletComponent},
-{path: "modify-account", component: ModifyAccountComponent },
-{path: "product", component: ProductComponent},
-{path: "game", component: GameComponent},
-{path: "shopcart", component: ShopcartComponent},
-{path: "logout", component: SignoutComponent},
-{path: "shop", component: ShopComponent},
-{path: "product-register", component: ProductRegisterComponent},
-{path: "**", redirectTo: "home"}
+  // {path: "", redirectTo: "home", pathMatch: "full"},
+  { path: '', component: HomeComponent, canActivate: [AuthguardComponent] },
+  { path: "home", component: HomeComponent },
+
+
+  { path: "account", component: AccountComponent, canActivate: [AuthguardComponent]},
+  { path: "admin", canActivate: [AuthguardComponent], children: [
+    {  path:'',     
+       canActivateChild: [AuthguardComponent],
+       children: [
+         { path: "product-register", component: ProductRegisterComponent }
+       ]       
+     }
+   ]},
+  { path: "register", component: RegisterComponent },
+  { path: "wallet", component: WalletComponent, canActivate: [AuthguardComponent] },
+  { path: "modify-account", component: ModifyAccountComponent, canActivate: [AuthguardComponent] },  
+  { path: "game", component: GameComponent, canActivate: [AuthguardComponent] },
+  { path: "shopcart", component: ShopcartComponent, canActivate: [AuthguardComponent] },
+
+  { path: "product", component: ProductComponent, canActivate: [AuthguardComponent] },  
+  { path: "logout", component: SignoutComponent },
+  { path: "shop", component: ShopComponent, canActivate: [AuthguardComponent] },
+  // {path: "product-register", component: ProductRegisterComponent, canActivate:[AuthguardComponent]},
+
+  { path: "**", redirectTo: 'home' }
 
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes) ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
