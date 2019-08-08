@@ -28,9 +28,8 @@
             <a [routerLink]="['product-register']">Update da shop</a>
             <a (click)="logOut()">Log out</a>
         </div>
-        <a href="#cart"><i class="fa fa-shopping-cart"></i></a>
+        <a [routerLink]="['shopcart']"><i class="fa fa-shopping-cart"></i></a>
         <a [routerLink]="['shop']">Shop</a>
    </div>
 </div>
-
 <router-outlet></router-outlet>

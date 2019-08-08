@@ -20,7 +20,6 @@ export class AccountService {
   };
 
   ngonInit()  {
-    
   }
 
   constructor(public http: HttpClient) { 
@@ -52,6 +51,7 @@ export class AccountService {
     console.log('in set account');
     try {
       localStorage.setItem(key, JSON.stringify(data));
+      this.accountOpslag = data;
     } catch (e) {
       console.error('Error saving to localStorage', e);
     }

@@ -1,1 +1,92 @@
 <p>shopcart works!</p>
+
+<!-- <tr *ngFor ='let cartItemId of this.accountservice.accountOpslag.cart.productsFromCart'>
+        <td>
+            {{cartProduct.name}}
+        </td>
+    </tr> -->
+    <!-- {{this.accountservice.accountOpslag.cart.productsFromCart}}
+    {{cartProduct | json}}
+    {{productA | json}} -->
+
+<!-- 
+    <tr *ngFor ='let product of productA'>
+        <td>
+            <br>
+            {{product.name}}
+            <br>
+        </td>
+    </tr> -->
+
+    <div class="grid-container">
+            <table>
+            <tr *ngFor ='let product of productA'>
+                <td>
+                            {{product.name}}
+                            <br>
+                            <br>
+                            Itemnr.{{product.id}}<p><img src="{{product.image}}" alt="Item 1" width=30% height=30%></p>
+                          
+                        </td>
+                            <br>
+                            <td>
+                               
+                                <br>
+                                <br>
+                                ${{product.price}}
+                                <br>
+                                                Quantity:
+                                                {{product.stock}}
+                                                <br>
+                                                <br>
+                                                Supplier:
+                                                {{product.supplier}}
+                                                <br>
+                                                <br>
+                                                <button class="button" (click)="addToCart(product)">Add to cart</button>          
+                                                <br>
+                                                <br>
+                                        </td>
+                </tr>
+            </table>
+
+    <!-- {{showCart(3)}} -->
+
+    <!-- {{cartProduct | json}} -->
+
+
+    <!-- {{cartProduct | json}} -->
+
+    <!-- <button class="button" (click)="showCart(cartItemId)">Add to cart</button> -->
+
+    <!-- <div class="grid-container">
+            <table>
+            <tr *ngFor ='let cartlong of this.accountservice.accountOpslag.cart.productsFromCart'>
+                <td>
+                            {{product.name}}
+                            <br>
+                            <br>
+                            Itemnr.{{cartlong.id}}<p><img src="{{product.image}}" alt="Item 1" width=30% height=30%></p>
+                          
+                        </td>
+                            <br>
+                            <td>
+                               
+                                <br>
+                                <br>
+                                ${{cartlong.price}}
+                                <br>
+                                                Quantity:
+                                                {{cartlong.stock}}
+                                                <br>
+                                                <br>
+                                                Supplier:
+                                                {{cartlong.supplier}}
+                                                <br>
+                                                <br>
+                                                <button class="button" (click)="addToCart(product)">Add to cart</button>          
+                                                <br>
+                                                <br>
+                                        </td>
+                </tr>
+            </table> -->

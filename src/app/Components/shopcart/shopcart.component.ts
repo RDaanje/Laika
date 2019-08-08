@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/service/account.service';
 import { Product } from 'src/app/domain/product';
+import { ProductService } from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-shopcart',
@@ -9,12 +10,31 @@ import { Product } from 'src/app/domain/product';
 })
 export class ShopcartComponent implements OnInit {
 
-  constructor(private accountservice: AccountService) { }
+  accountInvoer = this.accountservice.accountOpslag;
+  cartProduct: Product = new Product();
+  productA: Product[] = [];
+  methodeaangeroepen:boolean = false;
+
+  constructor(private accountservice: AccountService, private productservice: ProductService) { }
 
   ngOnInit() {
+
+    for(let entry of this.accountservice.accountOpslag.cart.productsFromCart){
+      this.showCart(entry);
   }
 
-  addProductToCart(product: Product) {
-      this.accountservice.accountOpslag.cart.addProduct(product)
-}
+  }
+
+  showCart(cartLong: Number) {
+
+    this.productservice.retrieveOneWithLong(cartLong).subscribe(
+
+      (productvandatabase: Product) => {
+      this.productA.push(productvandatabase);
+      console.log(this.productA);
+      }
+    )
+    return this.cartProduct;
+  }
+
 }

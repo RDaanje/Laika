@@ -1,12 +1,11 @@
 <h1>Shop for Laika!</h1>
 
 
-<tr *ngFor ='let cartlong of this.accountservice.accountOpslag.cart.productsFromCart'>
+<tr *ngFor ='let cartItems of this.accountservice.accountOpslag.cart.productsFromCart'>
     <td>
-        {{cartlong}}
+        {{cartItems}}
     </td>
 </tr>
-
 
 <div class="grid-container">
 <table>
