@@ -30,40 +30,5 @@ export class AccountComponent implements OnInit {
     this.router.navigate(['/game']);
   }
 
-  viewAccount() {
-    this.accountservice.retrieveAll().subscribe(
-      (accounts: Account[]) => 
-      {
-   
-        this.accounts = accounts;
-
-      }
-
-    )
-  }
-
-
-  getAccount() {
-    this.accountservice.retrieveOne(this.accountservice.getOpslag('currentUser')).subscribe(
-      (account: Account) => {
-        this.accountservice.setOpslag('currentUser', account);
-        this.accountservice.accountOpslag =  this.accountservice.getOpslag('currentUser');
-        console.log(account);
-      }
-    )
-  }
-
-  updateEmail() {    
-
-    this.accountservice.changeEmail(this.accountservice.getOpslag('currentUser')).subscribe(
-      (account: Account) => {
-      this.accountservice.setOpslag('currentUser', account);
-      console.log(account);
-      
-      }
-    )
-  }
-
- 
 
 }

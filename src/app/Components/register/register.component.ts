@@ -48,9 +48,7 @@ export class RegisterComponent implements OnInit {
       (accountvandatabase: Account) =>  {       
         this.accountservice.setOpslag('currentUser', accountvandatabase);
         this.accountservice.currentUserSubject.next(accountvandatabase);
-        this.accountservice.username();
-        // this.accountservice.currentUserSubject.next(accountvandatabase);
-        
+        this.accountservice.username();       
       },        
       (error: HttpErrorResponse) => { 
         if (error.status == 409){         
@@ -88,9 +86,7 @@ export class RegisterComponent implements OnInit {
       alert("Passwords do not match");
       return false;
     }
-
     this.createAccount(this.registerForm.get('Username').value, this.registerForm.get('Password').value, this.registerForm.get('Email').value)
-    
   }
   
   get Username() { return this.registerForm.get('Username'); }
