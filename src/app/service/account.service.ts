@@ -111,4 +111,10 @@ export class AccountService {
     return this.http.get<Product[]>(`http://localhost:8080/api/account/${account.id}/cart`);
   }
 
+  public deleteAccount(account: Account): Observable<Account> {
+    return this.http.delete<Account>(`http://localhost:8080/api/account/${account.id}/delete`, this.httpOptions);
+  }
+
+
 }
+

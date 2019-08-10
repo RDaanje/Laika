@@ -14,6 +14,7 @@ export class AppComponent {
   currentUser: any;
   username: string;
 
+  
   constructor(private accountservice: AccountService, private router: Router) {
     this.accountservice.currentUser.subscribe(x => this.currentUser = x);
   }
@@ -26,7 +27,22 @@ export class AppComponent {
     this.router.navigate(['/home']);
   }
 
+  goToAccount() {
+    if (this.accountservice.accountOpslag.isAdmin)  {
+      this.router.navigate(['/admin/adminpage']);
+    } else  {
+      this.router.navigate(['/account']);
+    }
+
+  }
   
+  adminCheck(): boolean {
+     if(this.accountservice.accountOpslag.isAdmin)  {
+       return true;
+     }  else  {
+       return false;
+     }
+  }
 }
 
 
