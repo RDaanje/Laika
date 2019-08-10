@@ -13,17 +13,14 @@ export class AccountComponent implements OnInit {
 
   accounts: Account[];  
 
-  constructor(public accountservice: AccountService, private router: Router) { 
-   
+  constructor(public accountservice: AccountService, private router: Router) {  
   }
 
-  ngOnInit() {  
-    
+  ngOnInit() {      
   }
 
   goToChangeAccount() {
     this.router.navigate(['/modify-account']);
-
   } 
 
   goToGame()  {

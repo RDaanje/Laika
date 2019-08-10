@@ -13,6 +13,8 @@ import { ShopComponent } from './Components/shop/shop.component';
 import { ShopcartComponent } from './Components/shopcart/shopcart.component';
 import { ProductRegisterComponent } from './Components/product-register/product-register.component';
 import { AuthguardComponent } from './service/authguard.service';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { OverviewAccountsComponent } from './Components/overview-accounts/overview-accounts.component';
 
 const routes: Routes = [
   // {path: "", redirectTo: "home", pathMatch: "full"},
@@ -25,7 +27,9 @@ const routes: Routes = [
     {  path:'',     
        canActivateChild: [AuthguardComponent],
        children: [
-         { path: "product-register", component: ProductRegisterComponent }
+         { path: "product-register", component: ProductRegisterComponent },
+         { path: "adminpage", component: AdminDashboardComponent},
+         { path: "overview-accounts", component: OverviewAccountsComponent}
        ]       
      }
    ]},

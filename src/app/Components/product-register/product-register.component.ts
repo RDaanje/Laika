@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Product } from 'src/app/domain/product';
 import { HttpErrorResponse } from '@angular/common/http';
+import { triggerAsyncId } from 'async_hooks';
 
 @Component({
   selector: 'app-product-register',
@@ -14,6 +15,8 @@ export class ProductRegisterComponent implements OnInit {
 
 registerForm;
 productStorage: Product = new Product();
+hiddenInput: boolean = false;
+products: Product[];
 
 constructor(public productservice: ProductService, 
   private router: Router, 
@@ -27,15 +30,17 @@ ngOnInit() {
     Supplier: new FormControl('', Validators.required),
     Stock: new FormControl('', Validators.required)
   })
+  this.fillDropdown();
+
 
 
 
 }
 
 createProduct(ProductName: string, Supplier: string, Stock: number) {
-  this.productStorage.setName(ProductName);
-  this.productStorage.setSupplier(Supplier);
-  this.productStorage.setStock(Stock);
+  this.productStorage.name = ProductName;
+  this.productStorage.supplier = Supplier;
+  this.productStorage.stock = Stock;
 
 
   this.productservice.createProduct(this.productStorage).subscribe(
@@ -75,8 +80,92 @@ validateForm() {
   
 }
 
+retrieveOneProduct(nameProduct: string): any {
+  this.productStorage = new Product();
+  this.productStorage.name = nameProduct;
+  this.productservice.retrieveOneByName(this.productStorage).subscribe(
+    (product: Product)  =>  {
+      this.productStorage = product;
+      this.hiddenInput = true;
+    },()  =>  {},
+    ()  =>  {
+     
+    }
+  )
+  // return true;
+}
+
+changeInfo() {
+  console.log(this.productStorage); 
+  this.productservice.updateProduct(this.productStorage).subscribe(
+    (product: Product) => {       
+      console.log(this.productStorage);     
+    }
+
+  )
+}
+
+deleteProduct() {
+  this.productservice.deleteProduct(this.productStorage).subscribe(
+    (product: Product) => {       
+      this.hiddenInput = false;
+      (<HTMLInputElement>document.getElementById('idProduct')).value  = '';
+      console.log('check'+ this.productStorage);   
+      this.fillDropdown();
+      alert('deleted from database: '+ this.productStorage.name + ' id: '+ this.productStorage.id);    
+    }
+  )
+}
+
+fillDropdown()  {
+  this.products = [];
+  console.log(this.products)
+  this.productservice.retrieveAll().subscribe(
+    (products: Product[]) => 
+    {       
+      products.forEach((product: any) => this.products.push(product))
+      console.log('producten binnen')
+      console.log(products.length)
+      console.log(this.products);
+      (<HTMLSelectElement>document.getElementById('products')).options.length  = 0;
+      for(let product of this.products) {
+        console.log('ik doe iets')
+      // var node = document.createElement("select"); 
+      var textnode = document.createElement("OPTION");  
+      // node.appendChild(textnode); 
+      textnode.innerHTML = product.name;
+      textnode.setAttribute("value", product.name);
+
+      document.getElementById("products").appendChild(textnode);     
+      }
+       
+    
+  }, () => {},
+  () => { }
+  )
+ 
+  // var node = document.createElement("products"); 
+  
+    // var textnode = document.createElement("OPTION");
+  
+    // textnode.innerHTML = "hoi'";
+    // node.appendChild(textnode); 
+    // document.getElementById("products").appendChild(textnode);
+
+  
+}
+
+getOptionValue()  {
+  var e = document.getElementById("products");
+  var strOption = (<HTMLSelectElement>e).options[(<HTMLSelectElement>e).selectedIndex].value;
+  this.retrieveOneProduct(strOption);
+}
+
 get ProductName() { return this.registerForm.get('ProductName'); }
 get Supplier() { return this.registerForm.get('Supplier'); }
 get Stock() { return this.registerForm.get('Stock'); }
 }
+
+
+
 

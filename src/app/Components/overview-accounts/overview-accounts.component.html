@@ -1,0 +1,37 @@
+<a [routerLink]="['/admin/adminpage']">Back to admin page</a>
+<div class="grid-container">
+    <table >
+           
+        <tr *ngFor='let account of accounts'>       
+                <pre>       
+                    <td>
+                            Account Id:  {{account.id}}
+                            Firstname:   {{account.firstname}}
+                            Lastname:    {{account.lastname}}                   
+                    </td><td>
+                            Username:    {{account.username}}
+                            Password:    {{account.password}}
+                            E-mail:      {{account.email}}
+                    </td><td>
+                            Street:      {{account.street}}
+                            Housenumber: {{account.houseNumber}}
+                            Zipcode:     {{account.zipcode}}
+                            City:        {{account.city}}
+                    </td><td>
+                            Wallet:      
+                                Euro:    {{account.wallet.euro}}
+                                Coins:   {{account.wallet.coins}}   
+                    </td>                     
+                   <button (click)="deleteAccount(account)">delete</button>
+                   <hr>
+                </pre>  
+        </tr>
+          
+    
+   
+    </table>
+
+    <!-- 
+    cart: Cart;
+
+    isAdmin: boolean; -->

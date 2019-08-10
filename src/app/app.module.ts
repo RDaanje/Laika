@@ -16,6 +16,8 @@ import { WalletComponent } from './Components/wallet/wallet.component';
 import { ShopComponent } from './Components/shop/shop.component';
 import { ShopcartComponent } from './Components/shopcart/shopcart.component';
 import { ProductRegisterComponent } from './Components/product-register/product-register.component';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { OverviewAccountsComponent } from './Components/overview-accounts/overview-accounts.component';
 
 
 
@@ -30,7 +32,7 @@ import { ProductRegisterComponent } from './Components/product-register/product-
     GameComponent,
     SignoutComponent,
     WalletComponent, 
-    ShopComponent, ShopcartComponent, ProductRegisterComponent
+    ShopComponent, ShopcartComponent, ProductRegisterComponent, AdminDashboardComponent, OverviewAccountsComponent
 
     
   ],
