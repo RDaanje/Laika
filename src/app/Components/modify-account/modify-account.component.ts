@@ -23,13 +23,11 @@ export class ModifyAccountComponent implements OnInit {
   }
 
   changeInfo() {
-
     this.accountservice.updateAccount(this.localAccount).subscribe(
       (account: Account) => {       
         console.log(this.accountservice.getOpslag('currentUser'));
         this.accountservice.setOpslag('currentUser', account);
       }
-
     )
     this.router.navigate([`/account`]);
   }

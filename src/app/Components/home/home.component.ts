@@ -15,21 +15,15 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public accountservice: AccountService,
-    private router: Router) {
 
-    // if (this.accountservice.currentUserValue) { 
-    //   this.router.navigate(['/account']);
-    // }
-  }
+    private router: Router) { 
+    }
 
   ngOnInit() {
-
   }
 
   checkAccount(usernameInput: string, passwordInput: string) {
-
     this.lokaalVar.username = usernameInput;
-
     this.lokaalVar.password = passwordInput;
 
     if (usernameInput != "" && passwordInput != "") {
@@ -37,9 +31,7 @@ export class HomeComponent implements OnInit {
         (account: Account) => {
           this.accountservice.setOpslag('currentUser', account);
           this.accountservice.currentUserSubject.next(account);
-          this.accountservice.accountOpslag = this.accountservice.getOpslag('currentUser');
-          console.log(' logged in: ' + this.accountservice.accountOpslag);
-
+          this.accountservice.accountOpslag = this.accountservice.getOpslag('currentUser') 
           this.accountservice.username();
         },
         () =>
@@ -50,8 +42,6 @@ export class HomeComponent implements OnInit {
           } else  {
             this.router.navigate(['account']);
           }
-          
-
         }
 
       )
@@ -59,7 +49,6 @@ export class HomeComponent implements OnInit {
     else {
       alert("The username and/or password you provided are unknown to us")
     }
-
   }
 
 
@@ -76,21 +65,16 @@ export class HomeComponent implements OnInit {
       () => {
         alert('Your username is: ' + this.accountservice.accountOpslag.username + '\n' + 'Your password is: ' + this.accountservice.accountOpslag.password);
       }
-
     )
-
   }
 
   goRegisterPage() {
     this.router.navigate(["register"])
   }
 
+/*Reveals input for forgot info */
   revealInput() {
     this.show = !this.show;
-  }
-
-  showCurrentUser() {
-    this.accountservice.getOpslag('currentUser');
   }
 }
 

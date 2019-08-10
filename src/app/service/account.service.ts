@@ -20,9 +20,6 @@ export class AccountService {
   };
 
   ngonInit()  {
-
-  //  this.accountOpslag = this.getOpslag('currentUser') waarschijnlijk niet functioneel. checken
-
   }
 
   constructor(public http: HttpClient) { 
@@ -46,8 +43,7 @@ export class AccountService {
   public logOut() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    this.username();
-  
+    this.username();  
   }
 
   public setOpslag(key: string, data: any): void {

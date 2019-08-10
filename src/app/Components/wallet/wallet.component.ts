@@ -23,15 +23,13 @@ export class WalletComponent implements OnInit {
     this.euroForm = this.formBuilder.group({
       euro: new FormControl('', [Validators.required]),
       coins: new FormControl('')
-
     })
   }
 
   addEuro(euro: number) {
     console.log('check: '+this.localAccount.wallet.euro);
     this.localAccount.wallet.euro = euro;
-    console.log('check: '+this.localAccount.wallet.euro);
-    
+    console.log('check: '+this.localAccount.wallet.euro);    
   }
 
   validateForm() {
@@ -50,10 +48,6 @@ export class WalletComponent implements OnInit {
       }
     )
   }
-
-
-
-
 }
 
 
