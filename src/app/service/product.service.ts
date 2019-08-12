@@ -14,6 +14,7 @@ export class ProductService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   
+  
   constructor(private http: HttpClient) { }
 
   public retrieveAll(): Observable<Product[]> {
@@ -25,6 +26,10 @@ export class ProductService {
     
   }
 
+  public retrieveOneByName(product: Product): Observable<Product> {
+    return this.http.get<Product>(`http://localhost:8080/api/product/get/name/${product.name}`)
+  }
+
   public retrieveOneWithLong(longInput : Number): Observable<Product> {
     // console.log(this.http.get<Product>(`http://localhost:8080/api/product/get/${longInput}`));
     return this.http.get<Product>(`http://localhost:8080/api/product/get/${longInput}`);
@@ -34,4 +39,13 @@ export class ProductService {
   public createProduct(product : Product): Observable<Product> {
     return this.http.post<Product>(`http://localhost:8080/api/product/create`, product, this.httpOptions);
   }
+
+  public updateProduct(product: Product): Observable<Product> {
+    return this.http.put<Product>(`http://localhost:8080/api/product/${product.id}/update`, product, this.httpOptions);
+  }
+
+  public deleteProduct(product: Product): Observable<Product> {
+    return this.http.delete<Product>(`http://localhost:8080/api/product/${product.id}/delete`, this.httpOptions);
+  }
+
 }

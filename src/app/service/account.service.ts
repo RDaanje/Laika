@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable, BehaviorSubject, VirtualTimeScheduler} from 'rxjs';
+import { Observable, BehaviorSubject} from 'rxjs';
 import { Account } from '../domain/account';
 import { Product } from '../domain/product';
 
@@ -20,9 +20,6 @@ export class AccountService {
   };
 
   ngonInit()  {
-
-  //  this.accountOpslag = this.getOpslag('currentUser') waarschijnlijk niet functioneel. checken
-
   }
 
   constructor(public http: HttpClient) { 
@@ -46,8 +43,7 @@ export class AccountService {
   public logOut() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    this.username();
-  
+    this.username();  
   }
 
   public setOpslag(key: string, data: any): void {
@@ -111,4 +107,10 @@ export class AccountService {
     return this.http.get<Product[]>(`http://localhost:8080/api/account/${account.id}/cart`);
   }
 
+  public deleteAccount(account: Account): Observable<Account> {
+    return this.http.delete<Account>(`http://localhost:8080/api/account/${account.id}/delete`, this.httpOptions);
+  }
+
+
 }
+
