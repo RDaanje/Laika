@@ -90,6 +90,7 @@ export class AccountService {
   }
 
   public updateAccount(account: Account): Observable<Account> {
+    console.log(account.cart.productSet)
     return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/update`, account, this.httpOptions);
   }
 

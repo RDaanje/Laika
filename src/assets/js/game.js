@@ -170,4 +170,4 @@ function checkCollision() {
     doodlerX = -doodlerSize;
   }
 }
-// }
+}
