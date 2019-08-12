@@ -27,6 +27,7 @@ export class AppComponent {
     this.router.navigate(['/home']);
   }
 
+
   goToAccount() {
     if (this.accountservice.accountOpslag.isAdmin)  {
       this.router.navigate(['/admin/adminpage']);

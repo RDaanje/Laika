@@ -1,3 +1,6 @@
+
+function runJS() {
+
 // function game()  {
 var doodlerSize = 60;
 var doodlerX;

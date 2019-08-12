@@ -40,6 +40,12 @@ export class ProductService {
     return this.http.post<Product>(`http://localhost:8080/api/product/create`, product, this.httpOptions);
   }
 
+  // REMOVES PRODUCT FROM DATABASE
+  public removeProduct(longInput : Number): Observable<void>{
+  return this.http.delete<void>(`http://localhost:8080/api/product/delete/${longInput}`)
+  }
+
+
   public updateProduct(product: Product): Observable<Product> {
     return this.http.put<Product>(`http://localhost:8080/api/product/${product.id}/update`, product, this.httpOptions);
   }
@@ -47,5 +53,6 @@ export class ProductService {
   public deleteProduct(product: Product): Observable<Product> {
     return this.http.delete<Product>(`http://localhost:8080/api/product/${product.id}/delete`, this.httpOptions);
   }
+
 
 }

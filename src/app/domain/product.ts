@@ -6,8 +6,9 @@ export class Product {
     stock: number;
     price: number;
     image: Blob;
+public quantity: number;
     
-    public Product() {}
+    public Product() {this.quantity =1;}
 
     
     getId()    {
@@ -16,6 +17,23 @@ export class Product {
 
     setId(id: number)  {
         this.id = id;
+    }
+
+    getQuantity(){
+        return this.quantity;
+    }
+
+    setQuantity(quantity){
+        this.quantity =quantity;
+    }
+
+    plusQuantity(product: Product){
+        product.quantity=(this.quantity+1);
+        return product;
+    }
+
+    minQuantity(){
+        this.quantity=(this.quantity-1);
     }
 
     getName()  {

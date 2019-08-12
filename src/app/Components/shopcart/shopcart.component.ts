@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/service/account.service';
 import { Product } from 'src/app/domain/product';
-import { ProductService } from 'src/app/service/product.service';
+import { Router } from '@angular/router';
+import { Account } from 'src/app/domain/account';
 
 @Component({
   selector: 'app-shopcart',
@@ -10,31 +11,28 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ShopcartComponent implements OnInit {
 
-  accountInvoer = this.accountservice.accountOpslag;
-  cartProduct: Product = new Product();
-  productA: Product[] = [];
-  methodeaangeroepen:boolean = false;
-
-  constructor(private accountservice: AccountService, private productservice: ProductService) { }
+  constructor(private accountservice: AccountService, private router: Router) { }
 
   ngOnInit() {
-
-    for(let entry of this.accountservice.accountOpslag.cart.productsFromCart){
-      this.showCart(entry);
   }
 
+  deleteProductFromCart(productInput: Product) {
+    this.accountservice.removeProduct(productInput, this.accountservice.getOpslag('currentUser')).subscribe(
+      (accountfromDataBase: Account) => {
+        this.accountservice.setOpslag('currentUser', accountfromDataBase)
+        this.ngOnInit();
+      });
+
   }
 
-  showCart(cartLong: Number) {
+  addToCart(productInvoer: Product){
+    this.accountservice.addToCart(productInvoer,this.accountservice.accountOpslag).subscribe(
 
-    this.productservice.retrieveOneWithLong(cartLong).subscribe(
-
-      (productvandatabase: Product) => {
-      this.productA.push(productvandatabase);
-      console.log(this.productA);
+      (account: Account) =>
+      {
+        this.accountservice.setOpslag('currentUser', account);
+        console.log(this.accountservice.getOpslag('currentUser'));
       }
     )
-    return this.cartProduct;
-  }
-
+  } 
 }

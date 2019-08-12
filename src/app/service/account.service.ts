@@ -48,9 +48,11 @@ export class AccountService {
 
   public setOpslag(key: string, data: any): void {
     console.log('in set account');
+    console.log("SETOPSLAG:", data);
     try {
       localStorage.setItem(key, JSON.stringify(data));
       this.accountOpslag = data;
+      console.log("SETOPSLAG2:", data);
     } catch (e) {
       console.error('Error saving to localStorage', e);
     }
@@ -107,9 +109,15 @@ export class AccountService {
     return this.http.get<Product[]>(`http://localhost:8080/api/account/${account.id}/cart`);
   }
 
+  public removeProduct(product : Product, account : Account): Observable<Account>{
+    console.log("CHECK DEZE",(`http://localhost:8080/api/account/${account.id}`));
+    return this.http.delete<Account>(`http://localhost:8080/api/account/${account.id}/cart/${product.id}`)
+    }
+
   public deleteAccount(account: Account): Observable<Account> {
     return this.http.delete<Account>(`http://localhost:8080/api/account/${account.id}/delete`, this.httpOptions);
   }
+
 
 
 }
