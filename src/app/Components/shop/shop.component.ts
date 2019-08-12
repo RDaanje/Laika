@@ -38,12 +38,8 @@ export class ShopComponent implements OnInit {
 
         (account: Account) =>
         {
-          // this.accountInvoer.cart.products.push(account.cart.product);
           this.accountservice.setOpslag('currentUser', account);
-          // console.log('lokaal: ' +this.accountInvoer);
-          // this.accountInvoer = this.accountservice.getOpslag('currentUser');
           console.log(this.accountservice.getOpslag('currentUser'));
-          // console.log('lokaal: ' +this.accountInvoer);
         }
       )
     } 

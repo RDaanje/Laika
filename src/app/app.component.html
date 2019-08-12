@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="navbar">
-    <a [routerLink]="['shopcart']"><i class="fa fa-shopping-cart"></i></a>
+    <a [routerLink]="['shopcart']"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;{{this.accountservice.accountOpslag.cart.totalProducts}}</a>
     <a [routerLink]="['shop']">Shop</a>
     <div class="dropdown">
 

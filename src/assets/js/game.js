@@ -1,4 +1,4 @@
-function game() {
+function runJS() {
 var canvas = document.getElementById("c");
 var ctx = canvas.getContext("2d");
 var ballRadius = 10;

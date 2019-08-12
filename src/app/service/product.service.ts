@@ -34,4 +34,8 @@ export class ProductService {
   public createProduct(product : Product): Observable<Product> {
     return this.http.post<Product>(`http://localhost:8080/api/product/create`, product, this.httpOptions);
   }
+  // REMOVES PRODUCT FROM DATABASE
+  public removeProduct(longInput : Number): Observable<void>{
+  return this.http.delete<void>(`http://localhost:8080/api/product/delete/${longInput}`)
+  }
 }
