@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Product } from 'src/app/domain/product';
 import { HttpErrorResponse } from '@angular/common/http';
-import { triggerAsyncId } from 'async_hooks';
 
 @Component({
   selector: 'app-product-register',
@@ -21,7 +20,6 @@ products: Product[];
 constructor(public productservice: ProductService, 
   private router: Router, 
   private formBuilder: FormBuilder) {
-
 }
 
 ngOnInit() {
@@ -75,9 +73,7 @@ validateForm() {
     alert("Stock must be filled out");
     return false;
   }
-
   this.createProduct(this.registerForm.get('ProductName').value, this.registerForm.get('Supplier').value, this.registerForm.get('Stock').value)
-  
 }
 
 retrieveOneProduct(nameProduct: string): any {
@@ -109,7 +105,6 @@ deleteProduct() {
   this.productservice.deleteProduct(this.productStorage).subscribe(
     (product: Product) => {       
       this.hiddenInput = false;
-      (<HTMLInputElement>document.getElementById('idProduct')).value  = '';
       console.log('check'+ this.productStorage);   
       this.fillDropdown();
       alert('deleted from database: '+ this.productStorage.name + ' id: '+ this.productStorage.id);    
@@ -123,36 +118,18 @@ fillDropdown()  {
   this.productservice.retrieveAll().subscribe(
     (products: Product[]) => 
     {       
-      products.forEach((product: any) => this.products.push(product))
-      console.log('producten binnen')
-      console.log(products.length)
-      console.log(this.products);
+      products.forEach((product: any) => this.products.push(product));
       (<HTMLSelectElement>document.getElementById('products')).options.length  = 0;
       for(let product of this.products) {
-        console.log('ik doe iets')
-      // var node = document.createElement("select"); 
       var textnode = document.createElement("OPTION");  
-      // node.appendChild(textnode); 
       textnode.innerHTML = product.name;
       textnode.setAttribute("value", product.name);
-
       document.getElementById("products").appendChild(textnode);     
-      }
-       
-    
+      }          
   }, () => {},
   () => { }
   )
- 
-  // var node = document.createElement("products"); 
-  
-    // var textnode = document.createElement("OPTION");
-  
-    // textnode.innerHTML = "hoi'";
-    // node.appendChild(textnode); 
-    // document.getElementById("products").appendChild(textnode);
 
-  
 }
 
 getOptionValue()  {

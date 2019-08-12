@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable, BehaviorSubject, VirtualTimeScheduler} from 'rxjs';
+import { Observable, BehaviorSubject} from 'rxjs';
 import { Account } from '../domain/account';
 import { Product } from '../domain/product';
 

@@ -15,6 +15,8 @@ import { ProductRegisterComponent } from './Components/product-register/product-
 import { AuthguardComponent } from './service/authguard.service';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { OverviewAccountsComponent } from './Components/overview-accounts/overview-accounts.component';
+import { OrdersComponent } from './Components/orders/orders.component';
+
 
 const routes: Routes = [
   // {path: "", redirectTo: "home", pathMatch: "full"},
@@ -23,13 +25,14 @@ const routes: Routes = [
 
 
   { path: "account", component: AccountComponent, canActivate: [AuthguardComponent]},
-  { path: "admin", canActivate: [AuthguardComponent], children: [
+  { path: "admin",  canActivate: [AuthguardComponent], children: [
     {  path:'',     
        canActivateChild: [AuthguardComponent],
        children: [
          { path: "product-register", component: ProductRegisterComponent },
          { path: "adminpage", component: AdminDashboardComponent},
-         { path: "overview-accounts", component: OverviewAccountsComponent}
+         { path: "overview-accounts", component: OverviewAccountsComponent},
+         { path: "orders", component: OrdersComponent}
        ]       
      }
    ]},
@@ -50,7 +53,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes) ],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}) ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

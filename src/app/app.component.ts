@@ -14,7 +14,8 @@ export class AppComponent {
   currentUser: any;
   username: string;
 
-  
+
+
   constructor(private accountservice: AccountService, private router: Router) {
     this.accountservice.currentUser.subscribe(x => this.currentUser = x);
   }
@@ -36,7 +37,8 @@ export class AppComponent {
   }
   
   adminCheck(): boolean {
-     if(this.accountservice.accountOpslag.isAdmin)  {
+    if(this.accountservice.getOpslag('currentUser') != null)
+     if(this.accountservice.getOpslag('currentUser').isAdmin)  {
        return true;
      }  else  {
        return false;

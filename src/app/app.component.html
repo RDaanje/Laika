@@ -1,5 +1,5 @@
 <!-- Header & navigatiebar (voor iedere pagina) -->
-<div class="header"></div>
+<div class="header">
 <div [hidden]=!this.accountservice.currentUserValue>
     <a (click)="goToAccount()">
         <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
@@ -11,26 +11,38 @@
         <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
     </a>
 </div>
+</div>
 
 <!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <nav>
-    <div class="navbar">
-        <a [routerLink]="['/shopcart']"><i class="fa fa-shopping-cart"></i></a>
-        <a [routerLink]="['/shop']">Shop</a>
-        <div class="dropdown">
+    <div class="navbar navbar-expand-sm bg-dark navbar-dark" >
+           
 
-            <button class="dropbtn"> <i class="fa fa-user"></i> {{this.accountservice.userName}}
-                <i class="fa fa-caret-down"></i>
-
-            </button>
-            <div class="dropdown-content">
-                <a (click)="goToAccount()">Account info</a>
-                <a hidden=adminCheck() [routerLink]="['/shopcart']">Cart</a>
-                <a hidden=adminCheck() [routerLink]="['/wallet']">Wallet</a>
-                <a (click)="logOut()">Log out</a>
-            </div>
+            
+    <!-- <div class="row"> -->
+        <div class ="col text-center">
+                <a [routerLink]="['/shop']">Shop</a>
         </div>
-    </div>
-</nav>
+        <div class ="col text-center">
+                <mdb-icon fas icon="shopping-cart" [routerLink]="['/shopcart']" style="color:blue"> Cart </mdb-icon>
+            </div>
+         
+          
+        <div class="col text-center">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{this.accountservice.userName}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="goToAccount()">Account info</button>
+              <button ngbDropdownItem [hidden]="adminCheck()" [routerLink]="['/shopcart']">Cart</button>
+              <button ngbDropdownItem [hidden]="adminCheck()" [routerLink]="['/wallet']">Wallet</button>
+              <button ngbDropdownItem (click)="logOut()">Log out</button>
+            </div>
+          </div>
+        </div>
+        </div>
+    </nav>
+    <!-- </div> -->
+
+
 <router-outlet></router-outlet>
