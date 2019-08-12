@@ -4,8 +4,10 @@ import { Component, OnInit } from '@angular/core';
 
 ///#region Method which is defined in the JS file.
 declare function runJS();
-// declare function game2();
+declare function game();
 //#endregion
+
+
 
 @Component({
   selector: 'app-game',
@@ -15,13 +17,14 @@ declare function runJS();
 export class GameComponent implements OnInit {
 
   constructor() {
-   
+
    }
 
   ngOnInit() {
+
     runJS();  //JS file call
+
    
-  
   }
   
   

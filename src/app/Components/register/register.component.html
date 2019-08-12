@@ -1,29 +1,40 @@
-<form [formGroup]="registerForm">
-    <pre>
-        <div>
-                <label for="Username">
-                    Username:
-                </label>
-                <input id="Username" name="Username" class="form-control" formControlName="Username" required>
-            </div>
-            <div>
-                <label for="password">
-                    Password:
-                </label>
-                <input id="Password" type="password" formControlName="Password" required>
-            </div>
-            <div>
-                <label for="password2">
-                    Repeat password:
-                </label>
-                <input id="Password2" type="password" formControlName="Password2" required>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Register</h5>
+                        <form class="form-signin" [formGroup]="registerForm">
+                            <div class="form-label-group">
+                                <input type="Username" id="Username" class="form-control" formControlName="Username"
+                                    placeholder="Username" required autofocus>
+                                <label for="Username">Username</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="Password" class="form-control" formControlName="Password"
+                                    placeholder="Password" required>
+                                <label for="Password">Password</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="Password2" class="form-control" formControlName="Password2"
+                                    placeholder="Password" required>
+                                <label for="Password2">repeat password</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="email" id="Email" class="form-control" formControlName="Email"
+                                    placeholder="mail" required>
+                                <label for="Email">E-mail</label>
+                            </div>
+
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase"
+                                (click)="validateForm()">Submit</button>
+                        </form>
+                    </div>
                 </div>
-            <div>
-                <label for="Email">
-                    E-mail:
-                </label>
-                <input id="Email" type="email" formControlName="Email" required>
-            </div> 
-            <button type="button" (click)="validateForm()">Submit</button>
-   </pre>
-</form>
+            </div>
+        </div>
+    </div>

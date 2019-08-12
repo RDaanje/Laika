@@ -1,12 +1,12 @@
 export class Product {
 
-    public id: number; 
-	private  name: string;
-	private  supplier: string;
-    private  stock: number;
-    public  price: number;
-    private image: Blob;
-    public quantity: number;
+    id: number; 
+	name: string;
+	supplier: string;
+    stock: number;
+    price: number;
+    image: Blob;
+public quantity: number;
     
     public Product() {this.quantity =1;}
 
@@ -60,16 +60,16 @@ export class Product {
         this.stock = stock
     }
    
-    public get Price(): number {
+    public getPrice(): number {
         return this.price;
     }
-    public set Price(value: number) {
+    public setPrice(value: number) {
         this.price = value;
     }
-    public get Image(): Blob {
+    public getImage(): Blob {
         return this.image;
     }
-    public set Image(value: Blob) {
+    public setImage(value: Blob) {
         this.image = value;
     }
 

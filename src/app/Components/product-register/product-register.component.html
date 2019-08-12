@@ -1,7 +1,10 @@
-<p>product-register works!</p>
-
-<form [formGroup]="registerForm">
-    <pre>
+<a [routerLink]="['/admin/adminpage']">Back to admin page</a>
+<!-- <div class="container"> -->
+    <div class="row">
+        <div class="col">
+            <div class="addProduct">
+                <form [formGroup]="registerForm">
+                    <pre>
         <div>
                 <label for="ProductName">
                     ProductName:
@@ -22,4 +25,34 @@
                 </div>
             <button type="button" (click)="validateForm()">Submit</button>
    </pre>
-</form>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="col">
+
+            <select id="products" (click)="getOptionValue()">
+
+            </select>
+
+            <div [hidden]= !hiddenInput >
+                <pre>
+                    Name product: <input [(ngModel)]=" this.productStorage.name">
+
+                    Price product: <input [(ngModel)]=" this.productStorage.price">
+
+                    Stock product: <input [(ngModel)]=" this.productStorage.stock">
+
+                    Supplier: <input [(ngModel)]=" this.productStorage.supplier">
+                    
+                    <button (click)="changeInfo()" >Submit changes</button>
+                    
+                    <button (click)="deleteProduct()">Delete this product</button>
+
+                </pre>
+                  </div>
+        </div>
+      
+
+<!-- </div> -->
