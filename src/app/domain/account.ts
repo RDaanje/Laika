@@ -1,5 +1,6 @@
 import { Wallet } from './wallet';
 import { Cart } from './cart';
+import { Orderhistory } from './orderhistory';
 
 export class Account {
     id : number;
@@ -18,6 +19,7 @@ export class Account {
 
     wallet: Wallet;
     cart: Cart;
+    orderhistory: Orderhistory
 
     isAdmin: boolean;
     
