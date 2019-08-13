@@ -8,7 +8,7 @@ id: number;
 total: number;
 // productstoShow: number[];
 // productstoShowAmmount: number[];
-productSet: Array<Product>;
+productSet: Product[];
 totalProducts: number;
 
 

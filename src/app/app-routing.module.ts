@@ -16,6 +16,8 @@ import { AuthguardComponent } from './service/authguard.service';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { OverviewAccountsComponent } from './Components/overview-accounts/overview-accounts.component';
 import { OrdersComponent } from './Components/orders/orders.component';
+import { Orderhistory } from './domain/orderhistory';
+import { AccounthistoryComponent } from './Components/accounthistory/accounthistory.component';
 
 
 const routes: Routes = [
@@ -25,6 +27,8 @@ const routes: Routes = [
 
 
   { path: "account", component: AccountComponent, canActivate: [AuthguardComponent]},
+  { path: "orderhistory", component: AccounthistoryComponent, canActivate: [AuthguardComponent]},
+  { path: "orders", component: OrdersComponent, canActivate: [AuthguardComponent]},
   { path: "admin",  canActivate: [AuthguardComponent], children: [
     {  path:'',     
        canActivateChild: [AuthguardComponent],
@@ -32,7 +36,7 @@ const routes: Routes = [
          { path: "product-register", component: ProductRegisterComponent },
          { path: "adminpage", component: AdminDashboardComponent},
          { path: "overview-accounts", component: OverviewAccountsComponent},
-         { path: "orders", component: OrdersComponent}
+         
         
        ]       
      }

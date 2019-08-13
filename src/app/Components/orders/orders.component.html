@@ -1,25 +1,89 @@
-<div    >>
-    <pre>
-        id: <input type="text" id="firstname" [(ngModel)]="this.localAccount.orderhistory.id">  
 
-            allOrders: <input type="text" id="lastname" [(ngModel)]="this.localAccount.orderhistory.allOrders">
-        
-            paid: <input type="text" id="username" [(ngModel)]="this.localAccount.orderhistory.paid">   
-        
-            totalCosts: <input type="text" id="password" [(ngModel)]=" this.localAccount.totalCosts">
-        
-            time: <input type="text" id="email" [(ngModel)]=" this.localAccount.time">
-        
-          
 
-            <button (click)="changeInfo()" >Submit</button>
-            
-    </pre>
-    
+<button (click)="createOrder()">Accept order</button>
+
+
+<div class="container" id="invoice">
+  
+    <div class="card">
+        <div class="card-header">
+            Invoice
+            <strong><div id="date">input date here</div></strong>
+            <span class="float-right"> <strong>Status:</strong> <div id="status">Pending</div></span>
+
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h6 class="mb-3">From:</h6>
+                    <div>
+                        <strong>SpaceShop Laika</strong>
+                    </div>
+                    <div>Grote Voort 291</div>
+                    <div>8041 BL Zwolle, The Netherlands</div>
+                    <div>Email: laika@laikashop.com</div>
+                </div>
+
+                <div class="col-sm-6">
+                    <h6 class="mb-3">To:</h6>
+                    <div>
+                        <strong><div id="name">{{this.accountservice.accountOpslag.firstname}} {{this.accountservice.accountOpslag.lastname}}</div></strong>
+                    </div>
+                    <div>Attn: {{this.accountservice.accountOpslag.firstname}} {{this.accountservice.accountOpslag.lastname}}</div>
+                    <div> <div id="adress">{{this.accountservice.accountOpslag.street}} {{this.accountservice.accountOpslag.houseNumber}}</div></div>
+                    <div> <div id="zipcode">{{this.accountservice.accountOpslag.zipcode}} {{this.accountservice.accountOpslag.city}}</div></div>
+                    <div>Email: <div id="email">{{this.accountservice.accountOpslag.email}}</div></div>
+                </div>
+            </div>
+
+            <div class="table-responsive-sm">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="center">#</th>
+                            <th>Item</th>
+                            <th>Description</th>
+
+                            <th class="right">Unit Cost</th>
+                            <th class="center">Qty</th>
+                            <th class="right">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor='let products of this.accountservice.accountOpslag.cart.productSet; let i = index'>
+                        <tr>
+                            <td #counter id="counter" class="center">{{i+1}}</td>
+                            <td #name id="productname" class="left strong">{{products.name}}</td>
+                            <td class="left"></td>
+
+                            <td #price id="productprice" class="right">{{products.price}}</td>
+                            <td #quantity id="productquantity" class="center">{{products.quantity}}</td>
+                            <td #total id="producttotal" class="right">{{products.price*products.quantity}}</td>
+                        </tr>                       
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-5">
+
+                </div>
+
+                <div class="col-lg-4 col-sm-5 ml-auto">
+                    <table class="table table-clear">
+                        <tbody>
+                            <tr>
+                                <td class="left">
+                                    <strong>Subtotal</strong>
+                                </td>
+                                <td class="right">{{this.accountservice.accountOpslag.cart.total}}</td>
+                            </tr>                           
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
 </div>
-
-
-Retrieve all orders here
-<button (click)="acceptOrder()">
-    Accept order
-</button>
