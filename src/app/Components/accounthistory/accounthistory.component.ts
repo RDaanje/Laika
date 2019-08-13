@@ -15,8 +15,7 @@ export class AccounthistoryComponent implements OnInit {
 
   ngOnInit() {
     this.locAccount = this.accountservice.getOpslag('currentUser');
-    console.log(this.locAccount.orderhistory.orderSet);
-    
+    console.log(this.locAccount.orderhistory.orderSet);    
   }
 
 }

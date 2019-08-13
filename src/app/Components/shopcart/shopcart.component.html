@@ -30,116 +30,12 @@
                                                 <br>
                                                 <br>
                                                 <button class="button" (click)="deleteProductFromCart(product)">-</button>&nbsp;&nbsp;          
-                                                <button class="button" (click)="addToCart(product)">+</button>   
+                                                <button class="button" (click)="addToCart(product)">+</button>  
+                                                 
                                                 <br>
                                                 <br>
                                         </td>
                 </tr>
             </table>
+            <button class="button" (click)="checkWallet()">Checkout</button>
 
-<!-- 
-            <div class="grid-container" style="background-color: cornflowerblue">
-                    <table>
-                            <tr *ngFor ="let product of productB ; let every of this.accountservice.accountOpslag.cart.productstoShowAmmount">
-                                    {{product.name}}
-                                    {{every}}
-                                    <p><img src="{{product.image}}" alt="Item 1" width=30% height=30%></p>
-                                    ${{product.price}}   
-                                    <button class="button" (click)="deleteProductFromCart(product)">remove from cart</button>
-                                </tr>        
-                            </table>
-            </div> -->
-<!-- 
-            <div class="grid-container" style="background-color:crimson">
-                    <table>
-                            <tr *ngFor ='let every of this.accountservice.accountOpslag.cart.productstoShowAmmount'>
-                                    {{every}}
-                                </tr>        
-                            </table>
-            </div> -->
-<!-- <div class="grid-container" style="background-color: cornflowerblue">
-                    <table>
-            <tr *ngFor="let product of productB">
-                    <td> {{product.name}}</td>
-                    <p><img src="{{product.image}}" alt="Item 1" width=30% height=30%></p>
-                    ${{product.price}}
-                    <button class="button" (click)="deleteProductFromCart(product)">remove from cart</button>  
-                    <td>
-                      <table>
-                         <tr>
-                           <td *ngFor="let every of this.accountservice.accountOpslag.cart.productstoShowAmmount"></td>
-                         </tr>
-                      </table>
-                    </td>
-                    <td>{{this.accountservice.accountOpslag.cart.productstoShowAmmount}}</td>
-                </tr>
-            </table>
-        </div> -->
-
-
-<!-- <style>
-    * {
-        box-sizing: border-box;
-    }
-
-    /* Create three equal columns that floats next to each other */
-    .column {
-        float: left;
-        width: 33.3%;
-        padding: 10px;
-        height: 300px;
-        /* Should be removed. Only for demonstration */
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-</style>
-
-
-<h2>Three Equal Columns</h2>
-
-<div class="row" style="height: 600px;">
-    <div class="column" style="background-color:#aaa; height: 200px;">
-        <h2>Column 1</h2>
-        <p>
-                <table style="height: 600px;">
-                    <tr *ngFor="let product of productB">
-                        <p><img src="{{product.image}}" alt="Item 1" width=30% height=30%></p>                
-                    </tr>
-            
-                </table>
-    </div>
-<div class="column" style="background-color:#aaa;height: 200px;">
-        <h2>Column 1</h2>
-        <p> 
-                <table style="height: 600px;">
-                    <tr *ngFor="let every of this.accountservice.accountOpslag.cart.productstoShowAmmount">
-                        {{every}}
-                    </tr>
-            
-                </table>
-    </div>
-
-    <div class="row">
-            <div class="column" style="background-color:#aaa;height: 200px;">
-                <h2>Column 3</h2>
-                <p>
-                        <table style="height: 600px;">
-                            <tr *ngFor="let product of productB">
-                                <button class="button" (click)="deleteProductFromCart(product)">remove from cart</button>
-                            </tr>
-                    
-                        </table>
-            </div>
-</div> -->
-<!-- 
-<div style="height: 600px; background-color: rgba(255,0,0,0.1);">
-        <div class="h-25 d-inline-block" style="width: 120px; height: 200px; background-color: rgba(0,0,255,.1)">Height 25%</div>
-        <div class="h-50 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 50%</div>
-        <div class="h-75 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 75%</div>
-        <div class="h-100 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 100%</div>
-      </div> -->

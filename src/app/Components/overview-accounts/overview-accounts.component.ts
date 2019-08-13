@@ -12,6 +12,7 @@ export class OverviewAccountsComponent implements OnInit {
 
   accounts = [];
   account = new Account();
+  public show: boolean = false;
   constructor(private accountservice: AccountService, private router: Router) { }
 
   ngOnInit() {
@@ -31,5 +32,9 @@ export class OverviewAccountsComponent implements OnInit {
       () => {       
       }
     )
+  }
+
+  reveal()  {
+    this.show = !this.show;
   }
 }

@@ -21,8 +21,97 @@
                             Wallet:      
                                 Euro:    {{account.wallet.euro}}
                                 Coins:   {{account.wallet.coins}}   
+                    </td>
+                    <button (click)="reveal()">Show orders</button>
+                    <td [hidden]="!show" *ngFor = 'let history of account.orderhistory.orderSet'>
+                          
+                                <div class="container" id="invoice">
+  
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        Invoice
+                                                        <strong><div id="date">input date here</div></strong>
+                                                        <span class="float-right"> <strong>Status:</strong> <div id="status">Pending</div></span>
+                                            
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row mb-4">
+                                                            <div class="col-sm-6">
+                                                                <h6 class="mb-3">From:</h6>
+                                                                <div>
+                                                                    <strong>SpaceShop Laika</strong>
+                                                                </div>
+                                                                <div>Grote Voort 291</div>
+                                                                <div>8041 BL Zwolle, The Netherlands</div>
+                                                                <div>Email: laika@laikashop.com</div>
+                                                            </div>
+                                            
+                                                            <div class="col-sm-6">
+                                                                <h6 class="mb-3">To:</h6>
+                                                                <div>
+                                                                    <strong><div id="name">{{history.name}}</div></strong>
+                                                                </div>
+                                                                <div>Attn: {{history.name}}</div>
+                                                                <div> <div id="adress">{{history.adress}}</div></div>
+                                                                <div> <div id="zipcode">{{history.zipcode}}</div></div>
+                                                                <div>Email: <div id="email">{{history.email}}</div></div>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <div class="table-responsive-sm">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="center">#</th>
+                                                                        <th>Item</th>
+                                                                        <th>Description</th>
+                                            
+                                                                        <th class="right">Unit Cost</th>
+                                                                        <th class="center">Qty</th>
+                                                                        <th class="right">Total</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody *ngFor='let products of history.orderSubSet; let i = index'>
+                                                                    <tr>
+                                                                        <td #counter id="counter" class="center">{{i+1}}</td>
+                                                                        <td #name id="productname" class="left strong">{{products.productname}}</td>
+                                                                        <td class="left"></td>
+                                            
+                                                                        <td #price id="productprice" class="right">{{products.productprice}}</td>
+                                                                        <td #quantity id="productquantity" class="center">{{products.productquantity}}</td>
+                                                                        <td #total id="producttotal" class="right">{{products.productprice*products.productquantity}}</td>
+                                                                    </tr>                       
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-sm-5">
+                                            
+                                                            </div>
+                                            
+                                                            <div class="col-lg-4 col-sm-5 ml-auto">
+                                                                <table class="table table-clear">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="left">
+                                                                                <strong>Subtotal</strong>
+                                                                            </td>
+                                                                            <td class="right">{{this.accountservice.accountOpslag.cart.total}}</td>
+                                                                        </tr>                           
+                                                                    </tbody>
+                                                                </table>
+                                            
+                                                            </div>
+                                            
+                                                        </div>
+                                            
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+                      
                     </td>                     
-                   <button (click)="deleteAccount(account)">delete</button>
+                   <button (click)="deleteAccount(account)">delete this account</button>
                    <hr>
                 </pre>  
         </tr>
