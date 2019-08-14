@@ -79,14 +79,10 @@ export class ShopcartComponent implements OnInit {
         this.router.navigate(["modify-account"])
         return;
       }
-      this.router.navigate(["orders"])
-      console.log("HALLO");
- 
-     console.log(this.account.wallet.euro);
-     console.log(this.account.cart.total);
+       
      this.account.wallet.euro = (this.account.wallet.euro - this.account.cart.total);
-     console.log(this.account.wallet.euro);
      this.accountservice.updateAccount(this.account).subscribe();
+     this.router.navigate(["orders"])   
    }
    else{
      alert("NIET GENOEG GELD")
@@ -94,5 +90,52 @@ export class ShopcartComponent implements OnInit {
    }
   }
     
-  
+  checkWalletCoins() {
+    this.account = this.accountservice.getOpslag('currentUser')
+
+    if(this.account.wallet.coins>= this.account.cart.totalCoins)
+    {
+      console.log("GENOEG Coins")
+      if(this.account.firstname == null|| this.account.firstname == ""){
+        alert("GEGEVENS NIET COMPLEET")
+        this.router.navigate(["modify-account"])
+        return;
+      }
+      else if(this.account.lastname == null|| this.account.firstname == ""){
+        alert("GEGEVENS NIET COMPLEET")
+        this.router.navigate(["modify-account"])
+        return;
+      }
+      else if(this.account.street == null|| this.account.firstname == ""){
+        alert("GEGEVENS NIET COMPLEET")
+        this.router.navigate(["modify-account"])
+        return;
+      }
+      else if(this.account.houseNumber == null|| this.account.firstname == ""){
+        alert("GEGEVENS NIET COMPLEET")
+        this.router.navigate(["modify-account"])
+        return;
+      }
+      else if(this.account.zipcode == null|| this.account.firstname == ""){
+        alert("GEGEVENS NIET COMPLEET")
+        this.router.navigate(["modify-account"])
+        return;
+      }
+      else if(this.account.city == null|| this.account.firstname == ""){
+        alert("GEGEVENS NIET COMPLEET")
+        this.router.navigate(["modify-account"])
+        return;
+      }
+      this.router.navigate(["coinorder"])
+      
+ 
+     
+     this.account.wallet.coins = (this.account.wallet.coins - this.account.cart.totalCoins);
+    
+     this.accountservice.updateAccount(this.account).subscribe();
+   }
+   else{
+     alert("u heeft niet genoeg Coins om dit product te kopen");
+   }
+  }
 }

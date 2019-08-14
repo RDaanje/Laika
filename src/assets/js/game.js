@@ -5,7 +5,8 @@ function startGame() {
   function smile() {
     var a;
     a = document.getElementById("div1");
-    a.innerHTML = "score " + score;
+    a.innerHTML = score;
+    
     // setTimeout(function () {
     //     a.innerHTML = "score " + score;
     //   }, 100);
@@ -65,7 +66,7 @@ function startGame() {
        if (!thing1.visible  || !thing2.visible) return false;         
        if (thing1.x >= thing2.x + thing2.MyImg.width || thing1.x + thing1.MyImg.width <= thing2.x) return false;  
        if (thing1.y >= thing2.y + thing2.MyImg.height || thing1.y + thing1.MyImg.height <= thing2.y) return false;
-      //  return true;                                                                                            
+       return true;                                                                                            
        }
   function Got_Player_Input(MyEvent) {
      switch (game_mode) {
@@ -111,7 +112,8 @@ function startGame() {
       bottom_pipe.MyImg = pipe_piece;
       bottom_pipe.flipV = true;                                
       bottom_pipe.x = x_pos;
-      bottom_pipe.y = top_of_gap + gap_width;
+      bottom_pipe.y = 540;
+      // top_of_gap + gap_width;
       bottom_pipe.velocity_x = pipe_speed;
       pipes.push(bottom_pipe );
       }
@@ -136,7 +138,7 @@ function startGame() {
      ctx.font= "25px Arial";
      ctx.fillStyle= "red";
      ctx.textAlign="center";
-     ctx.fillText("Press, touch or click to start", canvas.width / 2, canvas.height / 4);  
+     ctx.fillText("click to start", canvas.width / 2, canvas.height / 4);  
      }
   function display_game_over () {
     //  var score = 0;                                             
@@ -149,7 +151,7 @@ function startGame() {
      ctx.fillText("Score: " + score, canvas.width / 2, 150);  
      smile();
      ctx.font= "20px Arial";
-     ctx.fillText("Click, touch, or press to play again", canvas.width / 2, 300);  
+     ctx.fillText("Press play game to play again!", canvas.width / 2, 300);  
      }
   function display_bar_running_along_bottom() {
        if (bottom_bar_offset < -23) bottom_bar_offset = 0;
@@ -182,7 +184,7 @@ function startGame() {
       }
    var pipe_piece = new Image();
    pipe_piece.onload = add_all_my_pipes;                       
-   pipe_piece.src = "assets/images/flappypipe.png/" ;
+   pipe_piece.src = "assets/images/uvo.png/" ;
   //  http://s2js.com/img/etc/flappypipe.png
   function Do_a_Frame () {
       ctx.clearRect(0, 0, canvas.width, canvas.height);   
@@ -191,6 +193,7 @@ function startGame() {
       switch (game_mode) {
           case 'prestart': {
                             display_intro_instructions();
+                            b = document.getElementById("end").innerHTML = "false";  
                             break;
                             } 
           case 'running': {
@@ -208,7 +211,8 @@ function startGame() {
                         clearInterval(interval1);
                         // clearInterval(interval2);
                         x = removeEventListener("touchstart", Got_Player_Input) 
-                        y = removeEventListener("mousedown", Got_Player_Input);   
+                        y = removeEventListener("mousedown", Got_Player_Input);
+                        b = document.getElementById("end").innerHTML = "true";   
                         console.log('ended game in js');  
                         // z = removeEventListener("keydown", Got_Player_Input); 
                         return;

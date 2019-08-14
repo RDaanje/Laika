@@ -15,6 +15,7 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
 import { OverviewAccountsComponent } from './Components/overview-accounts/overview-accounts.component';
 import { OrdersComponent } from './Components/orders/orders.component';
 import { AccounthistoryComponent } from './Components/accounthistory/accounthistory.component';
+import { OrderCoinsComponent } from './Components/order-coins/order-coins.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: "account", component: AccountComponent, canActivate: [AuthguardComponent]},
   { path: "orderhistory", component: AccounthistoryComponent, canActivate: [AuthguardComponent]},
   { path: "orders", component: OrdersComponent, canActivate: [AuthguardComponent]},
+  { path: "coinorder", component: OrderCoinsComponent, canActivate: [AuthguardComponent]},
   { path: "admin",  canActivate: [AuthguardComponent], children: [
     {  path:'',     
        canActivateChild: [AuthguardComponent],

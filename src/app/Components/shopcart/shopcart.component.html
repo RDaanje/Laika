@@ -1,5 +1,5 @@
 <p>{{this.accountservice.accountOpslag.cart.total | number}}</p>
-
+   <p> {{this.accountservice.accountOpslag.cart.totalCoins | number}}</p>
 <p>{{this.accountservice.accountOpslag.cart.productstoShow}}</p>
  
 
@@ -21,6 +21,8 @@
                                 <br>
                                 ${{(product.price*product.quantity)}}
                                 <br>
+                                #{{(product.priceCoins*product.quantity)}}
+                                <br>
                                                 Quantity:
                                                 {{product.quantity}}
                                                 <br>
@@ -37,5 +39,6 @@
                                         </td>
                 </tr>
             </table>
-            <button class="button" (click)="checkWallet()">Checkout</button>
+            <button class="button" (click)="checkWallet()">Checkout with Euro</button>
+            <button class="button" (click)="checkWalletCoins()">Checkout with Coins</button>
 

@@ -24,16 +24,21 @@
                     <br>
                     ${{product.price}}
                     <br>
-                                  
+                    #{{product.priceCoins}}             
                                     <br>
                                     <br>
                                     Supplier:
                                     {{product.supplier}}
                                     <br>
                                     <br>
+                                    Description: 
+                                    {{product.description}}
+                                    <br>
+                                    <br>
                                     <button class="button" (click)="addToCart(product)">Add to cart</button>          
                                     <br>
                                     <br>
+                                    
                             </td>
     </tr>
 </table>

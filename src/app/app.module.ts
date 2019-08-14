@@ -22,6 +22,7 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
 import { OverviewAccountsComponent } from './Components/overview-accounts/overview-accounts.component';
 import { OrdersComponent } from './Components/orders/orders.component';
 import { AccounthistoryComponent } from './Components/accounthistory/accounthistory.component';
+import { OrderCoinsComponent } from './Components/order-coins/order-coins.component';
 
 
 
@@ -40,7 +41,7 @@ import { AccounthistoryComponent } from './Components/accounthistory/accounthist
     ShopcartComponent, 
     ProductRegisterComponent, 
     AdminDashboardComponent, 
-    OverviewAccountsComponent, OrdersComponent, AccounthistoryComponent
+    OverviewAccountsComponent, OrdersComponent, AccounthistoryComponent, OrderCoinsComponent
 
     
   ],

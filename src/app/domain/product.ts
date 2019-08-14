@@ -5,8 +5,10 @@ export class Product {
 	supplier: string;
     stock: number;
     price: number;
+    priceCoins: number;
     image: Blob;
     quantity: number;
+    description: string;
     
      public Product() {} //this.quantity =1;
 
