@@ -1,4 +1,41 @@
 
+  /* Three columns side by side */
+.column {
+  float: left;
+  width: 400px;
+  margin-bottom: 16px;
+  padding: 20px;
+  align-content: center;
+  width: 100%;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 400px;
+    display: block;
+  }
+}
+
+
+p {
+  color: whitesmoke;
+}
+h2 {
+  color: white;
+}
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: lightgrey;
+}
+
+
 table {
   width: 100%;
 }
@@ -7,27 +44,6 @@ td {
   padding: 20px 0;
   font-size: 20px;
   font-family: Arial;
-  width: 75%;
+  width: 100%;
   
-}
-
-.button {
-  padding: 15px 25px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: white;
-  background-color: black;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-}
-
-.button:hover {background-color:#dd0e00}
-
-.button:active {
-  background-color: #dd0e00;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
 }

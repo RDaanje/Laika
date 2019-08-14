@@ -1,53 +1,53 @@
-<div class="d-flex justify-content-center">
-        <div class="boxInfo" style="align-content: left">
-     
-                <ul>
-                        <td>
-                        Username:
-                        <br>
-                        {{this.accountservice.getOpslag('currentUser').username}}
-                        <br>
-                        <br>
-                        E-mail:
-                        <br>
-                        {{this.accountservice.getOpslag('currentUser').email}}
-                        <br>
-                        <br>
-                        Firstname:
-                        <br>
-                        {{this.accountservice.getOpslag('currentUser').firstname}}
-                        <br>
-                        <br>
-                        Lastname:
-                        <br>
-                        {{this.accountservice.getOpslag('currentUser').lastname}}
-                        <br>
-                        <br>
-                    </td>
+    <div class="d-flex justify-content-center">
+    <div class="boxInfo" style="align-content: left">
+            <ul>
                     <td>
-                        Street:
-                        <br>
-                        {{this.accountservice.getOpslag('currentUser').street}}
-                        <br>
-                        <br>
-                        House number:
-                        <br>
-                        {{this.accountservice.getOpslag('currentUser').houseNumber}}
-                        <br>
-                        <br>
-                        Zipcode:
-                        <br>
-                        {{this.accountservice.getOpslag('currentUser').zipcode}}
-                        <br>
-                        <br>
-                        City:
-                        <br>
-                        {{this.accountservice.getOpslag('currentUser').city}}
-                    </td>
-                </ul>
-     
+                    Username:
+                    <br>
+                    {{this.accountservice.getOpslag('currentUser').username}}
+                    <br>
+                    <br>
+                    E-mail:
+                    <br>
+                    {{this.accountservice.getOpslag('currentUser').email}}
+                    <br>
+                    <br>
+                    Firstname:
+                    <br>
+                    {{this.accountservice.getOpslag('currentUser').firstname}}
+                    <br>
+                    <br>
+                    Lastname:
+                    <br>
+                    {{this.accountservice.getOpslag('currentUser').lastname}}
+                    <br>
+                    <br>
+                </td>
+                <td>
+                    Street:
+                    <br>
+                    {{this.accountservice.getOpslag('currentUser').street}}
+                    <br>
+                    <br>
+                    House number:
+                    <br>
+                    {{this.accountservice.getOpslag('currentUser').houseNumber}}
+                    <br>
+                    <br>
+                    Zipcode:
+                    <br>
+                    {{this.accountservice.getOpslag('currentUser').zipcode}}
+                    <br>
+                    <br>
+                    City:
+                    <br>
+                    {{this.accountservice.getOpslag('currentUser').city}}
+                </td>
+            </ul>
+
             <button class="button" (click)="goToChangeAccount()">Change info</button>
     </div>
+</div>
     <button class="button" (click)="goToGame()">Play Game!</button>
 </div>
 
@@ -72,5 +72,3 @@
             
             </form>
         </div>
-
-  

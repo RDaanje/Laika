@@ -1,42 +1,28 @@
-<div class="d-flex justify-content-center">
-    <div class="boxLogin" >
-       <img class="logo" style=" width: 100%" src="assets/images/laika logo nbc.png" alt="LaikaShopLogo">
-      <br>
-     
-      <br>
-       <input type="username" id="inputUsername" class="form-control" placeholder="Username" #usernameInput required autofocus>
-      
-       <br>
-       <input type="password" id="inputPassword" class="form-control" placeholder="Password" #passwordInput required>
-      
-       <br>
-       <button class="btn btn-lg btn-dark btn-block text-uppercase" (click)="checkAccount(usernameInput.value, passwordInput.value)">Login</button>
-      
-       <br>
-       <button class="btn btn-lg btn-dark btn-block text-uppercase" (click)="goRegisterPage()">Register here</button>
-     
-       <a  text-uppercase (click)="revealInput()" id="revealButton">Forgot account info?</a>
-                
-     </div>
-     </div>
+
+<div class="row">
+</div>
+ 
+ <div class="d-flex justify-content-center"> 
+ <div class="boxLogin" >
+    <img class="logo" style=" width: 100%" src="assets/images/laika logo nbc.png" alt="LaikaShopLogo"> 
+   <br>
+   
+   <br>
+    <input type="username" id="inputUsername" class="form-control" placeholder="Username" #usernameInput required autofocus>
     
-
-
-
-
-
-  
-          <ng-container *ngIf="show">
-                <div id="hiddenInput">
-                    <br>
-                    E-mail: <input type="text" id="emailForgot" #forgotEmail>
-
-                    <button style="color: crimson" (click)="forgotInfo(forgotEmail.value)">Submit</button>
-
-                </div>
-            </ng-container>
-
-
-
+    <br>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" #passwordInput required>
     
+    <br>
+    <button class="btn btn-lg btn-dark btn-block text-uppercase" (click)="checkAccount(usernameInput.value, passwordInput.value)">Login</button>
+    
+    <br>
+    <button class="btn btn-lg btn-dark btn-block text-uppercase" (click)="goRegisterPage()">Register here</button>
+
+    <a  text-uppercase (click)="revealInput()" id="revealButton">Forgot account info?</a>
+              
+  </div>
+  </div>
+ 
+
     

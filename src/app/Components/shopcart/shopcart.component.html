@@ -1,3 +1,4 @@
+
 <p>{{this.accountservice.accountOpslag.cart.total | number}}</p>
    <p> {{this.accountservice.accountOpslag.cart.totalCoins | number}}</p>
 <p>{{this.accountservice.accountOpslag.cart.productstoShow}}</p>
@@ -18,46 +19,10 @@
                           <p><button class="button" (click)="addToCart(product)">+</button></p>
                         </div>
                     </div>
-                </div>    
+                </div>
+     
             </tr>
+               
             <button class="button" (click)="checkWallet()">Checkout with Euro</button>
             <button class="button" (click)="checkWalletCoins()">Checkout with Coins</button>
  
-<!-- 
-
-            <tr *ngFor ='let product of products | orderBy: order'>
-                <td>
-                            {{product.name}}
-                            <br>
-                            <br>
-                            Itemnr.{{product.id}}<p><img src="{{product.image}}" alt="Item 1" width=30% height=30%></p>
-                          
-                        </td>
-                            <br>
-                            <td>
-                               
-                                <br>
-                                <br>
-                                ${{(product.price*product.quantity)}}
-                                <br>
-                                #{{(product.priceCoins*product.quantity)}}
-                                <br>
-                                                Quantity:
-                                                {{product.quantity}}
-                                                <br>
-                                                <br>
-                                                Supplier:
-                                                {{product.supplier}}
-                                                <br>
-                                                <br>
-                                                <button class="button" (click)="deleteProductFromCart(product)">-</button>          
-                                                <button class="button" (click)="addToCart(product)">+</button>  
-                                                 
-                                                <br>
-                                                <br>
-                                        </td>
-                </tr>
-        
-            <button class="button" (click)="checkWallet()">Checkout with Euro</button>
-            <button class="button" (click)="checkWalletCoins()">Checkout with Coins</button>
- -->
