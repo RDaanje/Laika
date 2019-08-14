@@ -12,13 +12,14 @@ import { Account } from 'src/app/domain/account';
 export class ShopcartComponent implements OnInit {
 
   account: Account = new Account();
+  products: Product[];
+  order: string = 'name';
 
   constructor(private accountservice: AccountService, private router: Router) { 
-    
-
   }
 
   ngOnInit() {
+    this.products = this.accountservice.accountOpslag.cart.productSet
   }
 
   deleteProductFromCart(productInput: Product) {
@@ -37,6 +38,7 @@ export class ShopcartComponent implements OnInit {
       {
         this.accountservice.setOpslag('currentUser', account);
         console.log(this.accountservice.getOpslag('currentUser'));
+        this.ngOnInit();
       }
     )
   }
@@ -88,7 +90,7 @@ export class ShopcartComponent implements OnInit {
    }
    else{
      alert("NIET GENOEG GELD")
-     this.router.navigate(["wallet"])
+     this.router.navigate(["account"])
    }
   }
     

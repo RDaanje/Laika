@@ -1,12 +1,12 @@
 <p>{{this.accountservice.accountOpslag.cart.total | number}}</p>
 
 <p>{{this.accountservice.accountOpslag.cart.productstoShow}}</p>
-
+ 
 
 
 <div class="grid-container">
             <table>
-            <tr *ngFor ='let product of this.accountservice.accountOpslag.cart.productSet'>
+            <tr *ngFor ='let product of products | orderBy: order'>
                 <td>
                             {{product.name}}
                             <br>

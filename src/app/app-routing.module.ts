@@ -7,8 +7,6 @@ import { HomeComponent } from './Components/home/home.component';
 import { AccountComponent } from './Components/account/account.component';
 import { ProductComponent } from './Components/product/product.component';
 import { GameComponent } from './Components/game/game.component';
-import { SignoutComponent } from './Components/signout/signout.component';
-import { WalletComponent } from './Components/wallet/wallet.component';
 import { ShopComponent } from './Components/shop/shop.component';
 import { ShopcartComponent } from './Components/shopcart/shopcart.component';
 import { ProductRegisterComponent } from './Components/product-register/product-register.component';
@@ -16,13 +14,12 @@ import { AuthguardComponent } from './service/authguard.service';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { OverviewAccountsComponent } from './Components/overview-accounts/overview-accounts.component';
 import { OrdersComponent } from './Components/orders/orders.component';
-import { Orderhistory } from './domain/orderhistory';
 import { AccounthistoryComponent } from './Components/accounthistory/accounthistory.component';
 
 
 const routes: Routes = [
   // {path: "", redirectTo: "home", pathMatch: "full"},
-  { path: '', component: HomeComponent, canActivate: [AuthguardComponent] },
+  { path: '', component: HomeComponent},
   { path: "home", component: HomeComponent },
 
 
@@ -43,13 +40,11 @@ const routes: Routes = [
    ]},
   
   { path: "register", component: RegisterComponent },
-  { path: "wallet", component: WalletComponent, canActivate: [AuthguardComponent] },
   { path: "modify-account", component: ModifyAccountComponent, canActivate: [AuthguardComponent] },  
   { path: "game", component: GameComponent, canActivate: [AuthguardComponent] },
   { path: "shopcart", component: ShopcartComponent, canActivate: [AuthguardComponent] },
 
-  { path: "product", component: ProductComponent, canActivate: [AuthguardComponent] },  
-  { path: "logout", component: SignoutComponent },
+  { path: "product", component: ProductComponent, canActivate: [AuthguardComponent] },   
   { path: "shop", component: ShopComponent, canActivate: [AuthguardComponent] },
   // {path: "product-register", component: ProductRegisterComponent, canActivate:[AuthguardComponent]},
 

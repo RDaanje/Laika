@@ -34,7 +34,8 @@ export class OverviewAccountsComponent implements OnInit {
     )
   }
 
-  reveal()  {
-    this.show = !this.show;
+  reveal(account: Account)  {
+    console.log(account.showInvoice);
+    account.showInvoice = !account.showInvoice;
   }
 }

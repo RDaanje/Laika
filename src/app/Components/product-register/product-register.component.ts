@@ -16,6 +16,7 @@ registerForm;
 productStorage: Product = new Product();
 hiddenInput: boolean = false;
 products: Product[];
+productsA: Product[];
 
 constructor(public productservice: ProductService, 
   private router: Router, 
@@ -29,7 +30,7 @@ ngOnInit() {
     Stock: new FormControl('', Validators.required)
   })
   this.fillDropdown();
-
+  this.toShowInAdmin();
 
 
 
@@ -49,6 +50,8 @@ createProduct(ProductName: string, Supplier: string, Stock: number) {
         alert(`This name is already in the shop!`);
       } else if (error.status == 302) {
         alert(`Wat moet ik hiermee doen?`);
+      } else if (error.status == 500) {
+        alert('this name is already in the shop!')
       }
     },         
     () =>
@@ -78,14 +81,14 @@ validateForm() {
 
 retrieveOneProduct(nameProduct: string): any {
   this.productStorage = new Product();
-  this.productStorage.name = nameProduct;
-  this.productservice.retrieveOneByName(this.productStorage).subscribe(
+  this.productStorage.id = +nameProduct;
+  console.log(this.productStorage);
+  this.productservice.retrieveOne(this.productStorage).subscribe(
     (product: Product)  =>  {
       this.productStorage = product;
       this.hiddenInput = true;
     },()  =>  {},
     ()  =>  {
-     
     }
   )
   // return true;
@@ -118,14 +121,19 @@ fillDropdown()  {
   this.productservice.retrieveAll().subscribe(
     (products: Product[]) => 
     {       
-      products.forEach((product: any) => this.products.push(product));
+      this.products = products;
+      this.toShowInAdmin();
+      console.log(this.productsA);
+
+      this.productsA.forEach((product: any) => this.products.push(product));
       (<HTMLSelectElement>document.getElementById('products')).options.length  = 0;
-      for(let product of this.products) {
+      for(let product of this.productsA) {
       var textnode = document.createElement("OPTION");  
       textnode.innerHTML = product.name;
-      textnode.setAttribute("value", product.name);
+      textnode.setAttribute("value", product.id.toString());
       document.getElementById("products").appendChild(textnode);     
-      }          
+      }
+      console.log( this.productStorage.name);          
   }, () => {},
   () => { }
   )
@@ -136,6 +144,35 @@ getOptionValue()  {
   var e = document.getElementById("products");
   var strOption = (<HTMLSelectElement>e).options[(<HTMLSelectElement>e).selectedIndex].value;
   this.retrieveOneProduct(strOption);
+}
+
+toShowInAdmin() {
+  
+    this.productsA = [];
+    for (let entry of this.products) {
+      ;
+      console.log(this.productsA.length);
+      if (this.productsA.length == 0) {
+
+
+        this.productsA.push(entry);
+      } else {
+        var geenNaamGevonden = true;
+        for (let entry2 of this.productsA) {
+
+          if (entry.name === entry2.name) {
+            geenNaamGevonden = false;
+
+            break;
+          }
+
+        }
+        if (geenNaamGevonden == true) {
+          this.productsA.push(entry);
+        }
+      }
+    }
+  
 }
 
 get ProductName() { return this.registerForm.get('ProductName'); }

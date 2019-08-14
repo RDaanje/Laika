@@ -2,28 +2,41 @@
 <div class="grid-container">
     <table >
            
-        <tr *ngFor='let account of accounts'>       
-                <pre>       
+        <tr *ngFor='let account of accounts'>
+                <button (click)="deleteAccount(account)">delete this account</button>
+               
+                <div class= "row">   
+                    <div class="col">   
                     <td>
+                        <pre>
                             Account Id:  {{account.id}}
                             Firstname:   {{account.firstname}}
-                            Lastname:    {{account.lastname}}                   
-                    </td><td>
+                            Lastname:    {{account.lastname}}
+                        </pre>                   
+                    </td> <div class="col"> <td>
+                            <pre>
                             Username:    {{account.username}}
                             Password:    {{account.password}}
                             E-mail:      {{account.email}}
-                    </td><td>
+                        </pre>
+                    </td> </div><div class="col"> <td>
+                            <pre>
                             Street:      {{account.street}}
                             Housenumber: {{account.houseNumber}}
                             Zipcode:     {{account.zipcode}}
                             City:        {{account.city}}
-                    </td><td>
+                        </pre>
+                    </td> </div><div class="col"> <td>
+                            <pre>
                             Wallet:      
                                 Euro:    {{account.wallet.euro}}
                                 Coins:   {{account.wallet.coins}}   
-                    </td>
-                    <button (click)="reveal()">Show orders</button>
-                    <td [hidden]="!show" *ngFor = 'let history of account.orderhistory.orderSet'>
+                            </pre>
+                    </td></div>
+                    <button (click)="reveal(account)">Show orders</button>
+                </div>
+                </div>
+                    <td [hidden]="!account.showInvoice" *ngFor = 'let history of account.orderhistory.orderSet'>
                           
                                 <div class="container" id="invoice">
   
@@ -111,9 +124,9 @@
                                             </div>
                       
                     </td>                     
-                   <button (click)="deleteAccount(account)">delete this account</button>
-                   <hr>
-                </pre>  
+                  
+                  <hr>
+                  
         </tr>
           
     
