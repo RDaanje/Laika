@@ -1,24 +1,51 @@
-    <div class="row">
-    <div class="col">
-    <div style= "text-align: center">
-            <ul>
-                    Username:<li>{{this.accountservice.getOpslag('currentUser').username}}</li> 
-                    <br>
-                    E-mail:<li>{{this.accountservice.getOpslag('currentUser').email}}</li>
-                    <br>
-                    Firsname:<li>{{this.accountservice.getOpslag('currentUser').firstname}}</li>
-                    <br>
-                    Lastname:<li>{{this.accountservice.getOpslag('currentUser').lastname}}</li>
-                    <br>
-                    Street:<li>{{this.accountservice.getOpslag('currentUser').street}}</li>
-                    <br>
-                    House number:<li>{{this.accountservice.getOpslag('currentUser').houseNumber}}</li>
-                    <br>
-                    Zipcode:<li>{{this.accountservice.getOpslag('currentUser').zipcode}}</li>
-                    <br>
-                    City:<li>{{this.accountservice.getOpslag('currentUser').city}}</li>
-            </ul>
-           
+<div class="d-flex justify-content-center">
+        <div class="boxInfo" style="align-content: left">
+     
+                <ul>
+                        <td>
+                        Username:
+                        <br>
+                        {{this.accountservice.getOpslag('currentUser').username}}
+                        <br>
+                        <br>
+                        E-mail:
+                        <br>
+                        {{this.accountservice.getOpslag('currentUser').email}}
+                        <br>
+                        <br>
+                        Firstname:
+                        <br>
+                        {{this.accountservice.getOpslag('currentUser').firstname}}
+                        <br>
+                        <br>
+                        Lastname:
+                        <br>
+                        {{this.accountservice.getOpslag('currentUser').lastname}}
+                        <br>
+                        <br>
+                    </td>
+                    <td>
+                        Street:
+                        <br>
+                        {{this.accountservice.getOpslag('currentUser').street}}
+                        <br>
+                        <br>
+                        House number:
+                        <br>
+                        {{this.accountservice.getOpslag('currentUser').houseNumber}}
+                        <br>
+                        <br>
+                        Zipcode:
+                        <br>
+                        {{this.accountservice.getOpslag('currentUser').zipcode}}
+                        <br>
+                        <br>
+                        City:
+                        <br>
+                        {{this.accountservice.getOpslag('currentUser').city}}
+                    </td>
+                </ul>
+     
             <button class="button" (click)="goToChangeAccount()">Change info</button>
     </div>
     <button class="button" (click)="goToGame()">Play Game!</button>
@@ -45,5 +72,5 @@
             
             </form>
         </div>
-</div>
+
   

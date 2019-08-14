@@ -1,3 +1,14 @@
+.boxLogin {
+  width: 300px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  color: whitesmoke;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  
+ }
+ 
 :root {
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem;
