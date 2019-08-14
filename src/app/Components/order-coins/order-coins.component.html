@@ -1,6 +1,5 @@
 
-
-<button (click)="createOrder()">Accept order</button>
+<button (click)="createCoinOrder()">Accept order</button>
 
 
 <div class="container" id="invoice">
@@ -55,9 +54,9 @@
                             <td #name id="productname" class="left strong">{{products.name}}</td>
                             <td class="left"></td>
 
-                            <td #price id="productprice" class="right">{{products.price}}</td>
+                            <td #price id="productprice" class="right">{{products.priceCoins}}</td>
                             <td #quantity id="productquantity" class="center">{{products.quantity}}</td>
-                            <td #total id="producttotal" class="right">{{products.price*products.quantity}}</td>
+                            <td #total id="producttotal" class="right">{{products.priceCoins*products.quantity}}</td>
                         </tr>                       
                     </tbody>
                 </table>
@@ -74,7 +73,7 @@
                                 <td class="left">
                                     <strong>Subtotal</strong>
                                 </td>
-                                <td class="right">{{this.accountservice.accountOpslag.cart.total}}</td>
+                                <td class="right">{{this.accountservice.accountOpslag.cart.totalCoins}}</td>
                             </tr>                           
                         </tbody>
                     </table>

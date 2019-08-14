@@ -1,47 +1,14 @@
-<!-- Header & navigatiebar (voor iedere pagina) -->
+
 <body>
     
         <app-header *ngIf="!router.url.includes('home')"></app-header>
 
     <div class="navbar">
-        <!-- <div>
-               <button style="border-radius: 5px; color: whitesmoke; background: #00000000;"> <mdb-icon fas icon="shopping-cart" [routerLink]="['/shopcart']" > &nbsp;&nbsp;{{this.accountservice.accountOpslag.cart.totalProducts}} </mdb-icon> </button>
-        </div>  -->
-        <!-- <div>
-                <button style="border-radius: 5px; color: whitesmoke; background: #00000000;"> <mdb-icon fas icon="user" [routerLink]="['/account']" > &nbsp;&nbsp;{{this.accountservice.accountOpslag.cart.totalProducts}} </mdb-icon> </button>
-        </div>
-<<<<<<< HEAD
-        <div>
-                <button style="border-radius: 5px" [routerLink]="['/shop']" >Shop</button>
-=======
-        <div class ="col text-center">
-                <mdb-icon fas icon="shopping-cart" [routerLink]="['/shopcart']" style="color:blue">  </mdb-icon>
-            </div>
-         
-          
-        <div class="col text-center">
-          <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{this.accountservice.userName}}</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem (click)="goToAccount()">Account info</button>
-              <button ngbDropdownItem [hidden]="adminCheck()" [routerLink]="['/shopcart']">Cart</button>
-              <button ngbDropdownItem [hidden]="adminCheck()" [routerLink]="['/wallet']">Wallet</button>
-              <button ngbDropdownItem (click)="logOut()">Log out</button>
-            </div>
-          </div>
->>>>>>> e2b62e7f06dc8be28cef38aa0a6abde2f349a698
-        </div>
-        <div>
-                <button style="border-radius: 5px" [hidden]="adminCheck()" [routerLink]="['/shopcart']">Admin Cart</button>
-        </div>
-        <div>
-                <button style="border-radius: 5px" [hidden]="adminCheck()" [routerLink]="['/wallet']">Admin Wallet</button>
-        </div>
-        <div>
-                <button style="border-radius: 5px" (click)="logOut()">Log out</button>
-        </div> -->
+     
          
     </div>
     
+
+   
 </body>
 <router-outlet></router-outlet>

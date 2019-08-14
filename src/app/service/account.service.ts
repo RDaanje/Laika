@@ -102,6 +102,10 @@ export class AccountService {
     return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/wallet/${account.wallet.euro}`, account, this.httpOptions);
   }
 
+  public addCoins(account: Account): Observable<Account>  {
+    return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/wallet/coins/${account.wallet.coins}`, account, this.httpOptions);
+  }
+
   public addToCart(product : Product, account : Account): Observable<Account> {
     return this.http.put<Account>(`http://localhost:8080/api/account/${account.id}/cart`, product, this.httpOptions);
   }

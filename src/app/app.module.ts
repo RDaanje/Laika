@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {OrderModule} from 'ngx-order-pipe'
  
  
 import { AppRoutingModule } from './app-routing.module';
@@ -14,8 +15,6 @@ import { RegisterComponent } from './Components/register/register.component';
 import { ModifyAccountComponent } from './Components/modify-account/modify-account.component';
 import { ProductComponent } from './Components/product/product.component';
 import { GameComponent } from './Components/game/game.component';
-import { SignoutComponent } from './Components/signout/signout.component';
-import { WalletComponent } from './Components/wallet/wallet.component';
 import { ShopComponent } from './Components/shop/shop.component';
 import { ShopcartComponent } from './Components/shopcart/shopcart.component';
 import { ProductRegisterComponent } from './Components/product-register/product-register.component';
@@ -24,6 +23,8 @@ import { OverviewAccountsComponent } from './Components/overview-accounts/overvi
 import { OrdersComponent } from './Components/orders/orders.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { MenuComponent } from './Components/menu/menu.component';
+import { AccounthistoryComponent } from './Components/accounthistory/accounthistory.component';
+import { OrderCoinsComponent } from './Components/order-coins/order-coins.component';
 
 
 
@@ -38,8 +39,6 @@ import { MenuComponent } from './Components/menu/menu.component';
     ModifyAccountComponent,
     ProductComponent,
     GameComponent,
-    SignoutComponent,
-    WalletComponent, 
     ShopComponent, 
     ShopcartComponent, 
     ProductRegisterComponent, 
@@ -48,6 +47,8 @@ import { MenuComponent } from './Components/menu/menu.component';
     OrdersComponent, 
     HeaderComponent, 
     MenuComponent
+    OverviewAccountsComponent, OrdersComponent, AccounthistoryComponent, OrderCoinsComponent
+
 
     
   ],
@@ -58,7 +59,8 @@ import { MenuComponent } from './Components/menu/menu.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    OrderModule
     
   ],
   providers: [],

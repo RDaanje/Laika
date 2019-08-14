@@ -15,8 +15,8 @@ body {
     color: whitesmoke;
   }
   
-  
-.button {
+
+ .button {
     border: none;
     outline: 0;
     display: inline-block;
@@ -32,3 +32,4 @@ body {
   .button:hover {
     background-color: #555;
   }
+ 

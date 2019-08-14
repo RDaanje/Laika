@@ -6,9 +6,10 @@ export class Cart {
 id: number;
 // productsFromCart: number[];
 total: number;
+totalCoins: number;
 // productstoShow: number[];
 // productstoShowAmmount: number[];
-productSet: Array<Product>;
+productSet: Product[];
 totalProducts: number;
 
 
@@ -40,5 +41,13 @@ setproductSet(products: Product[]) {
 
 getproductSet() {
     return this.productSet
+}
+
+getTotalCoins() {
+    return this.totalCoins;
+}
+
+setTotalCoins(coins:number) {
+    this.totalCoins = coins;
 }
 }

@@ -4,15 +4,16 @@
   padding: 10px;
   margin: 10px;
   color: whitesmoke;
-  text-align: center; 
+  text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
-
-}
-
+  
+ }
+ 
 :root {
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem;
 }
+
 
 .card-signin {
   border: 0;
@@ -32,7 +33,6 @@
 
 .form-signin {
   width: 100%;
-  background-color: 
 }
 
 .form-signin .btn {
@@ -72,19 +72,17 @@
   border: 1px solid transparent;
   border-radius: .25rem;
   transition: all .1s ease-in-out;
+  
 }
 
 .form-label-group input::-webkit-input-placeholder {
   color: transparent;
 }
 
-.form-label-group input:-ms-input-placeholder {
-  color: transparent;
-}
-
 .form-label-group input::-ms-input-placeholder {
   color: transparent;
 }
+
 
 .form-label-group input::-moz-placeholder {
   color: transparent;
@@ -104,6 +102,7 @@
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
+  display: none;
 }
 
 

@@ -1,19 +1,19 @@
 
-       <tr *ngFor ='let product of products'>
-            
-            <div class="row">
-                <div class="column" >
-                    <div class="container">
-                            <img src="{{product.image}}" alt="Product" style="width: 400px; height: 400px; padding: 5px">
-                      <h2>{{product.name}}</h2>
-                      <p class="title">Itemnr.{{product.id}}</p>
-                      <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                      <p>Supplier:      {{product.supplier}}</p>
-                        <p> Quantity:    {{product.stock}}</p>
-                        <p> ${{product.price}}</p>
-                      <p><button class="button"(click)="addToCart(product)">Add to cart</button></p>
-                    </div>
-                  </div>
-            </div>
-            </tr>
- 
+<tr *ngFor ='let product of productsB'>
+          
+        <div class="row">
+            <div class="column" >
+                <div class="container">
+                        <img src="{{product.image}}" alt="Product" style="width: 400px; height: 400px; padding: 5px">
+                  <h2>{{product.name}}</h2>
+                  <p class="title">Itemnr.{{product.id}}</p>
+                  <p>{{product.description}}</p>
+                  <p>Supplier:      {{product.supplier}}</p>
+                    <p> Quantity:    {{product.stock}}</p>
+                    <p> ${{product.price}}</p>
+                    <p> #{{product.priceCoins}} </p>
+                  <p><button class="button"(click)="addToCart(product)">Add to cart</button></p>
+                </div>
+              </div>
+        </div>
+        </tr>

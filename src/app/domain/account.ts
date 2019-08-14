@@ -22,6 +22,7 @@ export class Account {
     orderhistory: Orderhistory
 
     isAdmin: boolean;
+    showInvoice: boolean = false;
     
     constructor() {
       
