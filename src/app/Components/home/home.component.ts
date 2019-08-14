@@ -76,5 +76,12 @@ export class HomeComponent implements OnInit {
   revealInput() {
     this.show = !this.show;
   }
+
+  search(event)  {
+    if (event.key === "Enter")  {
+      console.log('hoi');
+    }
+
+  }
 }
 

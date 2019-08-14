@@ -1,5 +1,5 @@
 <!-- Header & navigatiebar (voor iedere pagina) -->
-<div class="header">
+<div hidden class="header">
 <div [hidden]=!this.accountservice.currentUserValue>
     <a (click)="goToAccount()">
         <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
@@ -15,24 +15,28 @@
 
 <!-- Add icon library -->
 
+
+
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <nav>
-    <div class="navbar navbar-expand-sm bg-dark navbar-dark" >
+    <div [hidden]= "!this.accountservice.currentUserValue" class="navbar navbar-expand-sm bg-dark navbar-dark" >
            
 
             
     <!-- <div class="row"> -->
+            <button [routerLink]="['/home']">Home</button>
+            
         <div class ="col text-center">
-                <a [routerLink]="['/shop']">Shop</a>
+                <a [hidden] ="!this.accountservice.currentUserValue" [routerLink]="['/shop']">Shop</a>
         </div>
         <div class ="col text-center">
-                <mdb-icon fas icon="shopping-cart" [routerLink]="['/shopcart']" style="color:blue">  </mdb-icon>
+                <mdb-icon fas icon="shopping-cart" [hidden] ="!this.accountservice.currentUserValue" [routerLink]="['/shopcart']" style="color:blue">  </mdb-icon>
             </div>
          
           
         <div class="col text-center">
           <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{this.accountservice.userName}}</button>
+            <button [hidden] ="!this.accountservice.currentUserValue" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{this.accountservice.userName}}</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <button ngbDropdownItem (click)="goToAccount()">Account info</button>
               <button ngbDropdownItem [hidden]="adminCheck()" [routerLink]="['/shopcart']">Cart</button>

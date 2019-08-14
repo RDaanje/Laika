@@ -9,7 +9,7 @@
 
 <div class="grid-container">
 <table>
-<tr *ngFor ='let product of products'>
+<tr *ngFor ='let product of productsB'>
     <td>
                 {{product.name}}
                 <br>
@@ -24,17 +24,21 @@
                     <br>
                     ${{product.price}}
                     <br>
-                                    Quantity:
-                                    {{product.stock}}
+                    #{{product.priceCoins}}             
                                     <br>
                                     <br>
                                     Supplier:
                                     {{product.supplier}}
                                     <br>
                                     <br>
+                                    Description: 
+                                    {{product.description}}
+                                    <br>
+                                    <br>
                                     <button class="button" (click)="addToCart(product)">Add to cart</button>          
                                     <br>
                                     <br>
+                                    
                             </td>
     </tr>
 </table>
