@@ -1,44 +1,18 @@
-<h1>Shop for Laika!</h1>
-
-
-<tr *ngFor ='let cartItems of this.accountservice.accountOpslag.cart.productsFromCart'>
-    <td>
-        {{cartItems}}
-    </td>
-</tr>
-
-<div class="grid-container">
-<table>
 <tr *ngFor ='let product of productsB'>
-    <td>
-                {{product.name}}
-                <br>
-                <br>
-                Itemnr.{{product.id}}<p><img src="{{product.image}}" alt="Item 1" width=30% height=30%></p>
-              
-            </td>
-                <br>
-                <td>
-                   
-                    <br>
-                    <br>
-                    ${{product.price}}
-                    <br>
-                    #{{product.priceCoins}}             
-                                    <br>
-                                    <br>
-                                    Supplier:
-                                    {{product.supplier}}
-                                    <br>
-                                    <br>
-                                    Description: 
-                                    {{product.description}}
-                                    <br>
-                                    <br>
-                                    <button class="button" (click)="addToCart(product)">Add to cart</button>          
-                                    <br>
-                                    <br>
-                                    
-                            </td>
-    </tr>
-</table>
+          
+        <div class="row">
+            <div class="column" >
+                <div class="container">
+                        <img src="{{product.image}}" alt="Product" style="width: 400px; height: 400px; padding: 5px">
+                  <h2>{{product.name}}</h2>
+                  <p class="title">Itemnr.{{product.id}}</p>
+                  <p>{{product.description}}</p>
+                  <p>Supplier:      {{product.supplier}}</p>
+                    <p> Quantity:    {{product.stock}}</p>
+                    <p> ${{product.price}}</p>
+                    <p> #{{product.priceCoins}} </p>
+                  <p><button class="button"(click)="addToCart(product)">Add to cart</button></p>
+                </div>
+              </div>
+        </div>
+        </tr>
