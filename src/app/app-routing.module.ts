@@ -34,9 +34,11 @@ const routes: Routes = [
          { path: "adminpage", component: AdminDashboardComponent},
          { path: "overview-accounts", component: OverviewAccountsComponent},
          { path: "orders", component: OrdersComponent}
+        
        ]       
      }
    ]},
+  
   { path: "register", component: RegisterComponent },
   { path: "wallet", component: WalletComponent, canActivate: [AuthguardComponent] },
   { path: "modify-account", component: ModifyAccountComponent, canActivate: [AuthguardComponent] },  
