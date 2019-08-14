@@ -1,41 +1,23 @@
-<p>{{this.accountservice.accountOpslag.cart.total | number}}</p>
 
-<p>{{this.accountservice.accountOpslag.cart.productstoShow}}</p>
-
-
-
-<div class="grid-container">
-            <table>
-            <tr *ngFor ='let product of this.accountservice.accountOpslag.cart.productSet'>
-                <td>
-                            {{product.name}}
-                            <br>
-                            <br>
-                            Itemnr.{{product.id}}<p><img src="{{product.image}}" alt="Item 1" width=30% height=30%></p>
-                          
-                        </td>
-                            <br>
-                            <td>
-                               
-                                <br>
-                                <br>
-                                ${{(product.price*product.quantity)}}
-                                <br>
-                                                Quantity:
-                                                {{product.quantity}}
-                                                <br>
-                                                <br>
-                                                Supplier:
-                                                {{product.supplier}}
-                                                <br>
-                                                <br>
-                                                <button class="button" (click)="deleteProductFromCart(product)">-</button>&nbsp;&nbsp;          
-                                                <button class="button" (click)="addToCart(product)">+</button>   
-                                                <br>
-                                                <br>
-                                        </td>
-                </tr>
-            </table>
+        <tr *ngFor ='let product of this.accountservice.accountOpslag.cart.productSet'>
+        <div class="row"> 
+                <div class="column">
+                        <div class="container">
+                                <img src="{{product.image}}" alt="Product" style="width: 400px; height: 400px; padding: 5px">
+                          <h2>{{product.name}}</h2>
+                          <p class="title">Itemnr.{{product.id}}</p>
+                          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                          <p>Supplier: {{product.supplier}}</p>
+                            <p> Quantity: {{product.quantity}}</p>
+                            <p> ${{(product.price*product.quantity)}}</p>
+                          <p><button class="button" (click)="deleteProductFromCart(product)">-</button></p>
+                          <p><button class="button" (click)="addToCart(product)">+</button></p>
+                        </div>
+                    </div>
+                </div>
+     
+            </tr>
+                
 
 <!-- 
             <div class="grid-container" style="background-color: cornflowerblue">

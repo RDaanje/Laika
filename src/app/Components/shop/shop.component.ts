@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AccountService } from 'src/app/service/account.service';
 import { Account } from '../../domain/account';
 
+
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',

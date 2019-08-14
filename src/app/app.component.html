@@ -1,48 +1,29 @@
 <!-- Header & navigatiebar (voor iedere pagina) -->
-<div class="header">
-<div [hidden]=!this.accountservice.currentUserValue>
-    <a (click)="goToAccount()">
-        <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
-    </a>
-</div>
+<body>
+    
+        <app-header *ngIf="!router.url.includes('home')"></app-header>
 
-<div [hidden]=this.accountservice.currentUserValue>
-    <a [routerLink]="['home']">
-        <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
-    </a>
-</div>
-</div>
-
-<!-- Add icon library -->
-
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<nav>
-    <div class="navbar navbar-expand-sm bg-dark navbar-dark" >
-           
-
-            
-    <!-- <div class="row"> -->
-        <div class ="col text-center">
-                <a [routerLink]="['/shop']">Shop</a>
+    <div class="navbar">
+        <!-- <div>
+               <button style="border-radius: 5px; color: whitesmoke; background: #00000000;"> <mdb-icon fas icon="shopping-cart" [routerLink]="['/shopcart']" > &nbsp;&nbsp;{{this.accountservice.accountOpslag.cart.totalProducts}} </mdb-icon> </button>
+        </div>  -->
+        <!-- <div>
+                <button style="border-radius: 5px; color: whitesmoke; background: #00000000;"> <mdb-icon fas icon="user" [routerLink]="['/account']" > &nbsp;&nbsp;{{this.accountservice.accountOpslag.cart.totalProducts}} </mdb-icon> </button>
         </div>
-        <div class ="col text-center">
-                <mdb-icon fas icon="shopping-cart" [routerLink]="['/shopcart']" style="color:blue"> &nbsp;&nbsp;{{this.accountservice.accountOpslag.cart.totalProducts}} </mdb-icon>
-            </div>
+        <div>
+                <button style="border-radius: 5px" [routerLink]="['/shop']" >Shop</button>
+        </div>
+        <div>
+                <button style="border-radius: 5px" [hidden]="adminCheck()" [routerLink]="['/shopcart']">Admin Cart</button>
+        </div>
+        <div>
+                <button style="border-radius: 5px" [hidden]="adminCheck()" [routerLink]="['/wallet']">Admin Wallet</button>
+        </div>
+        <div>
+                <button style="border-radius: 5px" (click)="logOut()">Log out</button>
+        </div> -->
          
-          
-        <div class="col text-center">
-          <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{this.accountservice.userName}}</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem (click)="goToAccount()">Account info</button>
-              <button ngbDropdownItem [hidden]="adminCheck()" [routerLink]="['/shopcart']">Cart</button>
-              <button ngbDropdownItem [hidden]="adminCheck()" [routerLink]="['/wallet']">Wallet</button>
-              <button ngbDropdownItem (click)="logOut()">Log out</button>
-            </div>
-          </div>
-        </div>
-        </div>
-    </nav>
-    <!-- </div> -->
-
+    </div>
+    
+</body>
 <router-outlet></router-outlet>

@@ -16,6 +16,7 @@ import { AuthguardComponent } from './service/authguard.service';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { OverviewAccountsComponent } from './Components/overview-accounts/overview-accounts.component';
 import { OrdersComponent } from './Components/orders/orders.component';
+import { MenuComponent } from './Components/menu/menu.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: "modify-account", component: ModifyAccountComponent, canActivate: [AuthguardComponent] },  
   { path: "game", component: GameComponent, canActivate: [AuthguardComponent] },
   { path: "shopcart", component: ShopcartComponent, canActivate: [AuthguardComponent] },
+  { path: "menu", component: MenuComponent, canActivate: [AuthguardComponent] },
 
   { path: "product", component: ProductComponent, canActivate: [AuthguardComponent] },  
   { path: "logout", component: SignoutComponent },
