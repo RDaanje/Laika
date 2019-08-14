@@ -1,5 +1,5 @@
 <!-- Header & navigatiebar (voor iedere pagina) -->
-<div hidden class="header">
+<!-- <div hidden class="header">
 <div [hidden]=!this.accountservice.currentUserValue>
     <a (click)="goToAccount()">
         <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
@@ -11,20 +11,20 @@
         <img class="coverlogo" src="assets/images/CoverLaikaShopLogo.png" alt="LaikaShopLogo" width=100%>
     </a>
 </div>
-</div>
+</div> -->
 
 <!-- Add icon library -->
 
 
 
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<nav>
-    <div [hidden]= "!this.accountservice.currentUserValue" class="navbar navbar-expand-sm bg-dark navbar-dark" >
+<!-- <nav>
+    <div [hidden]= "!this.accountservice.currentUserValue" class="navbar navbar-expand-sm bg-dark navbar-dark" > -->
            
 
             
     <!-- <div class="row"> -->
-            <button [routerLink]="['/home']">Home</button>
+            <!-- <button [routerLink]="['/home']">Home</button>
             
         <div class ="col text-center">
                 <a [hidden] ="!this.accountservice.currentUserValue" [routerLink]="['/shop']">Shop</a>
@@ -46,8 +46,11 @@
           </div>
         </div>
         </div>
-    </nav>
+    </nav> -->
     <!-- </div> -->
 
-
+<body>
+    <!-- <app-header *ngif="!router.url.includes('home')"></app-header> -->
+    <div class="navbar"></div>
+</body>
 <router-outlet></router-outlet>
