@@ -5,6 +5,10 @@
 
 <tr *ngFor ='let product of products | orderBy: order'>
         <div class="row">
+                        You have {{accountservice.getOpslag('currentUser').wallet.euro}} €!                                  
+                        <br>                             
+            You have {{accountservice.getOpslag('currentUser').wallet.coins}} coins! 
+            
                 <div class="column">
                         <div class="container">
                                 <img src="{{product.image}}" alt="Product" style="width: 400px; height: 400px; padding: 5px">
@@ -12,9 +16,9 @@
                           <!-- <p class="title">Itemnr.{{product.id}}</p> -->
                           <p>{{product.description}}</p>
                           <p>Supplier: {{product.supplier}}</p>
-                            <p> Quantity: {{product.quantity}}</p>
+                            <p> Quantity: {{product.quantity }}</p>
 
-                            <p> <i class="fas fa-euro-sign"></i> {{(product.price*product.quantity)}}</p>
+                            <p> <i class="fas fa-euro-sign"></i> {{(product.price*product.quantity | number)}}</p>
                             <p><i class="fas fa-coins"></i> {{(product.priceCoins*product.quantity)}}</p>
                           <p><button class="button" (click)="deleteProductFromCart(product)">-</button></p>
                           <p><button class="button" (click)="addToCart(product)">+</button></p>
@@ -23,6 +27,8 @@
                 </div>
      
             </tr>
+
+            
                
             <button class="button" (click)="checkWallet()">Checkout with Euro</button>
             <button class="button" (click)="checkWalletCoins()">Checkout with Coins</button>
