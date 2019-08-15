@@ -1,26 +1,82 @@
 
-<div    >
-    <pre class="container">
-            Firstname: <input type="text" id="firstname" [(ngModel)]="this.localAccount.firstname">  
+ <div class="d-flex justify-content-center">
+        <div class="boxInfo" >
 
-            Lastname: <input type="text" id="lastname" [(ngModel)]=" this.localAccount.lastname">
-        
-            Username: <input type="text" id="username" [(ngModel)]=" this.localAccount.username">   
-        
-            Password: <input type="text" id="password" [(ngModel)]=" this.localAccount.password">
-        
-            E-mail: <input type="text" id="email" [(ngModel)]=" this.localAccount.email">
-        
-            Street: <input type="text" id="street" [(ngModel)]=" this.localAccount.street">
-        
-            House number: <input type="text" id="houseNumber" [(ngModel)]=" this.localAccount.houseNumber">
-        
-            Zipcode: <input type="text" id="zipcode" [(ngModel)]=" this.localAccount.zipcode">
-        
-            City: <input type="text" id="city" [(ngModel)]=" this.localAccount.city">
-
-            <button (click)="changeInfo()" >Submit</button>
-            
-    </pre>
+                    <div class="col">
+                        <td>
+                    <div class="textBox">
+                        Username:
+                        <br>
+                        <input type="text" id="username" [(ngModel)]=" this.localAccount.username">
+                        <br>
+                        
+                    </div>
+                    <br>
+                    <div class="textBox">
+                        E-mail:
+                        <br>
+                        <input type="text" id="email" [(ngModel)]=" this.localAccount.email">
+                        <br>
+                    </div>
+                    <br>
+                    <div class="textBox">
+                        Password:
+                        <br>
+                            <input type="text" id="password" [(ngModel)]=" this.localAccount.password">
+                         <br>
+                    </div>
+                    <br>
+                    <div class="textBox">
+                        Firstname:
+                        <br>
+                        <input type="text" id="firstname" [(ngModel)]="this.localAccount.firstname">  
+                        <br>
+                    </div>
+                    <br>
+                    <div class="textBox">
+                    
+                        Lastname:
+                        <br>
+                        <input type="text" id="lastname" [(ngModel)]=" this.localAccount.lastname">
+                        <br>
+                    </div>
+                    </td>
     
-</div>
+                    <td>
+                    &nbsp;  
+                    </td>
+    
+                    <td>
+                        <div class="textBox">
+                        Street:
+                        <br>
+                        <input type="text" id="street" [(ngModel)]=" this.localAccount.street">
+                        <br>
+                    </div>
+                    <br>
+                    <div class="textBox">
+                        Housenumber:
+                        <br>
+                        <input type="text" id="houseNumber" [(ngModel)]=" this.localAccount.houseNumber">
+                        <br>
+                    </div>
+                    <br>
+                    <div class="textBox">
+                        Zipcode:
+                        <br>
+                        <input type="text" id="zipcode" [(ngModel)]=" this.localAccount.zipcode">
+                        <br>
+                    </div>
+                    <br>
+                    <div class="textBox">
+                        City:
+                        <br>
+                        <input type="text" id="city" [(ngModel)]=" this.localAccount.city">
+                        <br>
+                    </div>
+                    
+                    </td>
+            </div>
+            
+            <button style="align-content: center; width: 50%; margin-left: 20%" (click)="changeInfo()" >Submit</button>
+           

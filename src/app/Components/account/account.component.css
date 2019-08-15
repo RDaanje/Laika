@@ -1,10 +1,24 @@
 .boxInfo {
-        width: 300px;
+        width: 70%;
         border-radius: 5px;
         padding: 10px;
         margin: 10px;
         color: whitesmoke;
-        text-align: center; 
+         
         background-color: rgba(0, 0, 0, 0.5);
+        align-content: center;
       
+}
+td {
+        padding: 5%;
+        justify-content: center;
+}
+.col {
+        padding: 5%;
+        align-content: center;
+}
+.textBox {
+        width:110px;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.2);
 }

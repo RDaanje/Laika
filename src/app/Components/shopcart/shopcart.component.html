@@ -13,7 +13,7 @@
                           <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                           <p>Supplier: {{product.supplier}}</p>
                             <p> Quantity: {{product.quantity}}</p>
-                            <p> ${{(product.price*product.quantity)}}</p>
+                            <p> €{{(product.price*product.quantity)}}</p>
                             <p>#{{(product.priceCoins*product.quantity)}}</p>
                           <p><button class="button" (click)="deleteProductFromCart(product)">-</button></p>
                           <p><button class="button" (click)="addToCart(product)">+</button></p>
