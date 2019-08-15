@@ -47,7 +47,14 @@ import { OrderCoinsComponent } from './Components/order-coins/order-coins.compon
     OrdersComponent, 
     HeaderComponent, 
     MenuComponent,
-    OverviewAccountsComponent, OrdersComponent, AccounthistoryComponent, OrderCoinsComponent
+    OverviewAccountsComponent, 
+    OrdersComponent, 
+    AccounthistoryComponent, 
+    OrderCoinsComponent
+    OverviewAccountsComponent, 
+    OrdersComponent, 
+    AccounthistoryComponent, 
+    OrderCoinsComponent
 
 
     

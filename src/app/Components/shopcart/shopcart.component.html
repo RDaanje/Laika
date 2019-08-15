@@ -13,6 +13,7 @@
                           <p>{{product.description}}</p>
                           <p>Supplier: {{product.supplier}}</p>
                             <p> Quantity: {{product.quantity}}</p>
+
                             <p> <i class="fas fa-euro-sign"></i> {{(product.price*product.quantity)}}</p>
                             <p><i class="fas fa-coins"></i> {{(product.priceCoins*product.quantity)}}</p>
                           <p><button class="button" (click)="deleteProductFromCart(product)">-</button></p>
