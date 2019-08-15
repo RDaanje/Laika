@@ -19,15 +19,7 @@ export class AppComponent {
   constructor(private accountservice: AccountService, private router: Router) {
     this.accountservice.currentUser.subscribe(x => this.currentUser = x);
   }
-
-
-  logOut()  { 
-    console.log( 'logging out');    
-    this.accountservice.logOut();
-    this.router.navigate(['/home']);
-  }
-
-
+  
   goToAccount() {
     if (this.accountservice.accountOpslag.isAdmin)  {
       this.router.navigate(['/admin/adminpage']);

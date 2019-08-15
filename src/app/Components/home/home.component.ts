@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
           if (this.accountservice.accountOpslag.isAdmin) {
             this.router.navigate(['admin/adminpage']);
           } else  {
-            this.router.navigate(['account']);
+            this.router.navigate(['menu']);
           }
         }
 
@@ -56,14 +56,14 @@ export class HomeComponent implements OnInit {
     this.lokaalVar.email = emailInput;
     this.accountservice.forgotInfo(this.lokaalVar).subscribe(
       (account: Account) => {
-        this.accountservice.accountOpslag.password = account.password;
-        this.accountservice.accountOpslag.username = account.username;
+        this.lokaalVar.password = account.password;
+        this.lokaalVar.username = account.username;
       },
       () => {
         alert('This E-mail is unknown to us');
       },
       () => {
-        alert('Your username is: ' + this.accountservice.accountOpslag.username + '\n' + 'Your password is: ' + this.accountservice.accountOpslag.password);
+        alert('Your username is: ' +  this.lokaalVar.username + '\n' + 'Your password is: ' +  this.lokaalVar.password);
       }
     )
   }

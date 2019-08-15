@@ -2,6 +2,7 @@
 function startGame() {
   console.log('running game in js');
   var score = 0;   
+  
   function smile() {
     var a;
     a = document.getElementById("div1");
@@ -37,8 +38,9 @@ function startGame() {
    var bottom_bar_offset = 0;    
    var endedGame = false;     
    var pipes = [];                      
-  
-  
+   var i = 1;
+   var bat = false;
+
    function MySprite (img_url) {
       this.x = 0;
       this.y = 0; 
@@ -57,7 +59,7 @@ function startGame() {
       ctx.rotate(this.angle * Math.PI / 180);                       
       if (this.flipV) ctx.scale(1,-1);                              
       if (this.flipH) ctx.scale(-1,1);
-     if (this.visible) ctx.drawImage(this.MyImg, -this.MyImg.width/2, -this.MyImg.height/2);
+      if (this.visible) ctx.drawImage(this.MyImg, -this.MyImg.width/2, -this.MyImg.height/2);
       this.x = this.x + this.velocity_x;
       this.y = this.y + this.velocity_y;                            
       ctx.restore();                                               
@@ -101,21 +103,59 @@ function startGame() {
            game_mode = 'over';
            }
       }
-  function add_pipe(x_pos, top_of_gap, gap_width) {             
+  function add_pipe(x_pos, top_of_gap, gap_width) {        
+
+      if(this.bat)  { 
       var top_pipe = new MySprite();
       top_pipe.MyImg = pipe_piece;                              
       top_pipe.x = x_pos;                                       
       top_pipe.y = top_of_gap - pipe_piece.height;              
       top_pipe.velocity_x = pipe_speed;            
-      pipes.push(top_pipe);         
+      pipes.push(top_pipe);
+      this.bat = !this.bat;
+
+      } else  {
+        this.bat = !this.bat;
+        var Bat = new MySprite();
+        Bat.MyImg = bat;                              
+        Bat.x = x_pos;                                       
+        Bat.y = top_of_gap - pipe_piece.height;              
+        Bat.velocity_x = pipe_speed;            
+        pipes.push(Bat);
+      }
+      i++;
+      
+      if  (i == 9)  {
+        var Gatekeeper = new MySprite()
+        Gatekeeper.MyImg = lucca;
+        Gatekeeper.x = x_pos - 60;
+        Gatekeeper.y = 600;
+        Gatekeeper.velocity_x = pipe_speed;
+        pipes.push(Gatekeeper );
+      } else{
+
+      
       var bottom_pipe = new MySprite();
-      bottom_pipe.MyImg = pipe_piece;
-      bottom_pipe.flipV = true;                                
-      bottom_pipe.x = x_pos;
-      bottom_pipe.y = 540;
-      // top_of_gap + gap_width;
+      var bottom_catcher = new MySprite();
+      // pipe_piece;
+      bottom_pipe.MyImg = monster;
+      bottom_catcher.MyImg = catcher;
+      // bottom_pipe.flipV = true;                                
+      bottom_pipe.x = x_pos - 60;
+      bottom_pipe.y = 600;
+      
+
+      bottom_catcher.x = x_pos;
+      
+
+      bottom_catcher.velocity_x = pipe_speed;
+      
+      bottom_catcher.y = top_of_gap + gap_width;
       bottom_pipe.velocity_x = pipe_speed;
+
       pipes.push(bottom_pipe );
+      pipes.push(bottom_catcher );
+      }
       }
   function make_bird_tilt_appropriately() {
       if (bird.velocity_y < 0)  {
@@ -164,28 +204,47 @@ function startGame() {
         add_all_my_pipes();                 // and load them back in their starting positions 
         }
   function add_all_my_pipes() {
-      add_pipe(500,  100, 140);
-      add_pipe(800,   50, 140);
-      add_pipe(1000, 250, 140);
-      add_pipe(1200, 150, 120);
-      add_pipe(1600, 100, 120);
-      add_pipe(1800, 150, 120);
-      add_pipe(2000, 200, 120);
-      add_pipe(2200, 250, 120);
-      add_pipe(2400,  30, 100);
-      add_pipe(2700, 300, 100);
-      add_pipe(3000, 100,  80);
-      add_pipe(3300, 250,  80);
-      add_pipe(3600,  50,  60);
-      var finish_line = new MySprite("http://s2js.com/img/etc/flappyend.png");
+      add_pipe(500,  100, 200);
+      add_pipe(800,   350, 250);
+      add_pipe(1100, 10, 200);
+      add_pipe(1400, 150, 220);
+      add_pipe(1800, 100, 220);
+      add_pipe(2000, 150, 220);
+      add_pipe(2200, 200, 220);
+      add_pipe(2400, 250, 220);
+      add_pipe(2600,  80, 200);
+      add_pipe(2900, 300, 200);
+      add_pipe(3200, 100,  180);
+      add_pipe(3500, 250,  180);
+      add_pipe(3800,  50,  60);
+      var finish_line = new MySprite("assets/images/laikadog.png");
       finish_line.x = 3900;
       finish_line.velocity_x = pipe_speed;
       pipes.push(finish_line);
       }
+
    var pipe_piece = new Image();
+   var catcher = new Image();
+   var monster = new Image();
+   var lucca = new Image();
+   var bat = new Image()
+   
+  
+
    pipe_piece.onload = add_all_my_pipes;                       
-   pipe_piece.src = "assets/images/uvo.png/" ;
+   pipe_piece.src = "assets/images/uvo mini.png/" ;
   //  http://s2js.com/img/etc/flappypipe.png
+
+  lucca.src = "assets/images/monster.png";
+
+  // catcher.onload = add_all_my_pipes;
+  catcher.src = "assets/images/vangnet.png";
+
+  bat.src = "assets/images/batmini.png";
+
+
+ 
+  monster.src = "assets/images/monster.png"
   function Do_a_Frame () {
       ctx.clearRect(0, 0, canvas.width, canvas.height);   
       bird.Do_Frame_Things(); 
@@ -214,6 +273,7 @@ function startGame() {
                         y = removeEventListener("mousedown", Got_Player_Input);
                         b = document.getElementById("end").innerHTML = "true";   
                         console.log('ended game in js');  
+                        // this.bat = false;
                         // z = removeEventListener("keydown", Got_Player_Input); 
                         return;
                         // break;
@@ -221,9 +281,11 @@ function startGame() {
           } 
       }
    var bottom_bar = new Image();
-   bottom_bar.src = "http://s2js.com/img/etc/flappybottom.png" ;
-  
-   var bird = new MySprite("assets/images/laika.png");
+   bottom_bar.src = "assets/images/bottom.png"; 
+   
+   
+
+   var bird = new MySprite("assets/images/laikabeer.png");
   //  http://s2js.com/img/etc/flappybird.png
    bird.x = canvas.width / 3;
    bird.y = canvas.height / 2;

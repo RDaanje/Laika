@@ -1,74 +1,109 @@
     <div class="d-flex justify-content-center">
-    <div class="boxInfo" style="align-content: left">
-            <ul>
+    <div class="boxInfo" >
+            <div class="row">
+                <div class="col">
                     <td>
+                <div class="textBox">
                     Username:
                     <br>
-                    {{this.accountservice.getOpslag('currentUser').username}}
+                    <b>{{this.accountservice.getOpslag('currentUser').username}}</b>
                     <br>
-                    <br>
+                </div>
+                <br>
+                <div class="textBox">
                     E-mail:
                     <br>
-                    {{this.accountservice.getOpslag('currentUser').email}}
+                    <b>{{this.accountservice.getOpslag('currentUser').email}}</b>
                     <br>
-                    <br>
+                </div>
+                <br>
+                <div class="textBox">
                     Firstname:
                     <br>
-                    {{this.accountservice.getOpslag('currentUser').firstname}}
+                    <b>{{this.accountservice.getOpslag('currentUser').firstname}}</b>
                     <br>
-                    <br>
+                </div>
+                <br>
+                <div class="textBox">
+                
                     Lastname:
                     <br>
-                    {{this.accountservice.getOpslag('currentUser').lastname}}
+                    <b>{{this.accountservice.getOpslag('currentUser').lastname}}</b>
                     <br>
-                    <br>
+                </div>
                 </td>
+
                 <td>
+                &nbsp;  
+                </td>
+
+                <td>
+                    <div class="textBox">
                     Street:
                     <br>
-                    {{this.accountservice.getOpslag('currentUser').street}}
+                    <b>{{this.accountservice.getOpslag('currentUser').street}}</b>
                     <br>
+                </div>
+                <br>
+                <div class="textBox">
+                    Housenumber:
                     <br>
-                    House number:
+                    <b>{{this.accountservice.getOpslag('currentUser').houseNumber}}</b>
                     <br>
-                    {{this.accountservice.getOpslag('currentUser').houseNumber}}
-                    <br>
-                    <br>
+                </div>
+                <br>
+                <div class="textBox">
                     Zipcode:
                     <br>
-                    {{this.accountservice.getOpslag('currentUser').zipcode}}
+                    <b>{{this.accountservice.getOpslag('currentUser').zipcode}}</b>
                     <br>
-                    <br>
+                </div>
+                <br>
+                <div class="textBox">
                     City:
                     <br>
-                    {{this.accountservice.getOpslag('currentUser').city}}
+                    <b>{{this.accountservice.getOpslag('currentUser').city}}</b>
+                    <br>
+                </div>
+                
                 </td>
-            </ul>
-
-            <button class="button" (click)="goToChangeAccount()">Change info</button>
-    </div>
-</div>
-    <button class="button" (click)="goToGame()">Play Game!</button>
-
-
-    <div class="col">
-<form [formGroup]="euroForm">
-                <pre>
-                        <div>
-                                <label for="euroInput">
-                                    Euro:
-                                </label>
-                                <input type = "number" id="euroInput" name="euroInput" class="form-control" formControlName="euro" required>
-                            </div>                                                                                                         
-                            <button class="button" (click) = "validateForm()">Add Euro</button>
-            
-                            
-                            Je hebt nu {{accountservice.getOpslag('currentUser').wallet.euro}} euro!                                  
-                            
-                            Je hebt nu {{accountservice.getOpslag('currentUser').wallet.coins}} coins! 
-
-                            <a [routerLink]="['/orderhistory']">go to orderhistory</a>
-                   </pre>
-            
-            </form>
+                
+           <button class="button" (click)="goToChangeAccount()">Change info</button>
         </div>
+        <div class="col">
+
+                <td>
+                    <form [formGroup]="euroForm">
+                        <div>
+                            <label for="euroInput">
+                                Euros:
+                            </label>
+                            <input type = "number" id="euroInput" name="euroInput" class="form-control" formControlName="euro" required>
+                        </div>  
+                        <br>                                                                                                       
+                            <button class="button" (click) = "validateForm()">Add Euro</button>
+                             <br>
+                            You have {{accountservice.getOpslag('currentUser').wallet.euro}} €!                                  
+                               <br>                             
+                            You have {{accountservice.getOpslag('currentUser').wallet.coins}} coins! 
+                                <br>
+                             <a [routerLink]="['/orderhistory']">Go to orderhistory</a>
+                    </form>
+                                      
+                </td>
+            </div>
+            <div class="col">
+                <td>
+                    <img src="assets/images/spaceshop.png" alt="game" width="100%">
+                    <br>
+                    <br>
+                        <button class="button" (click)="goToGame()">Play Game!</button>
+                </td>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

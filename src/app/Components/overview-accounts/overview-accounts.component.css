@@ -1,0 +1,68 @@
+
+  /* Three columns side by side */
+  .column {
+    float: left;
+    width: 400px;
+    margin-bottom: 16px;
+    padding: 20px;
+    align-content: center;
+    width: 100%;
+  }
+  
+  /* Display the columns below each other instead of side by side on small screens */
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 400px;
+      display: block;
+    }
+  }
+  table{
+      color: black;
+  }
+
+tbody td{
+    color: black;
+}
+
+td{
+    color:black;
+}
+.container   {
+    padding: 10 px;
+    margin: 15px;
+    color: black;
+}
+
+  pre{
+    color: whitesmoke;
+  }
+  p {
+    color: whitesmoke;
+  }
+  h2 {
+    color: white;
+  }
+  /* Clear floats */
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: lightgrey;
+  }
+  
+  
+  table {
+    width: 100%;
+  }
+  td {
+    color: rgba(223, 217, 217, 0.486); 
+    padding: 20px 0;
+    font-size: 20px;
+    font-family: Arial;
+    width: 100%;
+    
+  }
+  

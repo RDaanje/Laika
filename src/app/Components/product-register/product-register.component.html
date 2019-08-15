@@ -1,52 +1,57 @@
-<a [routerLink]="['/admin/adminpage']">Back to admin page</a>
-<!-- <div class="container"> -->
+
+<div class = "container">
+
+<a [routerLink]="['/admin/adminpage']">Back to admin page</a> 
+</div>
+
+<div class="container">
     <div class="row">
+
         <div class="col">
             <div class="addProduct">
                 <form [formGroup]="registerForm">
-                    <pre>
-        <div>
+                        <pre>
+                    <h1> Add a new product:</h1>
                 <label for="ProductName">
-                    ProductName:
+                   <h3> ProductName:</h3>
                 </label>
                 <input id="ProductName" name="ProductName" class="form-control" formControlName="ProductName" placeholder= "ProductName" required>
-            </div>
-            <div>
+
                 <label for="Supplier">
-                    Supplier:
+                        <h3>  Supplier:</h3>
                 </label>
-                <input id="Supplier" type="Supplier" formControlName="Supplier" placeholder= "Supplier" required>
-            </div>
-            <div>
+                <input id="Supplier" type="Supplier" class="form-control" formControlName="Supplier" placeholder= "Supplier" required>
                 <label for="Stock">
-                    Stock:
+                        <h3>  Stock:</h3>
                 </label>
-                <input id="Stock" type="number" formControlName="Stock" placeholder= "Stock" required>
-                </div>
-            <button type="button" (click)="validateForm()">Submit</button>
-   </pre>
+                <input id="Stock" type="number" class="form-control" formControlName="Stock" placeholder= "Stock" required>
+            <button class="btn btn-lg btn-dark btn-block text-uppercase" type="button" (click)="validateForm()">Submit</button>
+        </pre>
                 </form>
+                
             </div>
+            
         </div>
 
 
         <div class="col">
-
-            <select id="products" (click)="getOptionValue()">
+            <h1>Change product information</h1>
+            <br>
+            <select id="products" class="select" (click)="getOptionValue()">
 
             </select>
 
             <div [hidden]= !hiddenInput >
                 <pre>
-                    Name product: <input [(ngModel)]=" this.productStorage.name">
+                        <h3>   Name product:</h3> <input  class="form-control" [(ngModel)]=" this.productStorage.name">
 
-                    Price product: <input [(ngModel)]=" this.productStorage.price">
+                            <h3>   Price product:</h3> <input  class="form-control" [(ngModel)]=" this.productStorage.price">
 
-                    Stock product: <input [(ngModel)]=" this.productStorage.stock">
+                                <h3>  Stock product:</h3> <input class="form-control"  [(ngModel)]=" this.productStorage.stock">
 
-                    Supplier: <input [(ngModel)]=" this.productStorage.supplier">
+                                    <h3>  Supplier:</h3> <input  class="form-control" [(ngModel)]=" this.productStorage.supplier">
 
-                    Description: <textarea [(ngModel)]="this.productStorage.description"></textarea>
+                                        <h3>  Description: </h3><textarea  class="form-control" [(ngModel)]="this.productStorage.description"></textarea>
                     
                     <button (click)="changeInfo()" >Submit changes</button>
                     
@@ -57,4 +62,5 @@
         </div>
       
 
-<!-- </div> -->
+</div>
+</div>

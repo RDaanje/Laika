@@ -1,9 +1,11 @@
 <a [routerLink]="['/admin/adminpage']">Back to admin page</a>
-<div class="grid-container">
+<div class="container" style="align-content: center" *ngFor='let account of accounts'>
+    <br>
+    <br>
     <table >
            
-        <tr *ngFor='let account of accounts'>
-                <button (click)="deleteAccount(account)">delete this account</button>
+        <tr>
+                <button class = "btn btn-lg btn-dark btn-block text-uppercase" (click)="deleteAccount(account)">delete this account</button>
                
                 <div class= "row">   
                     <div class="col">   
@@ -33,9 +35,12 @@
                                 Coins:   {{account.wallet.coins}}   
                             </pre>
                     </td></div>
-                    <button (click)="reveal(account)">Show orders</button>
+                    <button  class = "btn btn-lg btn-dark btn-block text-uppercase" (click)="reveal(account)">Show orders</button>
                 </div>
                 </div>
+       
+<!-- </div> -->
+                
                     <td [hidden]="!account.showInvoice" *ngFor = 'let history of account.orderhistory.orderSet'>
                           
                                 <div class="container" id="invoice">
@@ -43,8 +48,8 @@
                                                 <div class="card">
                                                     <div class="card-header">
                                                         Invoice
-                                                        <strong><div id="date">input date here</div></strong>
-                                                        <span class="float-right"> <strong>Status:</strong> <div id="status">Pending</div></span>
+                                                        <!-- <strong><div id="date">input date here</div></strong>
+                                                        <span class="float-right"> <strong>Status:</strong> <div id="status">Pending</div></span> -->
                                             
                                                     </div>
                                                     <div class="card-body">
@@ -109,7 +114,7 @@
                                                                             <td class="left">
                                                                                 <strong>Subtotal</strong>
                                                                             </td>
-                                                                            <td class="right">{{this.accountservice.accountOpslag.cart.total}}</td>
+                                                                            <td class="right">{{history.total}}</td>
                                                                         </tr>                           
                                                                     </tbody>
                                                                 </table>
@@ -126,9 +131,9 @@
                     </td>                     
                   
                   <hr>
-                  
-        </tr>
+                </tr>
+            </table>
+        <!-- </tr> -->
           
-    
+        </div>
    
-    </table>
