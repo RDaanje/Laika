@@ -37,7 +37,7 @@ function startGame() {
    var bottom_bar_offset = 0;    
    var endedGame = false;     
    var pipes = [];                      
-  
+   var i = 1;
   
    function MySprite (img_url) {
       this.x = 0;
@@ -107,15 +107,40 @@ function startGame() {
       top_pipe.x = x_pos;                                       
       top_pipe.y = top_of_gap - pipe_piece.height;              
       top_pipe.velocity_x = pipe_speed;            
-      pipes.push(top_pipe);         
+      pipes.push(top_pipe);
+      i++;
+      
+      if  (i == 9)  {
+        var Gandalf = new MySprite()
+        Gandalf.MyImg = gandalf;
+        Gandalf.x = x_pos - 60;
+        Gandalf.y = 600;
+        Gandalf.velocity_x = pipe_speed;
+        pipes.push(Gandalf );
+      } else{
+
+      
       var bottom_pipe = new MySprite();
-      bottom_pipe.MyImg = pipe_piece;
-      bottom_pipe.flipV = true;                                
-      bottom_pipe.x = x_pos;
-      bottom_pipe.y = 540;
-      // top_of_gap + gap_width;
+      var bottom_catcher = new MySprite();
+      // pipe_piece;
+      bottom_pipe.MyImg = monster;
+      bottom_catcher.MyImg = catcher;
+      // bottom_pipe.flipV = true;                                
+      bottom_pipe.x = x_pos - 60;
+      bottom_pipe.y = 600;
+      
+
+      bottom_catcher.x = x_pos;
+      
+
+      bottom_catcher.velocity_x = pipe_speed;
+      
+      bottom_catcher.y = top_of_gap + gap_width;
       bottom_pipe.velocity_x = pipe_speed;
+
       pipes.push(bottom_pipe );
+      pipes.push(bottom_catcher );
+      }
       }
   function make_bird_tilt_appropriately() {
       if (bird.velocity_y < 0)  {
@@ -164,28 +189,44 @@ function startGame() {
         add_all_my_pipes();                 // and load them back in their starting positions 
         }
   function add_all_my_pipes() {
-      add_pipe(500,  100, 140);
-      add_pipe(800,   50, 140);
-      add_pipe(1000, 250, 140);
-      add_pipe(1200, 150, 120);
-      add_pipe(1600, 100, 120);
-      add_pipe(1800, 150, 120);
-      add_pipe(2000, 200, 120);
-      add_pipe(2200, 250, 120);
-      add_pipe(2400,  30, 100);
-      add_pipe(2700, 300, 100);
-      add_pipe(3000, 100,  80);
-      add_pipe(3300, 250,  80);
+      add_pipe(500,  100, 200);
+      add_pipe(800,   100, 250);
+      add_pipe(1000, 120, 200);
+      add_pipe(1200, 150, 220);
+      add_pipe(1600, 100, 220);
+      add_pipe(1800, 150, 220);
+      add_pipe(2000, 200, 220);
+      add_pipe(2200, 250, 220);
+      add_pipe(2400,  80, 200);
+      add_pipe(2700, 300, 200);
+      add_pipe(3000, 100,  180);
+      add_pipe(3300, 250,  180);
       add_pipe(3600,  50,  60);
       var finish_line = new MySprite("http://s2js.com/img/etc/flappyend.png");
       finish_line.x = 3900;
       finish_line.velocity_x = pipe_speed;
       pipes.push(finish_line);
       }
+
    var pipe_piece = new Image();
+   var catcher = new Image();
+   var monster = new Image();
+   var gandalf = new Image();
+   
+  
+
    pipe_piece.onload = add_all_my_pipes;                       
-   pipe_piece.src = "assets/images/uvo.png/" ;
+   pipe_piece.src = "assets/images/uvo mini.png/" ;
   //  http://s2js.com/img/etc/flappypipe.png
+
+  gandalf.src = "assets/images/Bert.jpg";
+
+  // catcher.onload = add_all_my_pipes;
+  catcher.src = "assets/images/vangnet.png";
+
+
+ 
+  monster.src = "assets/images/monster.png"
   function Do_a_Frame () {
       ctx.clearRect(0, 0, canvas.width, canvas.height);   
       bird.Do_Frame_Things(); 
@@ -221,9 +262,11 @@ function startGame() {
           } 
       }
    var bottom_bar = new Image();
-   bottom_bar.src = "http://s2js.com/img/etc/flappybottom.png" ;
-  
-   var bird = new MySprite("assets/images/laika.png");
+   bottom_bar.src = "assets/images/bottom.png"; 
+   
+   
+
+   var bird = new MySprite("assets/images/laikabeer.png");
   //  http://s2js.com/img/etc/flappybird.png
    bird.x = canvas.width / 3;
    bird.y = canvas.height / 2;

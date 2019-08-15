@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-image: url("assets/images/stars.jpg");
+    background-image: url("assets/images/spaceshop3.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -12,7 +12,7 @@ body {
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    color: whitesmoke;
+    /* color: whitesmoke; */
   }
   
 
