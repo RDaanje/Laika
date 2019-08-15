@@ -10,7 +10,12 @@ table {
     width: 75%;
     
   }
-
+  p {
+    color: whitesmoke;
+  }
+  h2 {
+    color: white;
+  }
    /* Three columns side by side */
 .column {
   float: left;

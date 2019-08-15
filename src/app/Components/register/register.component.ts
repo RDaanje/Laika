@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
         }
       },         
       () => {        
-        this.router.navigate(['account']);        
+        this.router.navigate(['menu']);        
       }
         
     )    

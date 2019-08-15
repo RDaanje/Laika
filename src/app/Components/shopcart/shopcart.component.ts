@@ -50,32 +50,32 @@ export class ShopcartComponent implements OnInit {
     {
       console.log("GENOEG GELD")
       if(this.account.firstname == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
       else if(this.account.lastname == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
       else if(this.account.street == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
       else if(this.account.houseNumber == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
       else if(this.account.zipcode == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
       else if(this.account.city == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
@@ -85,7 +85,7 @@ export class ShopcartComponent implements OnInit {
      this.router.navigate(["orders"])   
    }
    else{
-     alert("NIET GENOEG GELD")
+     alert("U heeft niet genoeg Euro om dit product te kopen")
      this.router.navigate(["account"])
    }
   }
@@ -97,32 +97,32 @@ export class ShopcartComponent implements OnInit {
     {
       console.log("GENOEG Coins")
       if(this.account.firstname == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
       else if(this.account.lastname == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
       else if(this.account.street == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
       else if(this.account.houseNumber == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
       else if(this.account.zipcode == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
       else if(this.account.city == null|| this.account.firstname == ""){
-        alert("GEGEVENS NIET COMPLEET")
+        alert("U heeft nog niet al uw gegevens ingevuld")
         this.router.navigate(["modify-account"])
         return;
       }
@@ -135,7 +135,7 @@ export class ShopcartComponent implements OnInit {
      this.accountservice.updateAccount(this.account).subscribe();
    }
    else{
-     alert("u heeft niet genoeg Coins om dit product te kopen");
+     alert("U heeft niet genoeg Coins om dit product te kopen");
    }
   }
 }
