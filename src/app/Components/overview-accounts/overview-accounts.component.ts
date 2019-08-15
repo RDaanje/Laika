@@ -29,9 +29,12 @@ export class OverviewAccountsComponent implements OnInit {
   deleteAccount(account: Account) {
     console.log(account);
     this.accountservice.deleteAccount(account).subscribe(
-      () => {       
+      () => {     
+      
       }
     )
+    alert('This account has been deleted');
+    this.router.navigate(['/admin/adminpage']);  
   }
 
   reveal(account: Account)  {

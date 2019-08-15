@@ -1,5 +1,8 @@
 
+
 <!-- <p>{{this.accountservice.accountOpslag.cart.total | number}}</p>
+
+<p>{{this.accountservice.accountOpslag.cart.total | number}}</p>
    <p> {{this.accountservice.accountOpslag.cart.totalCoins | number}}</p>
 <p>{{this.accountservice.accountOpslag.cart.productstoShow}}</p> -->
 
@@ -9,14 +12,14 @@
                         <div class="container">
                                 <img src="{{product.image}}" alt="Product" style="width: 400px; height: 400px; padding: 5px">
                           <h2>{{product.name}}</h2>
-                          <p class="title">Itemnr.{{product.id}}</p>
-                          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                          <!-- <p class="title">Itemnr.{{product.id}}</p> -->
+                          <p>{{product.description}}</p>
                           <p>Supplier: {{product.supplier}}</p>
                             <p> Quantity: {{product.quantity}}</p>
-                            <p> €{{(product.price*product.quantity)}}</p>
-                            <p>#{{(product.priceCoins*product.quantity)}}</p>
-                            <p><button class="button" style="width: 50px; height: 50px; padding: 5px" (click)="addToCart(product)">+</button> &nbsp;
-                            <button class="button" style="width: 50px; height: 50px; padding: 5px" (click)="deleteProductFromCart(product)">-</button></p>
+                            <p> <i class="fas fa-euro-sign"></i> {{(product.price*product.quantity)}}</p>
+                            <p><i class="fas fa-coins"></i> {{(product.priceCoins*product.quantity)}}</p>
+                          <p><button class="button" (click)="deleteProductFromCart(product)">-</button></p>
+                          <p><button class="button" (click)="addToCart(product)">+</button></p>
                         </div>
                     </div>
                 </div>
