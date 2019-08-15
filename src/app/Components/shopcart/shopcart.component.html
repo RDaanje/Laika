@@ -2,12 +2,14 @@
 <p>{{this.accountservice.accountOpslag.cart.total | number}}</p>
    <p> {{this.accountservice.accountOpslag.cart.totalCoins | number}}</p>
 <p>{{this.accountservice.accountOpslag.cart.productstoShow}}</p> -->
-
+<!-- <div class = "row">
+<p>You have {{accountservice.getOpslag('currentUser').wallet.euro}} €!      </p>                            
+<br>                             
+<p>You have {{accountservice.getOpslag('currentUser').wallet.coins}} coins!   </p>
+</div> -->
 <tr *ngFor ='let product of products | orderBy: order'>
         <div class="row">
-                        You have {{accountservice.getOpslag('currentUser').wallet.euro}} €!                                  
-                        <br>                             
-            You have {{accountservice.getOpslag('currentUser').wallet.coins}} coins! 
+                     
             
                 <div class="column">
                         <div class="container">
@@ -18,18 +20,28 @@
                           <p>Supplier: {{product.supplier}}</p>
                             <p> Quantity: {{product.quantity }}</p>
 
-                            <p> <i class="fas fa-euro-sign"></i> {{(product.price*product.quantity | number)}}</p>
-                            <p><i class="fas fa-coins"></i> {{(product.priceCoins*product.quantity)}}</p>
-                          <p><button class="button" (click)="deleteProductFromCart(product)">-</button></p>
-                          <p><button class="button" (click)="addToCart(product)">+</button></p>
+                            <!-- <p> <i class="fas fa-euro-sign"></i> {{(product.price*product.quantity | number)}}</p>
+                            <p><i class="fas fa-coins"></i> {{(product.priceCoins*product.quantity)}}</p> -->
+
+                            <h3 style="float: right"> <i class="fas fa-euro-sign"></i> {{(product.price*product.quantity | number)}} &nbsp; &nbsp;
+                              <i class="fas fa-coins"></i> {{(product.priceCoins*product.quantity)}} </h3>
+                              <br>
+                              <br>
+                          <p><button class="button" style="width: 45%" (click)="deleteProductFromCart(product)">-</button> &nbsp; &nbsp; &nbsp;
+                          <button class="button" style="width: 45%" (click)="addToCart(product)">+</button></p>
                         </div>
                     </div>
                 </div>
      
             </tr>
 
-            
-               
+
+               <div  style="margin-bottom: 50px" > 
             <button class="button" (click)="checkWallet()">Checkout with Euro</button>
+<br>
+<br>
+
             <button class="button" (click)="checkWalletCoins()">Checkout with Coins</button>
- 
+            <br>
+            <br>
+          </div>  

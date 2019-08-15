@@ -16,20 +16,24 @@ body {
   }
   
 
- .button {
-    border: none;
+  button {
+    border: white;
+    border-style: solid;
     outline: 0;
     display: inline-block;
     padding: 8px;
-    color: black;
-    background-color: grey;
+    color: white;
+    background-color: #9ec4cf;
     text-align: center;
     cursor: pointer;
     width: 100%;
-    border-radius: 5px;
-  }
+    border-radius: 15px;
+    font-family: inherit;
+    font-size: xx-large;
   
-  .button:hover {
-    background-color: #555;
+  
+  }
+   button:hover {
+    background-color: rgba(85, 85, 85, 0);
   }
  

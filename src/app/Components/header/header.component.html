@@ -1,16 +1,17 @@
-<div class ="row">
-<div class="header;" >
-    
-            <td style="padding-right: 55%"  >
-                <img class="coverlogo" style="float: left" src="assets/images/laika logo bbc.png" alt="LaikaShopLogo" [routerLink]="['/menu']"> 
-            </td>
-            <td style="float: right; padding-right: 5px; " [routerLink]="['/menu']"> 
-                <button style="border-radius: 5px; color: whitesmoke; background: #00000000; "> <mdb-icon fas icon="home" [routerLink]="['/menu']" > </mdb-icon> </button>
-            </td>
 
-         
+<div class="header" >
+        <table>
+        <td class="row">
+                    <img [routerLink]="['/menu']" class="coverlogo" src="assets/images/laika logo bbc.png"  style="align-content: left; margin-left: 30px" alt="LaikaShopLogo">
+                </td> 
+                <!-- <td class="col">   
+                    <button [routerLink]="['/menu']" style=" float: right; padding: 10px;"> <mdb-icon fas icon="home" [routerLink]="['/menu']" > </mdb-icon> </button>
+                </td>    -->
+        </table>
         <!-- <div [hidden]=this.accountservice.currentUserValue>
             <a [routerLink]="['home']"> </a>
         </div> -->
 </div>
-</div>
+
+
+ 

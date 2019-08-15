@@ -12,10 +12,10 @@
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" #passwordInput required>
     
     <br>
-    <button class="btn btn-lg btn-dark btn-block text-uppercase" (click)="checkAccount(usernameInput.value, passwordInput.value)">Login</button>
-    
+    <button  (click)="checkAccount(usernameInput.value, passwordInput.value)">Login</button>
     <br>
-    <button class="btn btn-lg btn-dark btn-block text-uppercase" (click)="goRegisterPage()">Register here</button>
+    <br>
+    <button  (click)="goRegisterPage()">Register here</button>
 
     <a  text-uppercase (click)="revealInput()" id="revealButton">Forgot account info?</a>
 
@@ -25,7 +25,7 @@
         <input class="form-control" type="text" id="emailForgot" #forgotEmail placeholder="Input your e-mail here">
       <br>
       <br>
-        <button class="btn btn-lg btn-dark btn-block text-uppercase" style="color: crimson" (click)="forgotInfo(forgotEmail.value)">Submit</button>
+        <button  style="color: crimson" (click)="forgotInfo(forgotEmail.value)">Submit</button>
 
     </div>          
 

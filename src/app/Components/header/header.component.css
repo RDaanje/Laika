@@ -1,4 +1,19 @@
 img {
-    width: 100%;
+    width: 30%;
     opacity: 0.8;
 }
+
+table {
+    width: 100%;
+ }
+
+ table .row {
+    width: 90%;
+    align-content: left;
+ }
+ 
+ table .col {
+    width: 10%;
+    align-content: right;
+ }
+ 

@@ -232,19 +232,17 @@ function startGame() {
   
 
    pipe_piece.onload = add_all_my_pipes;                       
-   pipe_piece.src = "assets/images/uvo mini.png/" ;
+   pipe_piece.src = "assets/images/uvo mini.png" ;
   //  http://s2js.com/img/etc/flappypipe.png
 
-  lucca.src = "assets/images/monster.png";
+  lucca.src = "assets/images/lucacartoon.png";
+  // lucacartoon.png";
 
   // catcher.onload = add_all_my_pipes;
   catcher.src = "assets/images/vangnet.png";
-
   bat.src = "assets/images/batmini.png";
+  monster.src = "assets/images/monster.png";
 
-
- 
-  monster.src = "assets/images/monster.png"
   function Do_a_Frame () {
       ctx.clearRect(0, 0, canvas.width, canvas.height);   
       bird.Do_Frame_Things(); 

@@ -20,16 +20,11 @@ export class ShopComponent implements OnInit {
   private product = new Product();
   private router: Router;
 
-  // accountInvoer: Account = new Account();
-
-
   constructor(private productservice: ProductService, private accountservice: AccountService) { }
 
   ngOnInit() {
     
     this.accountservice.accountOpslag = this.accountservice.accountOpslag;
-    // this.accountInvoer = this.accountservice.getOpslag('currentUser');
-    // console.log(this.accountInvoer);
     this.productservice.retrieveAll().subscribe(
       (products: Product[]) => {
         this.products = products;
@@ -41,8 +36,8 @@ export class ShopComponent implements OnInit {
   toShowInShop() {
     this.productsB = [];
     for (let entry of this.products) {
-      ;
-      console.log(this.productsB.length);
+      
+
       if (this.productsB.length == 0) {
 
 
@@ -71,7 +66,7 @@ export class ShopComponent implements OnInit {
 
       (account: Account) => {
         this.accountservice.setOpslag('currentUser', account);
-        console.log(this.accountservice.getOpslag('currentUser'));
+        alert('The item has been added to your cart!');
       }
     )
   }

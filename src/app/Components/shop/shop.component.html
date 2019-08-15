@@ -1,7 +1,11 @@
-<div class="row">
-    You have {{accountservice.getOpslag('currentUser').wallet.euro}} €!                                  
-    <br>                             
-You have {{accountservice.getOpslag('currentUser').wallet.coins}} coins! 
+<div class="row" >
+  <div class = "col">
+  <h3>  You have € {{accountservice.getOpslag('currentUser').wallet.euro}}!  </h3> 
+</div>                               
+    <br>                  
+    <div class  = "col">           
+  <h3>  You have {{accountservice.getOpslag('currentUser').wallet.coins}} coins! </h3>
+    </div>
 
 </div>
 <div class="row">
@@ -9,9 +13,10 @@ You have {{accountservice.getOpslag('currentUser').wallet.coins}} coins!
 
 <tr *ngFor ='let product of productsB'>
           
-        
             <div class="column" >
                 <div class="container">
+                    <br>
+                    <br>
                         <img src="{{product.image}}" alt="Product" style="width: 400px; height: 400px; padding: 5px">
                   <h2>{{product.name}}</h2>
                   <!-- <p class="title">Itemnr.{{product.id}}</p> -->
@@ -19,8 +24,12 @@ You have {{accountservice.getOpslag('currentUser').wallet.coins}} coins!
                   <p>Supplier:      {{product.supplier}}</p>
 
                     <!-- <p> Quantity:    {{product.stock}}</p> -->
-                    <p> <i class="fas fa-euro-sign"></i> {{product.price}}</p>
-                    <p> <i class="fas fa-coins"></i> {{product.priceCoins}} </p>
+                    
+                    <h3 style="float: right"> <i class="fas fa-euro-sign"></i> {{product.price}} &nbsp; &nbsp;
+                     <i class="fas fa-coins"></i> {{product.priceCoins}} </h3>
+                 
+                    <br>
+                    <br>
                   <p><button class="button"(click)="addToCart(product)">Add to cart</button></p>
                 </div>
               </div>

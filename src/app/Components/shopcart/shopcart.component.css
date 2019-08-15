@@ -16,6 +16,11 @@ table {
   h2 {
     color: white;
   }
+
+  h3{
+    color:white;
+    align-content: right;
+  }
    /* Three columns side by side */
 .column {
   float: left;

@@ -11,10 +11,10 @@
                 </div>
                 <br>
                 <div class="textBox">
-                    E-mail:
-                    <br>
-                    <b>{{this.accountservice.getOpslag('currentUser').email}}</b>
-                    <br>
+                        Street:
+                        <br>
+                        <b>{{this.accountservice.getOpslag('currentUser').street}}</b>
+                        <br>
                 </div>
                 <br>
                 <div class="textBox">
@@ -25,25 +25,22 @@
                 </div>
                 <br>
                 <div class="textBox">
-                
-                    Lastname:
-                    <br>
-                    <b>{{this.accountservice.getOpslag('currentUser').lastname}}</b>
-                    <br>
-                </div>
+                        Zipcode:
+                        <br>
+                        <b>{{this.accountservice.getOpslag('currentUser').zipcode}}</b>
+                        <br>
+                    </div>             
                 </td>
-
                 <td>
                 &nbsp;  
                 </td>
-
                 <td>
-                    <div class="textBox">
-                    Street:
-                    <br>
-                    <b>{{this.accountservice.getOpslag('currentUser').street}}</b>
-                    <br>
-                </div>
+                        <div class="textBox">
+                                E-mail:
+                                <br>
+                                <b>{{this.accountservice.getOpslag('currentUser').email}}</b>
+                                <br>
+                            </div>           
                 <br>
                 <div class="textBox">
                     Housenumber:
@@ -52,26 +49,25 @@
                     <br>
                 </div>
                 <br>
-                <div class="textBox">
-                    Zipcode:
-                    <br>
-                    <b>{{this.accountservice.getOpslag('currentUser').zipcode}}</b>
-                    <br>
-                </div>
+                <div class="textBox">                
+                        Lastname:
+                        <br>
+                        <b>{{this.accountservice.getOpslag('currentUser').lastname}}</b>
+                        <br>
+                    </div>
                 <br>
                 <div class="textBox">
                     City:
                     <br>
                     <b>{{this.accountservice.getOpslag('currentUser').city}}</b>
                     <br>
-                </div>
-                
+                </div>               
                 </td>
-                
+                <br>
+                <br>
            <button class="button" (click)="goToChangeAccount()">Change info</button>
         </div>
         <div class="col">
-
                 <td>
                     <form [formGroup]="euroForm">
                         <div>
@@ -88,8 +84,7 @@
                             You have {{accountservice.getOpslag('currentUser').wallet.coins}} coins! 
                                 <br>
                              <a [routerLink]="['/orderhistory']">Go to orderhistory</a>
-                    </form>
-                                      
+                    </form>                      
                 </td>
             </div>
             <div class="col">
@@ -102,7 +97,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 

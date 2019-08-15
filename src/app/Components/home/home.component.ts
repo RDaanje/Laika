@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
             this.router.navigate(['menu']);
           }
         }
-
       )
     }
     else {
@@ -81,7 +80,6 @@ export class HomeComponent implements OnInit {
     if (event.key === "Enter")  {
       console.log('hoi');
     }
-
   }
 }
 
